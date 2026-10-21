@@ -45,19 +45,19 @@ The editor is hidden from visitors and is not even downloaded for them.
    - click the copyright line at the bottom of the page 5 times
    - add `#admin` to the address (`.../teja.github.io/#admin`)
 2. **Sign in.** The username and password are not case-sensitive.
-3. **Edit.** Pick a section from the drop-down. Everything below is editable and the page behind the editor updates as you type:
+3. **Edit on the page.** After signing in the whole page becomes editable: click any text (headings, intro, experience, achievements, skills, awards, certificate names, education, contact details) and type. Press **Settings** for what cannot be typed on the page: adding, deleting and reordering items, hiding sections, photo, resume, certificate images, links, theme colors and fonts. Press **Done** to leave edit mode. The editor is also available as a drop-down per section:
    - page title and search description
    - **Sections & menu**: reorder sections, hide or show them, rename each section's heading and its menu label
-   - **Show on the public site**: every section's page (and Sections & menu) has this switch. Turn it off to hide that section from visitors. While the editor is open the section stays visible, dimmed and marked "Hidden from visitors", so you can turn it back on later.
+   - **Show on the public site**: every section's page (and Sections & menu) has this switch. Turn it off to hide that section from visitors. While editing, the section stays visible, dimmed and marked "Hidden from visitors", so you can turn it back on later.
    - profile, photo, resume, and the two top buttons' text
    - contact details and social links
    - highlights, about, experience, projects, skills, awards, certifications (including the Credly note), education
    - theme colors (including text colors), heading and body fonts, and default light/dark mode
 
    Still changed in code only: the visual design and layout, small interface labels (skip link, "Back to top", popup buttons, theme toggle), and adding a brand-new kind of section.
-4. **Publish.** Choose "Review & publish", paste your GitHub token and press "Publish to GitHub". New images and the PDF are uploaded first, then `data/content.json` is saved. The live site updates in about 1-2 minutes.
+4. **Publish.** Press **Publish** in the bar at the bottom of the page (or "Review & publish" in Settings), paste your GitHub token and press "Publish to GitHub". New images and the PDF are uploaded first, then `data/content.json` is saved. The live site updates in about 1-2 minutes.
 
-Uploaded images are resized automatically (photo to 960px, certificates to 1400px as JPEG, badges to 256px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
+Uploaded images are resized automatically (photo to 720px, certificates to 1000px as JPEG, badges to 128px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
 
 ### GitHub token
 

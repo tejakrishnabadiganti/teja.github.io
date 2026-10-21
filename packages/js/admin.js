@@ -1,6 +1,7 @@
 import { el, safeAsset } from "./dom.js";
 import { verifyCredentials } from "./auth.js";
 import { getContent, refreshSite } from "./site.js";
+import { setEditing } from "./editable.js";
 import { SECTIONS } from "./schema.js";
 import { assetUrl, pendingFiles, stripVersion } from "./store.js";
 import { processImage, processPdf } from "./files.js";
@@ -13,13 +14,19 @@ const TOKEN_EXAMPLE = "github_pat_11XXXXXXX0xxxxxxxxxxxx_XXXXXXXXXXXXXXXXXXXXXXX
 const MAX_ATTEMPTS = 5;
 const LOCK_MS = 60_000;
 
-const ui = { panel: null, body: null, picker: null, status: null, fab: null };
-const state = { dirty: false, openItems: new WeakSet() };
+const ui = { panel: null, body: null, picker: null, status: null, fab: null, bar: null, barStatus: null };
+const state = { dirty: false, editing: false, openItems: new WeakSet() };
 let fieldCounter = 0;
 let refreshTimer;
 
 const isSignedIn = () => sessionStorage.getItem(SESSION_KEY) === "1";
 const byPath = (object, path) => path.split(".").reduce((value, key) => value[key], object);
+
+function setByPath(object, path, value) {
+  const keys = path.split(".");
+  const last = keys.pop();
+  byPath(object, keys.join("."))[last] = value;
+}
 
 /* ---------- Login ---------- */
 
@@ -104,19 +111,72 @@ function promptLogin() {
 
 /* ---------- Editor shell ---------- */
 
-function changed() {
+function setStatus(text, dirty) {
+  for (const node of [ui.status, ui.barStatus]) {
+    node.textContent = text;
+    node.dataset.state = dirty ? "dirty" : "";
+  }
+}
+
+function markDirty() {
   state.dirty = true;
-  ui.status.textContent = "Unpublished changes";
-  ui.status.dataset.state = "dirty";
+  setStatus("Unpublished changes", true);
+}
+
+function changed() {
+  markDirty();
   clearTimeout(refreshTimer);
   refreshTimer = setTimeout(() => refreshSite(), 150);
 }
 
+// While editing, disabled sections stay visible (marked) so they can be reviewed and re-enabled.
+function updatePreview() {
+  document.documentElement.classList.toggle("admin-editing", state.editing || !ui.panel.hidden);
+}
+
 function showPanel(visible) {
   ui.panel.hidden = !visible;
-  ui.fab.hidden = visible;
-  // While editing, disabled sections stay visible (marked) so they can be reviewed and re-enabled.
-  document.documentElement.classList.toggle("admin-preview", visible);
+  updatePreview();
+}
+
+function setPageEditing(on) {
+  state.editing = on;
+  setEditing(on);
+  ui.fab.hidden = on;
+  ui.bar.hidden = !on;
+  if (!on) ui.panel.hidden = true;
+  updatePreview();
+  clearTimeout(refreshTimer);
+  refreshSite();
+}
+
+const editableTarget = (event) => (event.target instanceof Element ? event.target.closest("[data-edit]") : null);
+
+function onInlineInput(event) {
+  const node = state.editing && editableTarget(event);
+  if (!node) return;
+  setByPath(getContent(), node.dataset.edit, node.textContent.replace(/\u00a0/g, " "));
+  markDirty();
+}
+
+function onInlineKeydown(event) {
+  if (state.editing && event.key === "Enter" && editableTarget(event)) event.preventDefault();
+}
+
+function onInlinePaste(event) {
+  if (!state.editing || !editableTarget(event)) return;
+  event.preventDefault();
+  const text = event.clipboardData.getData("text/plain").replace(/\s*\n\s*/g, " ");
+  document.execCommand("insertText", false, text);
+}
+
+// While editing, clicking text must place the cursor instead of following links or opening dialogs.
+function onInlineClick(event) {
+  if (!state.editing || !(event.target instanceof Element)) return;
+  const control = event.target.closest("a, button");
+  if (!control || !(control.closest("#main") || editableTarget(event))) return;
+  event.preventDefault();
+  event.stopPropagation();
 }
 
 function logout() {
@@ -130,7 +190,7 @@ function mountEditor() {
   if (ui.panel) return;
 
   ui.fab = el("button", { class: "admin-fab button button--primary", type: "button" }, "Edit site");
-  ui.fab.addEventListener("click", () => showPanel(true));
+  ui.fab.addEventListener("click", () => setPageEditing(true));
 
   ui.picker = el(
     "select",
@@ -141,6 +201,7 @@ function mountEditor() {
   ui.picker.addEventListener("change", () => renderTab(ui.picker.value));
 
   ui.status = el("span", { class: "admin-status" }, "No changes yet");
+  ui.barStatus = el("span", { class: "admin-status" }, "No changes yet");
 
   const close = el("button", { class: "icon-button", type: "button", "aria-label": "Close editor" }, "×");
   close.addEventListener("click", () => showPanel(false));
@@ -152,6 +213,25 @@ function mountEditor() {
     ui.picker.value = "publish";
     renderTab("publish");
   });
+
+  const barButton = (label, className, handler) => {
+    const button = el("button", { class: `button ${className} admin-small`, type: "button" }, label);
+    button.addEventListener("click", handler);
+    return button;
+  };
+  ui.bar = el(
+    "div",
+    { class: "admin-bar", role: "toolbar", "aria-label": "Page editing", hidden: true },
+    el("span", { class: "admin-bar__hint" }, "Click any text on the page to edit it"),
+    ui.barStatus,
+    barButton("Settings", "button--ghost", () => showPanel(true)),
+    barButton("Publish", "button--primary", () => {
+      ui.picker.value = "publish";
+      renderTab("publish");
+      showPanel(true);
+    }),
+    barButton("Done", "button--ghost", () => setPageEditing(false))
+  );
 
   ui.body = el("div", { class: "admin-panel__body" });
   ui.panel = el(
@@ -168,7 +248,11 @@ function mountEditor() {
     el("div", { class: "admin-panel__foot" }, review)
   );
 
-  document.body.append(ui.panel, ui.fab);
+  document.body.append(ui.panel, ui.bar, ui.fab);
+  document.addEventListener("input", onInlineInput);
+  document.addEventListener("keydown", onInlineKeydown);
+  document.addEventListener("paste", onInlinePaste);
+  document.addEventListener("click", onInlineClick, true);
   window.addEventListener("beforeunload", (event) => {
     if (!state.dirty) return;
     event.preventDefault();
@@ -183,13 +267,12 @@ export async function openAdmin() {
     sessionStorage.setItem(SESSION_KEY, "1");
   }
   mountEditor();
-  showPanel(true);
+  setPageEditing(true);
 }
 
 export function restoreSession() {
   if (!isSignedIn()) return;
   mountEditor();
-  showPanel(false);
 }
 
 /* ---------- Forms ---------- */
@@ -514,8 +597,7 @@ function publishView() {
         })
       );
       state.dirty = false;
-      ui.status.textContent = "All changes published";
-      ui.status.dataset.state = "";
+      setStatus("All changes published", false);
       addLog("Published. Your live site updates in about 1–2 minutes.", "success");
     } catch (error) {
       addLog(error.message, "error");

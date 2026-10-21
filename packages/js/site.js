@@ -2,6 +2,7 @@ import { renderPage } from "./render.js";
 import { applyTheme } from "./theme.js";
 import { observeReveal } from "./reveal.js";
 import { withDefaults } from "./defaults.js";
+import { syncEditable } from "./editable.js";
 
 let content = null;
 
@@ -10,6 +11,7 @@ export const getContent = () => content;
 export function refreshSite({ animate = false } = {}) {
   renderPage(content);
   applyTheme(content.theme);
+  syncEditable();
   if (animate) observeReveal();
 }
 
