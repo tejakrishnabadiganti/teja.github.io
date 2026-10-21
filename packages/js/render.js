@@ -1,9 +1,15 @@
 import { el, safeUrl, safeAsset } from "./dom.js";
 import { assetUrl, stripVersion } from "./store.js";
+import { startRoleRotation } from "./hero-roles.js";
 
 const $ = (id) => document.getElementById(id);
 const asset = (path) => (path ? safeAsset(assetUrl(path)) : "#");
 const baseName = (path) => stripVersion(path).split("/").pop();
+const splitLines = (text) =>
+  String(text ?? "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
 const externalLink = (href, label) =>
   el("a", { href: safeUrl(href), target: "_blank", rel: "noopener noreferrer" }, label);
 
@@ -30,7 +36,7 @@ export function renderPage(content) {
 }
 
 function renderChrome({ profile }) {
-  $("brand").setAttribute("aria-label", `${profile.name}, home`);
+  $("brand").setAttribute("aria-label", `${profile.initials} ${profile.name}, home`);
   $("brand-mark").textContent = profile.initials;
   $("brand-name").textContent = profile.name;
   $("footer-name").textContent = profile.name;
@@ -78,7 +84,7 @@ function renderHero({ profile, contact }) {
   const availability = $("hero-availability");
   availability.textContent = profile.availability ?? "";
   availability.hidden = !profile.availability;
-  $("hero-eyebrow").textContent = profile.role;
+  startRoleRotation($("hero-eyebrow"), [profile.role, ...splitLines(profile.otherRoles)]);
   $("hero-title").replaceChildren(
     `${profile.headline} `,
     el("em", {}, profile.headlineEmphasis)

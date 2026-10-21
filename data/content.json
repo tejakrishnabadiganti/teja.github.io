@@ -30,7 +30,8 @@
     "resume": "packages/documents/Tejakrishna_Badiganti_Resume.pdf",
     "ctaPrimary": "Get in touch",
     "ctaSecondary": "Download resume",
-    "availability": "Open to new opportunities"
+    "availability": "Open to new opportunities",
+    "otherRoles": "Cloud & Backend Engineer\nAI Agent Builder"
   },
   "contact": {
     "locationShort": "Hyderabad, India",

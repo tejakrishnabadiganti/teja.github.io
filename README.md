@@ -140,12 +140,14 @@ Names, emails and IP addresses of ordinary visitors are not collected and cannot
 ├── packages/                   # Everything the live site uses
 │   ├── css/
 │   │   ├── styles.css          # Design tokens, layout, light/dark themes, editor styles
-│   │   └── classic.css        # Classic ornaments and 3D effects (loaded after styles.css)
+│   │   ├── classic.css         # Classic ornaments, 3D effects and background shading (loaded after styles.css)
+│   │   └── fonts.css           # Self-hosted Inter and Playfair Display
 │   ├── js/
 │   │   ├── main.js             # Entry point
 │   │   ├── site.js             # Loads content.json and refreshes the page
 │   │   ├── defaults.js         # Fills in missing content so older saved data still works
 │   │   ├── render.js           # Builds each section from the content
+│   │   ├── hero-roles.js       # Rotates the job title above the headline
 │   │   ├── theme.js            # Applies the theme colors
 │   │   ├── reveal.js           # Scroll-reveal animation
 │   │   ├── motion.js           # Scroll progress bar and pointer-driven 3D tilt
@@ -161,18 +163,15 @@ Names, emails and IP addresses of ordinary visitors are not collected and cannot
 │   │   ├── files.js            # Image resizing and PDF handling
 │   │   └── github.js           # Saves changes to GitHub
 │   ├── documents/              # Resume PDF
+│   ├── fonts/                  # Self-hosted web fonts
 │   └── images/
+│       ├── og-image.png        # Link preview image (1200x630)
 │       ├── profile/            # Hero profile photo
 │       ├── certificates/       # Certificate images
 │       └── badges/             # Digital badge images
-└── archive/                    # Old files kept for reference, not used by the site
-    ├── old-images/
-    ├── old-resumes/
-    ├── swiper/                 # Library used by the previous design
-    └── Gallery.html            # Earlier placeholder page
 ```
 
-Anything inside `packages/` and `data/` is used by the site. Anything inside `archive/` is not, and can be deleted safely.
+Everything in the repository is used by the site. Keep old files, drafts and personal documents outside this public repository.
 
 ### Certificate and badge naming
 

@@ -1155,12 +1155,42 @@ h3 {
 }
 
 /*==================== BACKGROUND SHADING (both themes, driven by tokens) ====================*/
+.js:not(.is-ready) :is(main, .site-footer) {
+  visibility: hidden;
+}
+
 .hero {
   background: var(--grad-hero);
 }
 
+#hero-eyebrow {
+  transition: opacity 0.35s ease;
+}
+
+#hero-eyebrow.is-fading {
+  opacity: 0;
+}
+
 .section--alt {
   background: var(--grad-alt);
+}
+
+main > .section {
+  position: relative;
+}
+
+main > .section::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky) 50%, transparent);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+[data-theme="light"] .section__title {
+  color: #0a3a66;
 }
 
 .stats {

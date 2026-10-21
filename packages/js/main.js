@@ -16,6 +16,11 @@ try {
     .prepend(el("p", { class: "container load-error" }, "The page content could not be loaded. Please refresh."));
 }
 
+// Reveal the page only after fonts are applied, so text does not reflow (and the portrait jump) when they arrive.
+void document.body.offsetHeight;
+await Promise.race([document.fonts.ready, new Promise((resolve) => setTimeout(resolve, 1500))]);
+document.documentElement.classList.add("is-ready");
+
 initUi();
 initMotion();
 initContactForm();

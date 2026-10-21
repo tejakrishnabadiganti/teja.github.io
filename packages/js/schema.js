@@ -71,6 +71,11 @@ export const SECTIONS = [
         type: "text",
         help: "Shown above your job title, for example Open to new opportunities.",
       },
+      {
+        key: "otherRoles",
+        label: "Other titles to rotate through (one per line, leave empty to show only the job title)",
+        type: "textarea",
+      },
       { key: "ctaPrimary", label: "Main button text", type: "text" },
       { key: "ctaSecondary", label: "Resume button text", type: "text" },
       {
