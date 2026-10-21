@@ -490,7 +490,7 @@ main > section[hidden] {
   color: var(--accent);
 }
 
-.timeline__client {
+.timeline__company span {
   display: block;
   font-size: 0.9rem;
   font-weight: 400;
@@ -1239,7 +1239,7 @@ html:has(dialog[open]) {
 }
 
 /* Editor open: sections switched off for visitors stay visible, dimmed and labelled. */
-.admin-editing main > section.is-disabled[hidden] {
+.admin-preview main > section.is-disabled[hidden] {
   position: relative;
   display: block;
   opacity: 0.5;
@@ -1247,7 +1247,7 @@ html:has(dialog[open]) {
   outline-offset: -2px;
 }
 
-.admin-editing main > section.is-disabled[hidden]::before {
+.admin-preview main > section.is-disabled[hidden]::before {
   content: "Hidden from visitors";
   position: absolute;
   top: 0.5rem;
@@ -1431,64 +1431,4 @@ html:has(dialog[open]) {
   .site-footer__inner {
     flex-direction: column;
   }
-}
-
-/*==================== ON-PAGE EDITING ====================*/
-.admin-bar {
-  position: fixed;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 65;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem;
-  max-width: calc(100vw - 2rem);
-  padding: 0.55rem 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  font-size: 0.85rem;
-}
-
-.admin-bar[hidden] {
-  display: none;
-}
-
-.admin-bar__hint {
-  color: var(--muted);
-}
-
-.is-editing [data-edit] {
-  cursor: text;
-  outline: 1px dashed transparent;
-  outline-offset: 3px;
-  border-radius: 2px;
-  transition: outline-color 0.15s, background-color 0.15s;
-}
-
-.is-editing [data-edit]:hover {
-  outline-color: var(--gold);
-}
-
-.is-editing [data-edit]:focus {
-  outline: 2px solid var(--accent);
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
-}
-
-.is-editing [data-edit]:empty::before {
-  content: "Click to type";
-  color: var(--muted);
-  opacity: 0.6;
-}
-
-/* Keep text steady while it is being edited. */
-.is-editing .hero__stage {
-  animation: none;
-  transform: none;
-}
-
-.is-editing .reveal.is-visible:is(.card, .award, .cert, .skills__group) {
-  transform: none !important;
 }
