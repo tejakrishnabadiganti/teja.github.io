@@ -40,25 +40,19 @@ function initHeaderShadow() {
   update();
 }
 
+// The menu is rebuilt from the content, so look links up when a section scrolls into view.
 function initActiveLink() {
-  const links = document.querySelectorAll(".nav__link");
-  const linkBySection = new Map();
-  links.forEach((link) => {
-    const section = document.querySelector(link.getAttribute("href"));
-    if (section) linkBySection.set(section, link);
-  });
-
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        links.forEach((link) => link.classList.remove("is-active"));
-        linkBySection.get(entry.target).classList.add("is-active");
+        document.querySelectorAll(".nav__link").forEach((link) => link.classList.remove("is-active"));
+        document.querySelector(`.nav__link[href="#${entry.target.id}"]`)?.classList.add("is-active");
       });
     },
     { rootMargin: "-45% 0px -50% 0px" }
   );
-  linkBySection.forEach((_, section) => observer.observe(section));
+  document.querySelectorAll("main > section[id]").forEach((section) => observer.observe(section));
 }
 
 function initCertificatePopup() {

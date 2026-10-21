@@ -43,7 +43,15 @@ The editor is hidden from visitors and is not even downloaded for them.
    - click the copyright line at the bottom of the page 5 times
    - add `#admin` to the address (`.../teja.github.io/#admin`)
 2. **Sign in.** The username and password are not case-sensitive.
-3. **Edit.** Pick a section from the drop-down: profile and photo, resume, contact, highlights, about, experience, projects, skills, awards, certifications, education, and theme colors. The page behind the editor updates as you type.
+3. **Edit.** Pick a section from the drop-down. Everything below is editable and the page behind the editor updates as you type:
+   - page title and search description
+   - **Sections & menu**: reorder sections, hide or show them, rename each section's heading and its menu label
+   - profile, photo, resume, and the two top buttons' text
+   - contact details and social links
+   - highlights, about, experience, projects, skills, awards, certifications (including the Credly note), education
+   - theme colors and default light/dark mode
+
+   Still changed in code only: the visual design and layout, small interface labels (skip link, "Back to top", popup buttons, theme toggle), and adding a brand-new kind of section.
 4. **Publish.** Choose "Review & publish", paste your GitHub token and press "Publish to GitHub". New images and the PDF are uploaded first, then `data/content.json` is saved. The live site updates in about 1-2 minutes.
 
 Uploaded images are resized automatically (photo to 960px, certificates to 1600px, badges to 600px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
@@ -84,6 +92,7 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 │   ├── js/
 │   │   ├── main.js             # Entry point
 │   │   ├── site.js             # Loads content.json and refreshes the page
+│   │   ├── defaults.js         # Fills in missing content so older saved data still works
 │   │   ├── render.js           # Builds each section from the content
 │   │   ├── theme.js            # Applies the theme colors
 │   │   ├── reveal.js           # Scroll-reveal animation

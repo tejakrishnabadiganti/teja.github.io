@@ -36,15 +36,7 @@
         </a>
 
         <nav class="nav" id="nav" aria-label="Primary">
-          <ul class="nav__list">
-            <li><a class="nav__link" href="#about">About</a></li>
-            <li><a class="nav__link" href="#experience">Experience</a></li>
-            <li><a class="nav__link" href="#work">Work</a></li>
-            <li><a class="nav__link" href="#skills">Skills</a></li>
-            <li><a class="nav__link" href="#awards">Awards</a></li>
-            <li><a class="nav__link" href="#certifications">Certifications</a></li>
-            <li><a class="nav__link" href="#contact">Contact</a></li>
-          </ul>
+          <ul class="nav__list" id="nav-list"></ul>
         </nav>
 
         <div class="site-header__actions">
@@ -91,7 +83,7 @@
             <h1 class="hero__title" id="hero-title"></h1>
             <p class="hero__lead" id="hero-lead"></p>
             <div class="hero__cta">
-              <a class="button button--primary" href="#contact">Get in touch</a>
+              <a class="button button--primary" id="hero-cta-primary" href="#contact"></a>
               <a class="button button--ghost" id="hero-resume" href="#" download>Download resume</a>
             </div>
             <ul class="hero__meta" id="hero-meta"></ul>
@@ -112,8 +104,8 @@
       <section class="section" id="about">
         <div class="container section__grid">
           <header class="section__head">
-            <p class="eyebrow">About</p>
-            <h2 class="section__title">Engineering with clarity and craft</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <div class="prose" id="about-body"></div>
         </div>
@@ -123,8 +115,8 @@
       <section class="section section--alt" id="experience">
         <div class="container">
           <header class="section__head section__head--center">
-            <p class="eyebrow">Experience</p>
-            <h2 class="section__title">Where I have worked</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <ol class="timeline" id="timeline"></ol>
         </div>
@@ -134,8 +126,8 @@
       <section class="section" id="work">
         <div class="container">
           <header class="section__head section__head--center">
-            <p class="eyebrow">Selected work</p>
-            <h2 class="section__title">Projects and initiatives</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <div class="cards" id="work-cards"></div>
         </div>
@@ -145,8 +137,8 @@
       <section class="section section--alt" id="skills">
         <div class="container">
           <header class="section__head section__head--center">
-            <p class="eyebrow">Skills</p>
-            <h2 class="section__title">Technical expertise</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <div class="skills" id="skills-grid"></div>
         </div>
@@ -156,8 +148,8 @@
       <section class="section" id="awards">
         <div class="container">
           <header class="section__head section__head--center">
-            <p class="eyebrow">Awards &amp; Achievements</p>
-            <h2 class="section__title">Recognition for impact</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <ul class="awards" id="awards-list"></ul>
         </div>
@@ -167,13 +159,13 @@
       <section class="section section--alt" id="certifications">
         <div class="container">
           <header class="section__head section__head--center">
-            <p class="eyebrow">Certifications</p>
-            <h2 class="section__title">Validated cloud and platform knowledge</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <div id="cert-groups"></div>
           <p class="certs__footer">
-            Verified digital badges on
-            <a id="cert-credly" href="#" target="_blank" rel="noopener noreferrer">Credly</a>.
+            <span id="cert-note"></span>
+            <a id="cert-credly" href="#" target="_blank" rel="noopener noreferrer"></a>.
           </p>
         </div>
       </section>
@@ -182,8 +174,8 @@
       <section class="section" id="education">
         <div class="container section__grid">
           <header class="section__head">
-            <p class="eyebrow">Education</p>
-            <h2 class="section__title">Academic background</h2>
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
           </header>
           <ul class="education" id="education-list"></ul>
         </div>
@@ -192,8 +184,8 @@
       <!--==================== CONTACT ====================-->
       <section class="section section--alt contact" id="contact">
         <div class="container contact__inner">
-          <p class="eyebrow">Contact</p>
-          <h2 class="contact__title" id="contact-heading"></h2>
+          <p class="eyebrow" data-eyebrow></p>
+          <h2 class="contact__title" data-title></h2>
           <p class="contact__lead" id="contact-lead"></p>
           <a class="button button--primary button--large" id="contact-email" href="#"></a>
           <ul class="contact__links" id="contact-links"></ul>

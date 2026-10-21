@@ -21,6 +21,32 @@ const unique = (values) => [...new Set(values.filter(Boolean))];
 // Each section describes what the editor shows. `kind: "list"` sections edit an array.
 export const SECTIONS = [
   {
+    id: "site",
+    label: "Page title & description",
+    kind: "object",
+    path: "site",
+    fields: [
+      { key: "title", label: "Browser tab title", type: "text" },
+      { key: "description", label: "Search-engine description", type: "textarea", rows: 3 },
+    ],
+  },
+  {
+    id: "sections",
+    label: "Sections & menu",
+    kind: "list",
+    path: "sections",
+    itemName: "section",
+    fixed: true,
+    hint: "Reorder sections with the arrows, rename their headings, or untick Show to hide one. Leave the menu label empty to keep a section out of the top menu.",
+    itemLabel: (item) => `${item.eyebrow || item.id}${item.visible === false ? " (hidden)" : ""}`,
+    fields: [
+      { key: "visible", label: "Show this section", type: "checkbox" },
+      { key: "nav", label: "Menu label", type: "text" },
+      { key: "eyebrow", label: "Small heading above the title", type: "text" },
+      { key: "title", label: "Section title", type: "text" },
+    ],
+  },
+  {
     id: "profile",
     label: "Profile, photo & resume",
     kind: "object",
@@ -32,6 +58,8 @@ export const SECTIONS = [
       { key: "headline", label: "Headline", type: "text" },
       { key: "headlineEmphasis", label: "Headline (highlighted part)", type: "text" },
       { key: "lead", label: "Intro paragraph", type: "textarea" },
+      { key: "ctaPrimary", label: "Main button text", type: "text" },
+      { key: "ctaSecondary", label: "Resume button text", type: "text" },
       {
         key: "photo",
         label: "Profile photo",
@@ -63,7 +91,6 @@ export const SECTIONS = [
       { key: "location", label: "Location (full, shown in Contact)", type: "text" },
       { key: "linkedin", label: "LinkedIn link", type: "url" },
       { key: "github", label: "GitHub link", type: "url" },
-      { key: "heading", label: "Contact heading", type: "text" },
       { key: "lead", label: "Contact text", type: "textarea", rows: 3 },
     ],
   },
@@ -160,7 +187,11 @@ export const SECTIONS = [
     path: "certifications.items",
     itemName: "certification",
     headerPath: "certifications",
-    headerFields: [{ key: "credly", label: "Credly profile link", type: "url" }],
+    headerFields: [
+      { key: "credly", label: "Credly profile link", type: "url" },
+      { key: "note", label: "Text before the Credly link", type: "text" },
+      { key: "credlyLabel", label: "Credly link text", type: "text" },
+    ],
     itemLabel: (item) => item.name,
     blank: () => ({ name: "", issuer: "", group: "Cloud & Infrastructure" }),
     fields: [

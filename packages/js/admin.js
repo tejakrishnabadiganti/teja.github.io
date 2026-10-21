@@ -233,7 +233,7 @@ function listView(section) {
     "div",
     {},
     el("div", { class: "admin-list" }, items.map((item, index) => itemCard(section, items, item, index, rerender))),
-    add
+    section.fixed ? "" : add
   );
 }
 
@@ -281,12 +281,14 @@ function itemCard(section, items, item, index, rerender) {
       toggle,
       tool("↑", "Move up", move(-1), index === 0),
       tool("↓", "Move down", move(1), index === items.length - 1),
-      tool("✕", "Delete", () => {
-        if (!confirm(`Delete this ${section.itemName}?`)) return;
-        items.splice(index, 1);
-        changed();
-        rerender();
-      })
+      section.fixed
+        ? ""
+        : tool("✕", "Delete", () => {
+            if (!confirm(`Delete this ${section.itemName}?`)) return;
+            items.splice(index, 1);
+            changed();
+            rerender();
+          })
     ),
     body
   );
@@ -300,6 +302,14 @@ function fieldControl(field, target, onChange) {
 
   if (field.type === "image" || field.type === "file") {
     control = uploadControl(field, target, onChange, id);
+  } else if (field.type === "checkbox") {
+    control = el("input", { id, type: "checkbox" });
+    control.checked = target[field.key] !== false;
+    control.addEventListener("change", () => {
+      target[field.key] = control.checked;
+      onChange();
+    });
+    wrap.classList.add("admin-field--check");
   } else if (field.type === "select") {
     control = el(
       "select",

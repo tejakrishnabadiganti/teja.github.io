@@ -413,6 +413,10 @@ a:hover {
   background: var(--bg-alt);
 }
 
+main > section[hidden] {
+  display: none;
+}
+
 .section__grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -1071,6 +1075,17 @@ html:has(dialog[open]) {
 .admin-label {
   font-size: 0.82rem;
   font-weight: 600;
+}
+
+.admin-field--check {
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.admin-field--check .admin-label {
+  order: 2;
 }
 
 .admin-help,

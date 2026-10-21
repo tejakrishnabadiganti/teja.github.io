@@ -14,6 +14,7 @@ export function renderPage(content) {
     .setAttribute("content", content.site.description);
 
   renderChrome(content);
+  renderSections(content);
   renderHero(content);
   renderStats(content);
   renderAbout(content);
@@ -34,6 +35,33 @@ function renderChrome({ profile }) {
   $("year").textContent = new Date().getFullYear();
 }
 
+function renderSections({ sections }) {
+  const main = $("main");
+  const menu = [];
+  let alternate = false;
+
+  for (const section of sections) {
+    const node = document.getElementById(section.id);
+    if (!node) continue;
+
+    main.append(node); // moves the section to match the saved order
+    node.hidden = !section.visible;
+    node.querySelector("[data-eyebrow]").textContent = section.eyebrow;
+    node.querySelector("[data-title]").textContent = section.title;
+
+    if (!section.visible) continue;
+    node.classList.toggle("section--alt", alternate);
+    alternate = !alternate;
+    if (section.nav) menu.push(section);
+  }
+
+  $("nav-list").replaceChildren(
+    ...menu.map((section) =>
+      el("li", {}, el("a", { class: "nav__link", href: `#${section.id}` }, section.nav))
+    )
+  );
+}
+
 function renderHero({ profile, contact }) {
   $("hero-eyebrow").textContent = profile.role;
   $("hero-title").replaceChildren(
@@ -41,8 +69,10 @@ function renderHero({ profile, contact }) {
     el("em", {}, profile.headlineEmphasis)
   );
   $("hero-lead").textContent = profile.lead;
+  $("hero-cta-primary").textContent = profile.ctaPrimary;
 
   const resume = $("hero-resume");
+  resume.textContent = profile.ctaSecondary;
   resume.setAttribute("href", asset(profile.resume));
   resume.setAttribute("download", baseName(profile.resume));
 
@@ -186,7 +216,10 @@ function renderCertifications({ certifications }) {
       )
     )
   );
-  $("cert-credly").setAttribute("href", safeUrl(certifications.credly));
+  $("cert-note").textContent = certifications.note;
+  const credly = $("cert-credly");
+  credly.textContent = certifications.credlyLabel;
+  credly.setAttribute("href", safeUrl(certifications.credly));
 }
 
 function renderEducation({ education }) {
@@ -208,7 +241,6 @@ function renderEducation({ education }) {
 }
 
 function renderContact({ contact }) {
-  $("contact-heading").textContent = contact.heading;
   $("contact-lead").textContent = contact.lead;
 
   const email = $("contact-email");

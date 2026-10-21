@@ -21,7 +21,9 @@
     "lead": "4.6+ years delivering solutions across fintech, banking and tax compliance for USAA and Vertex Inc., with deep experience in Java, Spring Boot, React.js, microservices, AWS and Azure..",
     "photo": "packages/images/profile/tejakrishna-badiganti-profile.jpg",
     "photoAlt": "Portrait of Tejakrishna Badiganti",
-    "resume": "packages/documents/Tejakrishna_Badiganti_Resume.pdf"
+    "resume": "packages/documents/Tejakrishna_Badiganti_Resume.pdf",
+    "ctaPrimary": "Get in touch",
+    "ctaSecondary": "Download resume"
   },
   "contact": {
     "locationShort": "Hyderabad, India",
@@ -30,7 +32,6 @@
     "phone": "+91 8919537838",
     "linkedin": "https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/",
     "github": "https://github.com/tejakrishnabadiganti",
-    "heading": "Let's build something great together.",
     "lead": "Open to conversations about full stack, platform and AI engineering roles."
   },
   "stats": [
@@ -49,6 +50,64 @@
     {
       "value": "{certifications}",
       "label": "Industry certifications"
+    }
+  ],
+  "sections": [
+    {
+      "id": "about",
+      "nav": "About",
+      "eyebrow": "About",
+      "title": "Engineering with clarity and craft",
+      "visible": true
+    },
+    {
+      "id": "experience",
+      "nav": "Experience",
+      "eyebrow": "Experience",
+      "title": "Where I have worked",
+      "visible": true
+    },
+    {
+      "id": "work",
+      "nav": "Work",
+      "eyebrow": "Selected work",
+      "title": "Projects and initiatives",
+      "visible": true
+    },
+    {
+      "id": "skills",
+      "nav": "Skills",
+      "eyebrow": "Skills",
+      "title": "Technical expertise",
+      "visible": true
+    },
+    {
+      "id": "awards",
+      "nav": "Awards",
+      "eyebrow": "Awards & Achievements",
+      "title": "Recognition for impact",
+      "visible": true
+    },
+    {
+      "id": "certifications",
+      "nav": "Certifications",
+      "eyebrow": "Certifications",
+      "title": "Validated cloud and platform knowledge",
+      "visible": true
+    },
+    {
+      "id": "education",
+      "nav": "",
+      "eyebrow": "Education",
+      "title": "Academic background",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "nav": "Contact",
+      "eyebrow": "Contact",
+      "title": "Let's build something great together.",
+      "visible": true
     }
   ],
   "about": {
@@ -259,6 +318,8 @@
   ],
   "certifications": {
     "credly": "https://www.credly.com/users/badigantitejakrishna/badges",
+    "note": "Verified digital badges on",
+    "credlyLabel": "Credly",
     "items": [
       {
         "name": "Microsoft Azure Fundamentals",
