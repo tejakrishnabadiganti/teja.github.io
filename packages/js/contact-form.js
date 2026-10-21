@@ -116,6 +116,7 @@ export function initContactForm() {
     }
 
     submit.disabled = true;
+    let serverMessage = "";
     setStatus("Sending… this can take a few seconds.");
     try {
       const response = await fetch(endpoint, {
@@ -123,7 +124,10 @@ export function initContactForm() {
         body: new URLSearchParams({ ...fields, page: location.href }),
       });
       const result = await response.json();
-      if (!result.ok) throw new Error(result.error || "The message could not be sent.");
+      if (!result.ok) {
+        serverMessage = result.error || "";
+        throw new Error(serverMessage || "The message could not be sent.");
+      }
 
       localStorage.setItem(LAST_SENT_KEY, String(Date.now()));
       form.hidden = true;
@@ -131,7 +135,7 @@ export function initContactForm() {
       $("contact-done").focus();
     } catch (error) {
       submit.disabled = false;
-      setStatus(`Sorry, that did not go through. Please try again or email ${contact.email}.`, "error");
+      setStatus(serverMessage || `Sorry, that did not go through. Please try again or email ${contact.email}.`, "error");
       console.error(error);
     }
   });

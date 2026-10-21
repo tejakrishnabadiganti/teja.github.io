@@ -7,6 +7,7 @@ const DEFAULT_SECTIONS = [
   { id: "work", nav: "Work", eyebrow: "Selected work", title: "Projects and initiatives", visible: true },
   { id: "skills", nav: "Skills", eyebrow: "Skills", title: "Technical expertise", visible: true },
   { id: "awards", nav: "Awards", eyebrow: "Awards & Achievements", title: "Recognition for impact", visible: true },
+  { id: "testimonials", nav: "", eyebrow: "Recommendations", title: "Kind words from people I have worked with", visible: false },
   {
     id: "certifications",
     nav: "Certifications",
@@ -34,6 +35,7 @@ const DEFAULT_THEME = {
 
 const DEFAULT_CONTACT_FORM = {
   formEndpoint: "",
+  bookingUrl: "",
   formButton: "Send a message",
   formTitle: "Get in touch",
   formIntro: "Tell me a little about yourself and why you would like to connect. I will get back to you soon.",
@@ -56,6 +58,7 @@ export function withDefaults(content) {
     }
   }
 
+  content.testimonials ??= [];
   content.profile.ctaPrimary ??= "Get in touch";
   content.profile.ctaSecondary ??= "Download resume";
   content.certifications.note ??= "Verified digital badges on";

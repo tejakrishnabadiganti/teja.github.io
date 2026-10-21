@@ -65,6 +65,12 @@ export const SECTIONS = [
       { key: "headline", label: "Headline", type: "text" },
       { key: "headlineEmphasis", label: "Headline (highlighted part)", type: "text" },
       { key: "lead", label: "Intro paragraph", type: "textarea" },
+      {
+        key: "availability",
+        label: "Availability badge (leave empty to hide)",
+        type: "text",
+        help: "Shown above your job title, for example Open to new opportunities.",
+      },
       { key: "ctaPrimary", label: "Main button text", type: "text" },
       { key: "ctaSecondary", label: "Resume button text", type: "text" },
       {
@@ -99,6 +105,12 @@ export const SECTIONS = [
       { key: "location", label: "Location (full, shown in Contact)", type: "text" },
       { key: "linkedin", label: "LinkedIn link", type: "url" },
       { key: "github", label: "GitHub link", type: "url" },
+      {
+        key: "bookingUrl",
+        label: "Book a call link (optional)",
+        type: "url",
+        help: "A Calendly or Google Calendar booking page. Shows a Book a call button; leave empty to hide it.",
+      },
       { key: "lead", label: "Contact text", type: "textarea", rows: 3 },
       {
         key: "formEndpoint",
@@ -176,11 +188,13 @@ export const SECTIONS = [
     path: "work",
     itemName: "project",
     itemLabel: (item) => item.title,
-    blank: () => ({ tag: "", title: "", text: "" }),
+    blank: () => ({ tag: "", title: "", text: "", result: "", link: "" }),
     fields: [
       { key: "tag", label: "Category", type: "text" },
       { key: "title", label: "Title", type: "text" },
       { key: "text", label: "Description", type: "textarea" },
+      { key: "result", label: "Impact or result (optional)", type: "text", help: "One line with a number if you can, for example Cut review time by 40%." },
+      { key: "link", label: "Project link (optional, GitHub or demo)", type: "url" },
     ],
   },
   {
@@ -209,6 +223,22 @@ export const SECTIONS = [
     fields: [
       { key: "title", label: "Award", type: "text" },
       { key: "text", label: "Description", type: "textarea", rows: 3 },
+    ],
+  },
+  {
+    id: "testimonials",
+    label: "Recommendations",
+    sectionId: "testimonials",
+    kind: "list",
+    path: "testimonials",
+    itemName: "recommendation",
+    hint: "Short quotes from managers, clients or colleagues. This section stays hidden until you add one and tick Show.",
+    itemLabel: (item) => item.name,
+    blank: () => ({ quote: "", name: "", role: "" }),
+    fields: [
+      { key: "quote", label: "Quote", type: "textarea", rows: 4 },
+      { key: "name", label: "Name", type: "text" },
+      { key: "role", label: "Role and company", type: "text" },
     ],
   },
   {

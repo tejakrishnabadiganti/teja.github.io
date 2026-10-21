@@ -23,6 +23,7 @@ export function renderPage(content) {
   renderWork(content);
   renderSkills(content);
   renderAwards(content);
+  renderTestimonials(content);
   renderCertifications(content);
   renderEducation(content);
   renderContact(content);
@@ -74,6 +75,9 @@ function renderSections({ sections }) {
 }
 
 function renderHero({ profile, contact }) {
+  const availability = $("hero-availability");
+  availability.textContent = profile.availability ?? "";
+  availability.hidden = !profile.availability;
   $("hero-eyebrow").textContent = profile.role;
   $("hero-title").replaceChildren(
     `${profile.headline} `,
@@ -168,7 +172,10 @@ function renderWork({ work }) {
         { class: "card" },
         el("p", { class: "card__tag" }, card.tag),
         el("h3", { class: "card__title" }, card.title),
-        el("p", { class: "card__text" }, card.text)
+        el("p", { class: "card__text" }, card.text),
+        card.result && el("p", { class: "card__result" }, el("strong", {}, "Impact: "), card.result),
+        card.link &&
+          el("a", { class: "card__link", href: safeUrl(card.link), target: "_blank", rel: "noopener noreferrer" }, "View project \u2192")
       )
     )
   );
@@ -198,6 +205,20 @@ function renderAwards({ awards }) {
       )
     )
   );
+}
+
+function renderTestimonials({ testimonials }) {
+  $("testimonials-list").replaceChildren(
+    ...testimonials.map((item) =>
+      el(
+        "figure",
+        { class: "quote" },
+        el("blockquote", { class: "quote__text" }, item.quote),
+        el("figcaption", { class: "quote__by" }, el("strong", {}, item.name), item.role && ` \u00b7 ${item.role}`)
+      )
+    )
+  );
+  $("testimonials").hidden ||= testimonials.length === 0;
 }
 
 function certificateCard(item) {
@@ -273,6 +294,10 @@ function renderContact({ contact }) {
   const email = $("contact-email");
   email.setAttribute("href", safeUrl(`mailto:${contact.email.trim()}`));
   email.textContent = contact.email;
+
+  const book = $("contact-book");
+  book.hidden = !contact.bookingUrl;
+  if (contact.bookingUrl) book.setAttribute("href", safeUrl(contact.bookingUrl));
 
   $("contact-links").replaceChildren(
     el(

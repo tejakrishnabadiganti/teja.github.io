@@ -109,6 +109,23 @@ The same Google Sheet also counts visits. Each visit adds one anonymous row to a
 
 Names, emails and IP addresses of ordinary visitors are not collected and cannot be read by a static site; the footer says so. The only people you can identify are those who fill in the contact form, who appear in **Contact requests**. Your own visits are skipped on any device where you have signed in to the editor, and so are bots, local testing and browsers with Do Not Track on. To see the numbers without opening the sheet, sign in to the editor and choose **Visitors**: totals, visits per day for the last 14 days, where visitors came from and which devices they use (anonymous totals only). After changing `Code.gs`, publish a new version (see above).
 
+## Search, sharing and extras
+
+- **Link previews and search:** `index.html` carries a static title, description, social preview tags (the portrait is the preview image), a canonical link and structured data about you, because search engines and LinkedIn do not run JavaScript. If your name, title or links change, update that block too. `sitemap.xml` lists the page; submit `.../teja.github.io/sitemap.xml` in Google Search Console after the first publish.
+- **Favicon:** `packages/images/favicon.svg` (your initials).
+- **Availability badge:** Profile, photo & resume has an *Availability badge* field. Leave it empty to hide the green "Open to new opportunities" badge.
+- **Book a call:** Contact & social links has a *Book a call link* (Calendly or Google Calendar). The button only appears when it is filled in.
+- **Project impact and links:** each Selected work project can have an *Impact or result* line and a *Project link*.
+- **Recommendations:** a new section, hidden until you add a quote and tick *Show*.
+- **Printing:** the page prints as a clean resume (no menu, buttons or animations; links show their address).
+
+### Custom domain (optional)
+
+1. Buy a domain, for example `tejakrishna.dev`.
+2. In the repository go to Settings, Pages, Custom domain, enter it and save. GitHub adds a `CNAME` file.
+3. At your domain provider add the DNS records GitHub lists on that page, then tick *Enforce HTTPS*.
+4. Update the address in `index.html` (canonical, social tags, structured data), `sitemap.xml` and the links in `Code.gs` (`CONFIG.links`).
+
 ## Project structure
 
 ```
