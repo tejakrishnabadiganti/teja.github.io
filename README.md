@@ -25,6 +25,7 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
 - Light and dark themes (follows the system setting, remembered between visits)
 - Accessible: skip link, keyboard focus styles, semantic landmarks, reduced-motion support
 - Active navigation highlighting and subtle scroll-reveal animations
+- Certificates open in a popup with Download, Verify (Credly) and Close; Esc or a click outside also closes it
 - No build step and no JavaScript libraries
 
 ## Tech stack

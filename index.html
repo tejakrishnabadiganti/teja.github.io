@@ -970,6 +970,39 @@
       </div>
     </footer>
 
+    <dialog class="lightbox" id="cert-dialog" aria-labelledby="cert-dialog-title">
+      <div class="lightbox__panel">
+        <header class="lightbox__bar">
+          <img class="lightbox__badge" id="cert-badge" alt="" hidden />
+          <div class="lightbox__heading">
+            <h3 class="lightbox__title" id="cert-dialog-title"></h3>
+            <p class="lightbox__issuer" id="cert-issuer"></p>
+          </div>
+          <div class="lightbox__actions">
+            <a class="button button--primary" id="cert-download" href="#" download>Download</a>
+            <a
+              class="button button--ghost"
+              id="cert-verify"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              hidden
+              >Verify</a
+            >
+            <button class="button button--ghost" id="cert-close" type="button">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+              Close
+            </button>
+          </div>
+        </header>
+        <div class="lightbox__body">
+          <img class="lightbox__image" id="cert-image" alt="" />
+        </div>
+      </div>
+    </dialog>
+
     <script src="./packages/js/main.js"></script>
   </body>
 </html>

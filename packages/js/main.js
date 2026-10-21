@@ -92,5 +92,54 @@ revealTargets.forEach((el) => {
   revealObserver.observe(el);
 });
 
+/*==================== CERTIFICATE POPUP ====================*/
+const certDialog = document.getElementById("cert-dialog");
+const certImage = document.getElementById("cert-image");
+const certBadge = document.getElementById("cert-badge");
+const certTitle = document.getElementById("cert-dialog-title");
+const certIssuer = document.getElementById("cert-issuer");
+const certDownload = document.getElementById("cert-download");
+const certVerify = document.getElementById("cert-verify");
+
+function openCertificate(link) {
+  const image = link.querySelector("img:not(.cert__badge)");
+  const badge = link.querySelector(".cert__badge");
+  const name = link.querySelector(".cert__name").textContent;
+  const imageUrl = new URL(image.getAttribute("src"), document.baseURI);
+  const verifyUrl = link.getAttribute("href").startsWith("http")
+    ? link.getAttribute("href")
+    : null;
+
+  certImage.src = imageUrl.href;
+  certImage.alt = image.alt;
+  certTitle.textContent = name;
+  certIssuer.textContent = link.querySelector(".cert__issuer").textContent;
+  certDownload.href = imageUrl.href;
+  certDownload.download = decodeURIComponent(imageUrl.pathname.split("/").pop());
+  certVerify.hidden = !verifyUrl;
+  if (verifyUrl) certVerify.href = verifyUrl;
+
+  certBadge.hidden = !badge;
+  if (badge) certBadge.src = badge.src;
+
+  certDialog.showModal();
+}
+
+document.querySelectorAll(".cert__link").forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    openCertificate(link);
+  });
+});
+
+document
+  .getElementById("cert-close")
+  .addEventListener("click", () => certDialog.close());
+
+// A click on the backdrop targets the dialog element itself.
+certDialog.addEventListener("click", (event) => {
+  if (event.target === certDialog) certDialog.close();
+});
+
 /*==================== FOOTER YEAR ====================*/
 document.getElementById("year").textContent = new Date().getFullYear();
