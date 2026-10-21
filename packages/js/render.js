@@ -116,7 +116,7 @@ function renderStats(content) {
 function renderBadges({ certifications }) {
   const badged = certifications.items.filter((item) => item.badge);
   const badge = (item, decorative) =>
-    el("img", { src: asset(item.badge), alt: decorative ? "" : item.name, loading: "lazy", height: "64" });
+    el("img", { loading: "lazy", decoding: "async", src: asset(item.badge), alt: decorative ? "" : item.name, height: "64" });
 
   // The list is rendered twice so the strip can scroll in a seamless loop.
   const strip = $("badge-strip");
@@ -215,9 +215,9 @@ function certificateCard(item) {
         "data-file": item.certificate ? baseName(item.certificate) : null,
       },
       item.certificate &&
-        el("img", { src: asset(item.certificate), alt: `${item.name} certificate`, loading: "lazy" }),
+        el("img", { loading: "lazy", decoding: "async", src: asset(item.certificate), alt: `${item.name} certificate` }),
       item.badge &&
-        el("img", { class: "cert__badge", src: asset(item.badge), alt: "", loading: "lazy" }),
+        el("img", { class: "cert__badge", loading: "lazy", decoding: "async", src: asset(item.badge), alt: "" }),
       el("span", { class: "cert__name" }, item.name),
       el("span", { class: "cert__issuer" }, item.issuer)
     )
