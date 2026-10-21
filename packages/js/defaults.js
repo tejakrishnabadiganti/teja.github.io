@@ -21,14 +21,14 @@ const DEFAULT_SECTIONS = [
 
 const DEFAULT_THEME = {
   default: "system",
-  accent: "#14305a",
-  accentDark: "#a9c1ee",
-  gold: "#8f6a2a",
-  goldDark: "#d9b47a",
-  ink: "#0f1a2b",
-  inkDark: "#f4f1ea",
-  muted: "#44505f",
-  mutedDark: "#b9c1cf",
+  accent: "#0b78d0",
+  accentDark: "#38bdf8",
+  gold: "#0369a1",
+  goldDark: "#7dd3fc",
+  ink: "#0a1b2e",
+  inkDark: "#f4f8fd",
+  muted: "#465a70",
+  mutedDark: "#a3b3c6",
   fontHeading: "Playfair Display",
   fontBody: "Inter",
 };
