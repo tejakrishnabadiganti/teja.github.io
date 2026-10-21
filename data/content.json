@@ -150,7 +150,7 @@
       "nav": "Moments",
       "eyebrow": "Moments",
       "title": "Hackathons, teams and celebrations",
-      "visible": false
+      "visible": true
     },
     {
       "id": "contact",
@@ -493,15 +493,15 @@
   "moments": [
     {
       "category": "Hackathon",
-      "title": "Accenture Hack-N-Stack winners",
-      "caption": "Java Full Stack with AI Learning Hackathon, 1st place, Team Bumblebee",
-      "photo": "packages/images/moments/hackathon-accenture-hack-n-stack-winners.jpg"
-    },
-    {
-      "category": "Hackathon",
       "title": "Valkey Hackathon at Amazon",
       "caption": "1st place winners",
       "photo": "packages/images/moments/hackathon-valkey-at-amazon.jpg"
+    },
+    {
+      "category": "Hackathon",
+      "title": "Accenture Hack-N-Stack winners",
+      "caption": "Java Full Stack with AI Learning Hackathon, 1st place, Team Bumblebee",
+      "photo": "packages/images/moments/hackathon-accenture-hack-n-stack-winners.jpg"
     },
     {
       "category": "Hackathon",
