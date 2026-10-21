@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./packages/css/styles.css" />
+    <link rel="stylesheet" href="./packages/css/classic.css" />
     <script>
       // Apply the saved theme before first paint to avoid a flash.
       (function () {
@@ -70,6 +71,7 @@
           </button>
         </div>
       </div>
+      <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
     </header>
 
     <main id="main">
@@ -90,7 +92,10 @@
           </div>
 
           <figure class="hero__figure">
-            <img id="hero-photo" alt="" width="960" height="1144" />
+            <div class="hero__stage" id="hero-stage">
+              <img id="hero-photo" alt="" width="960" height="1144" />
+              <ul class="hero__badges" id="hero-badges" aria-hidden="true"></ul>
+            </div>
           </figure>
         </div>
       </section>
@@ -98,6 +103,13 @@
       <!--==================== STATS ====================-->
       <section class="stats" aria-label="Highlights">
         <div class="container stats__inner" id="stats"></div>
+      </section>
+
+      <!--==================== BADGE STRIP ====================-->
+      <section class="badges" id="badges" aria-label="Certification badges" hidden>
+        <div class="badges__viewport">
+          <ul class="badges__track" id="badge-strip"></ul>
+        </div>
       </section>
 
       <!--==================== ABOUT ====================-->

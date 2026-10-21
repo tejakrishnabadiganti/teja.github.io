@@ -17,6 +17,7 @@ export function renderPage(content) {
   renderSections(content);
   renderHero(content);
   renderStats(content);
+  renderBadges(content);
   renderAbout(content);
   renderExperience(content);
   renderWork(content);
@@ -56,9 +57,14 @@ function renderSections({ sections }) {
   }
 
   $("nav-list").replaceChildren(
-    ...menu.map((section) =>
-      el("li", {}, el("a", { class: "nav__link", href: `#${section.id}` }, section.nav))
-    )
+    ...menu.map((section) => {
+      const isContact = section.id === "contact";
+      return el(
+        "li",
+        {},
+        el("a", { class: isContact ? "nav__link nav__link--cta" : "nav__link", href: `#${section.id}` }, section.nav)
+      );
+    })
   );
 }
 
@@ -99,6 +105,26 @@ function renderStats(content) {
       )
     )
   );
+}
+
+const HERO_BADGE_COUNT = 3;
+
+function renderBadges({ certifications }) {
+  const badged = certifications.items.filter((item) => item.badge);
+  const badge = (item, decorative) =>
+    el("img", { src: asset(item.badge), alt: decorative ? "" : item.name, loading: "lazy", height: "64" });
+
+  $("hero-badges").replaceChildren(
+    ...badged.slice(0, HERO_BADGE_COUNT).map((item) => el("li", {}, badge(item, true)))
+  );
+
+  // The list is rendered twice so the strip can scroll in a seamless loop.
+  const strip = $("badge-strip");
+  strip.replaceChildren(
+    ...badged.map((item) => el("li", {}, badge(item, false))),
+    ...badged.map((item) => el("li", { "aria-hidden": "true" }, badge(item, true)))
+  );
+  $("badges").hidden = badged.length === 0;
 }
 
 function renderAbout({ about }) {

@@ -29,6 +29,8 @@ There is a hidden admin editor (see [Editing the site](#editing-the-site)) that 
 
 - Responsive layout from mobile to desktop
 - Light and dark themes (follows the system setting, remembered between visits)
+- Classic look: serif headings, gold ornaments, double-line frames, scroll progress bar
+- 3D effects: tilting portrait with floating badges, tilting cards, 3D reveal on scroll, scrolling badge strip (switched off for touch devices and reduced-motion visitors)
 - Accessible: skip link, keyboard focus styles, semantic landmarks, reduced-motion support
 - Certificates open in a popup with Download, Verify (Credly) and Close
 - Hidden admin editor for every section, theme colors, photo, resume and certifications
@@ -88,7 +90,8 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 │   └── content.json            # All editable content
 ├── packages/                   # Everything the live site uses
 │   ├── css/
-│   │   └── styles.css          # Design tokens, layout, light/dark themes, editor styles
+│   │   ├── styles.css          # Design tokens, layout, light/dark themes, editor styles
+│   │   └── classic.css        # Classic ornaments and 3D effects (loaded after styles.css)
 │   ├── js/
 │   │   ├── main.js             # Entry point
 │   │   ├── site.js             # Loads content.json and refreshes the page
@@ -96,6 +99,7 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 │   │   ├── render.js           # Builds each section from the content
 │   │   ├── theme.js            # Applies the theme colors
 │   │   ├── reveal.js           # Scroll-reveal animation
+│   │   ├── motion.js           # Scroll progress bar and pointer-driven 3D tilt
 │   │   ├── ui.js               # Theme toggle, menu, certificate popup, hidden editor trigger
 │   │   ├── dom.js, store.js    # Safe DOM helpers and unpublished-file store
 │   │   ├── admin.js            # Editor (loaded only after the hidden trigger)
