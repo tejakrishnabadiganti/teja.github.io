@@ -125,13 +125,6 @@
       "visible": true
     },
     {
-      "id": "moments",
-      "nav": "",
-      "eyebrow": "Moments",
-      "title": "Hackathons, teams and celebrations",
-      "visible": true
-    },
-    {
       "id": "testimonials",
       "nav": "",
       "eyebrow": "Recommendations",
@@ -150,6 +143,13 @@
       "nav": "",
       "eyebrow": "Education",
       "title": "Academic background",
+      "visible": true
+    },
+    {
+      "id": "moments",
+      "nav": "Moments",
+      "eyebrow": "Moments",
+      "title": "Hackathons, teams and celebrations",
       "visible": true
     },
     {
@@ -490,5 +490,24 @@
     }
   ],
   "testimonials": [],
-  "moments": []
+  "moments": [
+    {
+      "category": "Hackathon",
+      "title": "Accenture Hack-N-Stack winners",
+      "caption": "Java Full Stack with AI Learning Hackathon, 1st place, Team Bumblebee",
+      "photo": "packages/images/moments/hackathon-accenture-hack-n-stack-winners.jpg"
+    },
+    {
+      "category": "Hackathon",
+      "title": "Valkey Hackathon at Amazon",
+      "caption": "1st place winners",
+      "photo": "packages/images/moments/hackathon-valkey-at-amazon.jpg"
+    },
+    {
+      "category": "Hackathon",
+      "title": "Microsoft Hackathon runners-up",
+      "caption": "Runner-up team",
+      "photo": "packages/images/moments/hackathon-microsoft-runners-up.jpg"
+    }
+  ]
 }

@@ -1,6 +1,7 @@
 import { el, safeUrl, safeAsset } from "./dom.js";
 import { assetUrl, stripVersion } from "./store.js";
 import { startRoleRotation } from "./hero-roles.js";
+import { renderMoments } from "./moments.js";
 
 const $ = (id) => document.getElementById(id);
 const asset = (path) => (path ? safeAsset(assetUrl(path)) : "#");
@@ -29,6 +30,7 @@ export function renderPage(content) {
   renderWork(content);
   renderSkills(content);
   renderAwards(content);
+  renderMoments(content);
   renderTestimonials(content);
   renderCertifications(content);
   renderEducation(content);

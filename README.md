@@ -21,6 +21,7 @@ There is a hidden admin editor (see [Editing the site](#editing-the-site)) that 
 | Selected Work | Key projects and initiatives |
 | Skills | Grouped technical skills |
 | Awards | Hackathon wins and performance recognition |
+| Moments | Photo gallery of hackathons, teams and award moments, with filter buttons. Hidden until you add photos and tick Show |
 | Certifications | Certificate images with matching digital badges, grouped by area |
 | Education | Academic background |
 | Contact | Email, phone, LinkedIn and GitHub |
@@ -148,6 +149,7 @@ Names, emails and IP addresses of ordinary visitors are not collected and cannot
 │   │   ├── defaults.js         # Fills in missing content so older saved data still works
 │   │   ├── render.js           # Builds each section from the content
 │   │   ├── hero-roles.js       # Rotates the job title above the headline
+│   │   ├── moments.js          # Photo gallery with group filters
 │   │   ├── theme.js            # Applies the theme colors
 │   │   ├── reveal.js           # Scroll-reveal animation
 │   │   ├── motion.js           # Scroll progress bar and pointer-driven 3D tilt

@@ -208,6 +208,18 @@
         </div>
       </section>
 
+      <!--==================== MOMENTS ====================-->
+      <section class="section" id="moments" hidden>
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow" data-eyebrow></p>
+            <h2 class="section__title" data-title></h2>
+          </header>
+          <div class="moments__filters" id="moments-filters" hidden></div>
+          <div class="moments__grid" id="moments-grid"></div>
+        </div>
+      </section>
+
       <!--==================== RECOMMENDATIONS ====================-->
       <section class="section" id="testimonials" hidden>
         <div class="container">
@@ -372,6 +384,40 @@
         </header>
         <div class="lightbox__body">
           <img class="lightbox__image" id="cert-image" alt="" />
+        </div>
+      </div>
+    </dialog>
+
+    <dialog class="lightbox" id="moment-dialog" aria-labelledby="moment-title">
+      <div class="lightbox__panel">
+        <header class="lightbox__bar">
+          <div class="lightbox__heading">
+            <h3 class="lightbox__title" id="moment-title"></h3>
+            <p class="lightbox__issuer" id="moment-caption"></p>
+          </div>
+          <div class="lightbox__actions">
+            <button class="button button--ghost" id="moment-prev" type="button" aria-label="Previous photo">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+              Prev
+            </button>
+            <button class="button button--ghost" id="moment-next" type="button" aria-label="Next photo">
+              Next
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </button>
+            <button class="button button--ghost" id="moment-close" type="button">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+              Close
+            </button>
+          </div>
+        </header>
+        <div class="lightbox__body">
+          <img class="lightbox__image" id="moment-image" alt="" />
         </div>
       </div>
     </dialog>

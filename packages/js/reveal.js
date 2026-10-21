@@ -1,5 +1,5 @@
 const TARGETS =
-  ".timeline__item, .card, .skills__group, .cert, .award, .education__item, .stat";
+  ".timeline__item, .card, .skills__group, .cert, .award, .education__item, .stat, .moment";
 
 let observer;
 
