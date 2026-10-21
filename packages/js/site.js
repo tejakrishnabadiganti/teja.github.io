@@ -14,7 +14,9 @@ export function refreshSite({ animate = false } = {}) {
 }
 
 export async function loadSite() {
-  const response = await fetch(`data/content.json?t=${Date.now()}`, { cache: "no-store" });
+  const request = window.contentRequest ?? fetch(`data/content.json?t=${Date.now()}`, { cache: "no-store" });
+  window.contentRequest = null;
+  const response = await request;
   if (!response.ok) throw new Error(`Could not load content (${response.status})`);
   content = withDefaults(await response.json());
   refreshSite({ animate: true });

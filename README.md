@@ -15,7 +15,7 @@ There is a hidden admin editor (see [Editing the site](#editing-the-site)) that 
 | Section | Content |
 | --- | --- |
 | Hero | Headline, summary, resume download, social links, profile photo |
-| Highlights | Years of experience, companies, test coverage, certifications |
+| Highlights | Years of experience, enterprise clients, certifications |
 | About | Professional summary |
 | Experience | Roles with achievements |
 | Selected Work | Key projects and initiatives |
@@ -27,10 +27,10 @@ There is a hidden admin editor (see [Editing the site](#editing-the-site)) that 
 
 ## Features
 
-- Responsive layout from mobile to desktop
+- Responsive layout from mobile to desktop, with an always-visible menu bar (scrolls sideways on narrow screens) and a back-to-top button
 - Light and dark themes (follows the system setting, remembered between visits)
 - Classic look: serif headings, gold ornaments, double-line frames, scroll progress bar
-- 3D effects: tilting portrait with floating badges, tilting cards, 3D reveal on scroll, scrolling badge strip (switched off for touch devices and reduced-motion visitors)
+- 3D effects: tilting framed portrait, tilting cards, 3D reveal on scroll, scrolling badge strip (switched off for touch devices and reduced-motion visitors)
 - Accessible: skip link, keyboard focus styles, semantic landmarks, reduced-motion support
 - Certificates open in a popup with Download, Verify (Credly) and Close
 - Hidden admin editor for every section, theme colors, photo, resume and certifications
@@ -48,15 +48,16 @@ The editor is hidden from visitors and is not even downloaded for them.
 3. **Edit.** Pick a section from the drop-down. Everything below is editable and the page behind the editor updates as you type:
    - page title and search description
    - **Sections & menu**: reorder sections, hide or show them, rename each section's heading and its menu label
+   - **Show on the public site**: every section's page (and Sections & menu) has this switch. Turn it off to hide that section from visitors. While the editor is open the section stays visible, dimmed and marked "Hidden from visitors", so you can turn it back on later.
    - profile, photo, resume, and the two top buttons' text
    - contact details and social links
    - highlights, about, experience, projects, skills, awards, certifications (including the Credly note), education
-   - theme colors and default light/dark mode
+   - theme colors (including text colors), heading and body fonts, and default light/dark mode
 
    Still changed in code only: the visual design and layout, small interface labels (skip link, "Back to top", popup buttons, theme toggle), and adding a brand-new kind of section.
 4. **Publish.** Choose "Review & publish", paste your GitHub token and press "Publish to GitHub". New images and the PDF are uploaded first, then `data/content.json` is saved. The live site updates in about 1-2 minutes.
 
-Uploaded images are resized automatically (photo to 960px, certificates to 1600px, badges to 600px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
+Uploaded images are resized automatically (photo to 960px, certificates to 1400px as JPEG, badges to 256px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
 
 ### GitHub token
 
@@ -80,6 +81,26 @@ To change the login, generate a new hash and replace the values in `packages/js/
 node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='USERNAME'.toLowerCase()+'\n'+'PASSWORD'.toLowerCase();console.log({salt:salt.toString('hex'),iterations:210000,hash:c.pbkdf2Sync(secret,salt,210000,32,'sha256').toString('hex')})"
 ```
 
+## Contact form (saved to Google Drive and emailed to you)
+
+The "Get in touch" button opens a form that asks for first name, last name, email, phone number and the reason for connecting (job opportunity, career guidance, knowledge sharing, and so on). Every field except the message is required. Each submission is added to a Google Sheet in your Drive and emailed to you. A static site has no server, so a small free Google Apps Script does this work. It is already written in `integrations/google-apps-script/Code.gs`.
+
+Setup (about 5 minutes, once):
+
+1. In Google Drive, open the Google Sheet that will hold the messages (or create a new one, for example "Portfolio enquiries"). Set its sharing to **Restricted** (only you). It will contain visitors' names, emails and phone numbers, so it must not be open to "anyone with the link". The script runs as you, so it can still write to it.
+2. In the sheet, open **Extensions → Apps Script**. Delete the sample code and paste the whole of `integrations/google-apps-script/Code.gs`.
+3. Optional: in `CONFIG`, set `notifyEmail` if the emails should go to a different address. Left empty, they go to your own Google account.
+4. Click **Deploy → New deployment**, choose the type **Web app**, set **Execute as: Me** and **Who has access: Anyone**, then **Deploy**. Approve the permission prompt (Google may call the script unverified because you wrote it; choose Advanced, then Go to the project).
+5. Copy the **Web app URL** (it starts with `https://script.google.com/macros/s/` and ends with `/exec`).
+6. Open the site editor, go to **Contact & social links**, paste the URL into **Contact form: Google Apps Script URL**, then **Review & publish**.
+7. Test it: submit the form on the live site. A new row appears in the sheet (tab "Contact requests") and an email arrives with the reply address set to the visitor.
+
+If you change `Code.gs` later, use **Deploy → Manage deployments → Edit → New version** so the live URL picks up the change.
+
+Until the URL is set, the form opens the visitor's email app with the details filled in instead. The reasons, button text, introduction and thank-you message are all editable in the same editor screen.
+
+Protection against spam and misuse: a hidden field catches bots, the script validates every field and limits length, allows 3 messages per email address and 30 in total per hour, writes text that starts with `=`, `+`, `-` or `@` safely into the sheet, and escapes everything in the email. The site only ever sends data to a `script.google.com` address. The web app URL itself is public (it has to be), but it can only add rows and send you an email.
+
 ## Project structure
 
 ```
@@ -88,6 +109,9 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 ├── README.md
 ├── data/
 │   └── content.json            # All editable content
+├── integrations/
+│   └── google-apps-script/
+│       └── Code.gs             # Saves contact form messages to a Google Sheet and emails them
 ├── packages/                   # Everything the live site uses
 │   ├── css/
 │   │   ├── styles.css          # Design tokens, layout, light/dark themes, editor styles
@@ -100,6 +124,7 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 │   │   ├── theme.js            # Applies the theme colors
 │   │   ├── reveal.js           # Scroll-reveal animation
 │   │   ├── motion.js           # Scroll progress bar and pointer-driven 3D tilt
+│   │   ├── contact-form.js     # "Get in touch" popup form and sending
 │   │   ├── ui.js               # Theme toggle, menu, certificate popup, hidden editor trigger
 │   │   ├── dom.js, store.js    # Safe DOM helpers and unpublished-file store
 │   │   ├── admin.js            # Editor (loaded only after the hidden trigger)
@@ -134,7 +159,7 @@ packages/images/badges/<issuer>-<code>-<certification-name>.<ext>
 Example:
 
 ```
-packages/images/certificates/microsoft-az-900-azure-fundamentals.png
+packages/images/certificates/microsoft-az-900-azure-fundamentals.jpg
 packages/images/badges/microsoft-az-900-azure-fundamentals.png
 ```
 

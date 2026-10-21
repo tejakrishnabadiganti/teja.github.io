@@ -46,11 +46,16 @@ function renderSections({ sections }) {
     if (!node) continue;
 
     main.append(node); // moves the section to match the saved order
-    node.hidden = !section.visible;
-    node.querySelector("[data-eyebrow]").textContent = section.eyebrow;
+    const enabled = section.visible !== false;
+    node.hidden = !enabled;
+    node.classList.toggle("is-disabled", !enabled);
+
+    const eyebrow = node.querySelector("[data-eyebrow]");
+    if (!eyebrow) continue; // highlights and badge strip have no heading, menu entry or background
+    eyebrow.textContent = section.eyebrow;
     node.querySelector("[data-title]").textContent = section.title;
 
-    if (!section.visible) continue;
+    if (!enabled) continue;
     node.classList.toggle("section--alt", alternate);
     alternate = !alternate;
     if (section.nav) menu.push(section);
@@ -94,29 +99,24 @@ function renderHero({ profile, contact }) {
 }
 
 function renderStats(content) {
-  const total = content.certifications.items.length;
+  const counts = { certifications: content.certifications.items.length, awards: content.awards.length };
+  const resolve = (value) => String(value).replace(/\{(certifications|awards)\}/g, (_, key) => counts[key]);
   $("stats").replaceChildren(
     ...content.stats.map((stat) =>
       el(
         "div",
         { class: "stat" },
-        el("span", { class: "stat__value" }, String(stat.value).replaceAll("{certifications}", total)),
+        el("span", { class: "stat__value" }, resolve(stat.value)),
         el("span", { class: "stat__label" }, stat.label)
       )
     )
   );
 }
 
-const HERO_BADGE_COUNT = 3;
-
 function renderBadges({ certifications }) {
   const badged = certifications.items.filter((item) => item.badge);
   const badge = (item, decorative) =>
     el("img", { src: asset(item.badge), alt: decorative ? "" : item.name, loading: "lazy", height: "64" });
-
-  $("hero-badges").replaceChildren(
-    ...badged.slice(0, HERO_BADGE_COUNT).map((item) => el("li", {}, badge(item, true)))
-  );
 
   // The list is rendered twice so the strip can scroll in a seamless loop.
   const strip = $("badge-strip");
@@ -124,7 +124,7 @@ function renderBadges({ certifications }) {
     ...badged.map((item) => el("li", {}, badge(item, false))),
     ...badged.map((item) => el("li", { "aria-hidden": "true" }, badge(item, true)))
   );
-  $("badges").hidden = badged.length === 0;
+  $("badges").hidden ||= badged.length === 0;
 }
 
 function renderAbout({ about }) {
@@ -268,6 +268,7 @@ function renderEducation({ education }) {
 
 function renderContact({ contact }) {
   $("contact-lead").textContent = contact.lead;
+  $("contact-form-open").textContent = contact.formButton;
 
   const email = $("contact-email");
   email.setAttribute("href", safeUrl(`mailto:${contact.email.trim()}`));

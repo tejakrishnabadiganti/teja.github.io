@@ -1,0 +1,138 @@
+import { getContent } from "./site.js";
+
+const ENDPOINT_PREFIX = "https://script.google.com/macros/s/";
+const PHONE_PATTERN = /^\+?[0-9][0-9\s().-]{5,18}[0-9]$/;
+const MIN_SECONDS_BETWEEN_SENDS = 30;
+const LAST_SENT_KEY = "contact-form-last-sent";
+const OTHER_REASON = "other";
+
+const $ = (id) => document.getElementById(id);
+
+// Only the site owner's Google Apps Script may receive form data.
+const endpointOf = (contact) => (contact.formEndpoint?.trim().startsWith(ENDPOINT_PREFIX) ? contact.formEndpoint.trim() : "");
+
+export function initContactForm() {
+  const dialog = $("contact-dialog");
+  const form = $("contact-form");
+  const success = $("contact-success");
+  const status = $("contact-status");
+  const submit = $("contact-submit");
+  const reason = $("cf-reason");
+  const otherWrap = $("cf-other-wrap");
+  const other = $("cf-other");
+  const phone = $("cf-phone");
+
+  const setStatus = (text, kind = "") => {
+    status.textContent = text;
+    status.dataset.kind = kind;
+  };
+
+  const fillFromContent = () => {
+    const { contact } = getContent();
+    $("contact-dialog-title").textContent = contact.formTitle;
+    $("contact-intro").textContent = contact.formIntro;
+    $("contact-thanks").textContent = contact.formThanks;
+    reason.replaceChildren(
+      Object.assign(document.createElement("option"), { value: "", textContent: "Select a reason", disabled: true }),
+      ...contact.formReasons.map((text) => Object.assign(document.createElement("option"), { value: text, textContent: text }))
+    );
+    reason.selectedIndex = 0;
+  };
+
+  const open = () => {
+    form.reset();
+    fillFromContent();
+    form.classList.remove("was-validated");
+    otherWrap.hidden = true;
+    other.required = false;
+    setStatus("");
+    submit.disabled = false;
+    form.hidden = false;
+    success.hidden = true;
+    dialog.showModal();
+    $("cf-first").focus();
+  };
+
+  const close = () => dialog.close();
+
+  reason.addEventListener("change", () => {
+    const isOther = reason.value.trim().toLowerCase() === OTHER_REASON;
+    otherWrap.hidden = !isOther;
+    other.required = isOther;
+    if (isOther) other.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest("[data-open-contact]")) return;
+    event.preventDefault();
+    open();
+  });
+  $("contact-close").addEventListener("click", close);
+  $("contact-cancel").addEventListener("click", close);
+  $("contact-done").addEventListener("click", close);
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) close();
+  });
+
+  const mailtoFallback = (contact, fields) => {
+    const lines = [
+      `Name: ${fields.firstName} ${fields.lastName}`,
+      `Email: ${fields.email}`,
+      `Phone: ${fields.phone}`,
+      `Reason: ${fields.otherReason || fields.reason}`,
+      "",
+      fields.message,
+    ];
+    const subject = `Website enquiry: ${fields.otherReason || fields.reason}`;
+    location.href = `mailto:${contact.email.trim()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    form.classList.add("was-validated");
+    phone.setCustomValidity(PHONE_PATTERN.test(phone.value.trim()) ? "" : "Enter a valid phone number, for example +91 98765 43210.");
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    if (data.get("website")) return; // filled only by bots
+
+    const lastSent = Number(localStorage.getItem(LAST_SENT_KEY) ?? 0);
+    if (Date.now() - lastSent < MIN_SECONDS_BETWEEN_SENDS * 1000) {
+      setStatus("Please wait a moment before sending another message.", "error");
+      return;
+    }
+
+    const { contact } = getContent();
+    const fields = Object.fromEntries([...data].map(([key, value]) => [key, String(value).trim()]));
+    const endpoint = endpointOf(contact);
+
+    if (!endpoint) {
+      setStatus("Opening your email app…");
+      mailtoFallback(contact, fields);
+      return;
+    }
+
+    submit.disabled = true;
+    setStatus("Sending… this can take a few seconds.");
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: new URLSearchParams({ ...fields, page: location.href }),
+      });
+      const result = await response.json();
+      if (!result.ok) throw new Error(result.error || "The message could not be sent.");
+
+      localStorage.setItem(LAST_SENT_KEY, String(Date.now()));
+      form.hidden = true;
+      success.hidden = false;
+      $("contact-done").focus();
+    } catch (error) {
+      submit.disabled = false;
+      setStatus(`Sorry, that did not go through. Please try again or email ${contact.email}.`, "error");
+      console.error(error);
+    }
+  });
+}

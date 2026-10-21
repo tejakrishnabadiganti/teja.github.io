@@ -1,3 +1,7 @@
+import { HEADING_FONTS, BODY_FONTS } from "./theme.js";
+
+const fontOptions = (fonts) => Object.keys(fonts).map((name) => ({ value: name, label: name }));
+
 export const slug = (text) =>
   String(text)
     .toLowerCase()
@@ -18,6 +22,9 @@ const certificateFileName = (item) => mergedSlug(item.issuer, item.name) || "cer
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
+// The highlights strip and badge strip have no heading or menu entry, only a visibility switch.
+const hasHeading = (item) => item.id !== "highlights" && item.id !== "badges";
+
 // Each section describes what the editor shows. `kind: "list"` sections edit an array.
 export const SECTIONS = [
   {
@@ -37,13 +44,13 @@ export const SECTIONS = [
     path: "sections",
     itemName: "section",
     fixed: true,
-    hint: "Reorder sections with the arrows, rename their headings, or untick Show to hide one. Leave the menu label empty to keep a section out of the top menu.",
-    itemLabel: (item) => `${item.eyebrow || item.id}${item.visible === false ? " (hidden)" : ""}`,
+    hint: "Reorder sections with the arrows, rename their headings, or untick Show to hide one from visitors. Leave the menu label empty to keep a section out of the top menu.",
+    itemLabel: (item) => `${item.eyebrow || item.id}${item.visible === false ? " (hidden from visitors)" : ""}`,
     fields: [
-      { key: "visible", label: "Show this section", type: "checkbox" },
-      { key: "nav", label: "Menu label", type: "text" },
-      { key: "eyebrow", label: "Small heading above the title", type: "text" },
-      { key: "title", label: "Section title", type: "text" },
+      { key: "visible", label: "Show on the public site", type: "checkbox" },
+      { key: "nav", label: "Menu label", type: "text", when: hasHeading },
+      { key: "eyebrow", label: "Small heading above the title", type: "text", when: hasHeading },
+      { key: "title", label: "Section title", type: "text", when: hasHeading },
     ],
   },
   {
@@ -82,6 +89,7 @@ export const SECTIONS = [
   {
     id: "contact",
     label: "Contact & social links",
+    sectionId: "contact",
     kind: "object",
     path: "contact",
     fields: [
@@ -92,15 +100,33 @@ export const SECTIONS = [
       { key: "linkedin", label: "LinkedIn link", type: "url" },
       { key: "github", label: "GitHub link", type: "url" },
       { key: "lead", label: "Contact text", type: "textarea", rows: 3 },
+      {
+        key: "formEndpoint",
+        label: "Contact form: Google Apps Script URL",
+        type: "url",
+        help: "Where messages are saved and emailed from. Leave empty to open the visitor's email app instead. See the README (Contact form) for the setup.",
+      },
+      { key: "formButton", label: "Contact form: button text", type: "text" },
+      { key: "formTitle", label: "Contact form: title", type: "text" },
+      { key: "formIntro", label: "Contact form: introduction", type: "textarea", rows: 3 },
+      {
+        key: "formReasons",
+        label: "Contact form: reasons to connect",
+        type: "lines",
+        rows: 6,
+        help: "One reason per line. A reason called Other asks the visitor to type their own.",
+      },
+      { key: "formThanks", label: "Contact form: thank-you message", type: "textarea", rows: 3 },
     ],
   },
   {
     id: "stats",
     label: "Highlights (numbers)",
+    sectionId: "highlights",
     kind: "list",
     path: "stats",
     itemName: "highlight",
-    hint: "Use {certifications} as the value to show the number of certifications automatically.",
+    hint: "Use {certifications} or {awards} as the value to show that count automatically.",
     itemLabel: (item) => `${item.value} ${item.label}`,
     blank: () => ({ value: "", label: "" }),
     fields: [
@@ -111,6 +137,7 @@ export const SECTIONS = [
   {
     id: "about",
     label: "About",
+    sectionId: "about",
     kind: "object",
     path: "about",
     fields: [
@@ -126,6 +153,7 @@ export const SECTIONS = [
   {
     id: "experience",
     label: "Experience",
+    sectionId: "experience",
     kind: "list",
     path: "experience",
     itemName: "job",
@@ -143,6 +171,7 @@ export const SECTIONS = [
   {
     id: "work",
     label: "Selected work",
+    sectionId: "work",
     kind: "list",
     path: "work",
     itemName: "project",
@@ -157,6 +186,7 @@ export const SECTIONS = [
   {
     id: "skills",
     label: "Skills",
+    sectionId: "skills",
     kind: "list",
     path: "skills",
     itemName: "skill group",
@@ -170,6 +200,7 @@ export const SECTIONS = [
   {
     id: "awards",
     label: "Awards",
+    sectionId: "awards",
     kind: "list",
     path: "awards",
     itemName: "award",
@@ -183,6 +214,7 @@ export const SECTIONS = [
   {
     id: "certifications",
     label: "Certifications",
+    sectionId: "certifications",
     kind: "list",
     path: "certifications.items",
     itemName: "certification",
@@ -209,7 +241,8 @@ export const SECTIONS = [
         label: "Certificate image",
         type: "image",
         dir: "packages/images/certificates",
-        maxPx: 1600,
+        maxPx: 1400,
+        format: "jpeg",
         fileName: certificateFileName,
         help: "Name the issuer and certification first; the file is named from them.",
       },
@@ -218,7 +251,7 @@ export const SECTIONS = [
         label: "Digital badge image (optional)",
         type: "image",
         dir: "packages/images/badges",
-        maxPx: 600,
+        maxPx: 256,
         optional: true,
         fileName: certificateFileName,
       },
@@ -228,6 +261,7 @@ export const SECTIONS = [
   {
     id: "education",
     label: "Education",
+    sectionId: "education",
     kind: "list",
     path: "education",
     itemName: "education entry",
@@ -258,8 +292,14 @@ export const SECTIONS = [
       },
       { key: "accent", label: "Accent color (light theme)", type: "color" },
       { key: "gold", label: "Highlight color (light theme)", type: "color" },
+      { key: "ink", label: "Text color (light theme)", type: "color" },
+      { key: "muted", label: "Secondary text color (light theme)", type: "color" },
       { key: "accentDark", label: "Accent color (dark theme)", type: "color" },
       { key: "goldDark", label: "Highlight color (dark theme)", type: "color" },
+      { key: "inkDark", label: "Text color (dark theme)", type: "color" },
+      { key: "mutedDark", label: "Secondary text color (dark theme)", type: "color" },
+      { key: "fontHeading", label: "Heading font", type: "select", options: fontOptions(HEADING_FONTS) },
+      { key: "fontBody", label: "Body text font", type: "select", options: fontOptions(BODY_FONTS) },
     ],
   },
 ];

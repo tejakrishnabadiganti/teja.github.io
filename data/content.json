@@ -7,10 +7,16 @@
   },
   "theme": {
     "default": "system",
-    "accent": "#1d3557",
-    "accentDark": "#9db8e8",
-    "gold": "#a98042",
-    "goldDark": "#d2ae74"
+    "accent": "#14305a",
+    "accentDark": "#a9c1ee",
+    "gold": "#8f6a2a",
+    "goldDark": "#d9b47a",
+    "ink": "#0f1a2b",
+    "inkDark": "#f4f1ea",
+    "muted": "#44505f",
+    "mutedDark": "#b9c1cf",
+    "fontHeading": "Playfair Display",
+    "fontBody": "Inter"
   },
   "profile": {
     "name": "Tejakrishna Badiganti",
@@ -32,7 +38,8 @@
     "phone": "+91 8919537838",
     "linkedin": "https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/",
     "github": "https://github.com/tejakrishnabadiganti",
-    "lead": "Open to conversations about full stack, platform and AI engineering roles."
+    "lead": "Open to conversations about full stack, platform and AI engineering roles.",
+    "formEndpoint": "https://script.google.com/macros/s/AKfycbydjRWFg3W6Q8OFsnaOMYgHasGPbwPULzjn5GGlN6QdlnHly2b0saXKZEUpb8okk8TnYg/exec"
   },
   "stats": [
     {
@@ -41,18 +48,32 @@
     },
     {
       "value": "2",
-      "label": "Global consultancies"
-    },
-    {
-      "value": "85%+",
-      "label": "Unit test coverage delivered"
+      "label": "Enterprise clients (USAA, Vertex)"
     },
     {
       "value": "{certifications}",
       "label": "Industry certifications"
+    },
+    {
+      "value": "{awards}",
+      "label": "Awards & recognitions"
     }
   ],
   "sections": [
+    {
+      "id": "highlights",
+      "nav": "",
+      "eyebrow": "Highlights",
+      "title": "",
+      "visible": true
+    },
+    {
+      "id": "badges",
+      "nav": "",
+      "eyebrow": "Certification badges",
+      "title": "",
+      "visible": true
+    },
     {
       "id": "about",
       "nav": "About",
@@ -325,70 +346,70 @@
         "name": "Microsoft Azure Fundamentals",
         "issuer": "Microsoft · AZ-900",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/microsoft-az-900-azure-fundamentals.png",
+        "certificate": "packages/images/certificates/microsoft-az-900-azure-fundamentals.jpg",
         "badge": "packages/images/badges/microsoft-az-900-azure-fundamentals.png"
       },
       {
         "name": "Microsoft Azure Data Fundamentals",
         "issuer": "Microsoft · DP-900",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png",
+        "certificate": "packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.jpg",
         "badge": "packages/images/badges/microsoft-dp-900-azure-data-fundamentals.png"
       },
       {
         "name": "Microsoft Azure AI Fundamentals",
         "issuer": "Microsoft · AI-900",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png",
+        "certificate": "packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.jpg",
         "badge": "packages/images/badges/microsoft-ai-900-azure-ai-fundamentals.png"
       },
       {
         "name": "Microsoft Azure Administrator",
         "issuer": "Microsoft · AZ-104",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/microsoft-az-104-azure-administrator-associate.png",
+        "certificate": "packages/images/certificates/microsoft-az-104-azure-administrator-associate.jpg",
         "badge": "packages/images/badges/microsoft-az-104-azure-administrator-associate.png"
       },
       {
         "name": "Azure Database Administrator Associate",
         "issuer": "Microsoft · DP-300",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg",
+        "certificate": "packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpg",
         "badge": "packages/images/badges/microsoft-dp-300-azure-database-administrator-associate.png"
       },
       {
         "name": "Associate Cloud Engineer",
         "issuer": "Google Cloud",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/google-cloud-associate-cloud-engineer.png",
+        "certificate": "packages/images/certificates/google-cloud-associate-cloud-engineer.jpg",
         "badge": "packages/images/badges/google-cloud-associate-cloud-engineer.png"
       },
       {
         "name": "Professional Cloud Architect",
         "issuer": "Google Cloud",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/google-cloud-professional-cloud-architect.jpeg",
+        "certificate": "packages/images/certificates/google-cloud-professional-cloud-architect.jpg",
         "badge": "packages/images/badges/google-cloud-professional-cloud-architect.png"
       },
       {
         "name": "AWS Certified Cloud Practitioner",
         "issuer": "Amazon Web Services",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/aws-certified-cloud-practitioner.png",
+        "certificate": "packages/images/certificates/aws-certified-cloud-practitioner.jpg",
         "badge": "packages/images/badges/aws-certified-cloud-practitioner.png"
       },
       {
         "name": "AWS Certified Solutions Architect – Associate",
         "issuer": "Amazon Web Services",
         "group": "Cloud & Infrastructure",
-        "certificate": "packages/images/certificates/aws-certified-solutions-architect-associate.jpeg",
+        "certificate": "packages/images/certificates/aws-certified-solutions-architect-associate.jpg",
         "badge": "packages/images/badges/aws-certified-solutions-architect-associate.jpeg"
       },
       {
         "name": "Claude Certified Associate – Foundations",
         "issuer": "Anthropic · CCAO-F",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/anthropic-claude-certified-associate-foundations.png",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-associate-foundations.jpg",
         "badge": "packages/images/badges/anthropic-claude-certified-associate-foundations.png",
         "verifyUrl": "https://www.credly.com/badges/b99c6386-f90e-4585-a040-9fd9cf4d4632"
       },
@@ -396,7 +417,7 @@
         "name": "Claude Certified Developer – Foundations",
         "issuer": "Anthropic · CCDV-F",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/anthropic-claude-certified-developer-foundations.png",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-developer-foundations.jpg",
         "badge": "packages/images/badges/anthropic-claude-certified-developer-foundations.png",
         "verifyUrl": "https://www.credly.com/badges/7adfbddc-0e23-426e-9262-fac8f18ef0e2"
       },
@@ -404,7 +425,7 @@
         "name": "Claude Certified Architect – Foundations",
         "issuer": "Anthropic",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-foundations.png",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-foundations.jpg",
         "badge": "packages/images/badges/anthropic-claude-certified-architect-foundations.png",
         "verifyUrl": "https://www.credly.com/badges/1f8ebabc-62ea-41b5-bfb3-045b26bb0a55"
       },
@@ -412,7 +433,7 @@
         "name": "Claude Certified Architect – Professional",
         "issuer": "Anthropic",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-professional.png",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-professional.jpg",
         "badge": "packages/images/badges/anthropic-claude-certified-architect-professional.png",
         "verifyUrl": "https://www.credly.com/badges/649f0475-47fc-40df-8b72-5343c8bc977a"
       },
@@ -420,14 +441,14 @@
         "name": "Microsoft Security Fundamentals",
         "issuer": "Microsoft · MTA",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/microsoft-mta-security-fundamentals.jpeg",
+        "certificate": "packages/images/certificates/microsoft-mta-security-fundamentals.jpg",
         "badge": "packages/images/badges/microsoft-mta-security-fundamentals.png"
       },
       {
         "name": "Arduino Fundamentals",
         "issuer": "Arduino",
         "group": "AI & Other",
-        "certificate": "packages/images/certificates/arduino-fundamentals.png"
+        "certificate": "packages/images/certificates/arduino-fundamentals.jpg"
       }
     ]
   },

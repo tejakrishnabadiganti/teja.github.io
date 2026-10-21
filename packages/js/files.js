@@ -40,7 +40,7 @@ export async function processImage(file, { maxPx = 1600, format } = {}) {
   }
   context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
 
-  const dataUrl = canvas.toDataURL(type, 0.9);
+  const dataUrl = canvas.toDataURL(type, 0.82);
   return { dataUrl, base64: base64Of(dataUrl), ext: EXTENSIONS[type] };
 }
 

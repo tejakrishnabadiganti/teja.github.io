@@ -4,6 +4,7 @@ const TILT_MAX_DEGREES = 6;
 const HERO_MAX_DEGREES = 9;
 const LIFT_PX = 14;
 const TILT_TARGETS = ".card, .award, .cert, .skills__group";
+const SHOW_TO_TOP_AFTER_PX = 700;
 
 const canHover = () =>
   window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
@@ -23,11 +24,13 @@ function pointerRatio(event, rect) {
 
 function initScrollProgress() {
   const bar = document.getElementById("scroll-progress");
+  const toTop = document.getElementById("to-top");
   let frame = 0;
   const update = () => {
     frame = 0;
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.setProperty("--progress", scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0);
+    toTop.classList.toggle("is-visible", window.scrollY > SHOW_TO_TOP_AFTER_PX);
   };
   window.addEventListener(
     "scroll",

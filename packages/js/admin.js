@@ -9,6 +9,7 @@ import { publish } from "./github.js";
 const SESSION_KEY = "portfolio-admin";
 const LOCK_KEY = "portfolio-admin-lock";
 const GITHUB_KEY = "portfolio-admin-github";
+const TOKEN_EXAMPLE = "github_pat_11XXXXXXX0xxxxxxxxxxxx_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
 const MAX_ATTEMPTS = 5;
 const LOCK_MS = 60_000;
 
@@ -114,6 +115,8 @@ function changed() {
 function showPanel(visible) {
   ui.panel.hidden = !visible;
   ui.fab.hidden = visible;
+  // While editing, disabled sections stay visible (marked) so they can be reviewed and re-enabled.
+  document.documentElement.classList.toggle("admin-preview", visible);
 }
 
 function logout() {
@@ -201,6 +204,27 @@ function renderTab(id) {
 function sectionView(section) {
   const content = getContent();
   const wrap = el("div", { class: "admin-section" });
+  const pageSection = content.sections.find((entry) => entry.id === section.sectionId);
+  if (pageSection) {
+    wrap.append(
+      el(
+        "div",
+        { class: "admin-visibility" },
+        fieldGroup(
+          [
+            {
+              key: "visible",
+              label: "Show this section on the public site",
+              type: "checkbox",
+              help: "Turn off to hide it from visitors. You still see it here, marked as hidden, and can turn it back on any time.",
+            },
+          ],
+          pageSection,
+          changed
+        )
+      )
+    );
+  }
   if (section.hint) wrap.append(el("p", { class: "admin-hint" }, section.hint));
   if (section.headerFields) {
     wrap.append(fieldGroup(section.headerFields, byPath(content, section.headerPath), changed));
@@ -214,7 +238,11 @@ function sectionView(section) {
 }
 
 const fieldGroup = (fields, target, onChange) =>
-  el("div", { class: "admin-fields" }, fields.map((field) => fieldControl(field, target, onChange)));
+  el(
+    "div",
+    { class: "admin-fields" },
+    fields.filter((field) => field.when?.(target) ?? true).map((field) => fieldControl(field, target, onChange))
+  );
 
 function listView(section) {
   const items = byPath(getContent(), section.path);
@@ -530,16 +558,23 @@ function publishView() {
     log,
     el(
       "details",
-      { class: "admin-help-box" },
+      { class: "admin-help-box", open: true },
       el("summary", {}, "How do I create a token?"),
       el(
         "ol",
         {},
-        el("li", {}, "Open GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens."),
-        el("li", {}, "Choose Generate new token, and select only this repository."),
-        el("li", {}, "Under Repository permissions, set Contents to Read and write."),
-        el("li", {}, "Copy the token and paste it above. It is shown only once.")
-      )
+        el("li", {}, "Open github.com and sign in to the account that owns this site."),
+        el("li", {}, "Click your profile picture → Settings → Developer settings → Personal access tokens → Fine-grained tokens."),
+        el("li", {}, "Click Generate new token and give it a name, for example “portfolio-editor”."),
+        el("li", {}, "Set an expiry date (90 days is a good choice; you can make a new token later)."),
+        el("li", {}, "Under Repository access, choose Only select repositories and pick this site's repository."),
+        el("li", {}, "Under Repository permissions, set Contents to Read and write. Leave everything else as it is."),
+        el("li", {}, "Click Generate token, then copy it right away. GitHub shows it only once."),
+        el("li", {}, "Paste it into the GitHub token box above and press Publish to GitHub.")
+      ),
+      el("p", { class: "admin-help" }, "A token looks like this (example only, not a real token):"),
+      el("code", { class: "admin-token-example" }, TOKEN_EXAMPLE),
+      el("p", { class: "admin-help" }, "Keep it private. Never share it or save it in the site files.")
     )
   );
 }

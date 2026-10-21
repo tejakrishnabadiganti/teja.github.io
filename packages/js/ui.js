@@ -42,12 +42,18 @@ function initHeaderShadow() {
 
 // The menu is rebuilt from the content, so look links up when a section scrolls into view.
 function initActiveLink() {
+  const nav = document.getElementById("nav");
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         document.querySelectorAll(".nav__link").forEach((link) => link.classList.remove("is-active"));
-        document.querySelector(`.nav__link[href="#${entry.target.id}"]`)?.classList.add("is-active");
+        const active = document.querySelector(`.nav__link[href="#${entry.target.id}"]`);
+        active?.classList.add("is-active");
+        // On narrow screens the menu scrolls sideways; keep the current link in view.
+        if (active && nav.scrollWidth > nav.clientWidth) {
+          nav.scrollTo({ left: active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2, behavior: "smooth" });
+        }
       });
     },
     { rootMargin: "-45% 0px -50% 0px" }
