@@ -3,1398 +3,973 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!--==================== UNICONS ====================-->
-    <link
-      rel="stylesheet"
-      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    <title>Tejakrishna Badiganti | Full Stack Software Engineer</title>
+    <meta
+      name="description"
+      content="Tejakrishna Badiganti - Full Stack Software Engineer specializing in Java, Spring Boot, microservices, React.js, AWS, Azure and AI agent engineering."
     />
+    <meta name="theme-color" content="#faf9f6" />
 
-    <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="./packages/css/swiper-bundle.min.css" />
-
-    <!--==================== CSS ====================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./packages/css/styles.css" />
-
-    <title>Tejakrishna</title>
+    <script>
+      // Apply the saved theme before first paint to avoid a flash.
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = saved || (dark ? "dark" : "light");
+      })();
+    </script>
   </head>
+
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <!--==================== HEADER ====================-->
-    <header class="header" id="header">
-      <nav class="nav container">
-        <a href="#" class="nav__logo"
-          ><h1 clour="orange">Tejakrishna Badiganti</h1></a
-        >
+    <header class="site-header" id="header">
+      <div class="container site-header__inner">
+        <a href="#top" class="brand" aria-label="Tejakrishna Badiganti, home">
+          <span class="brand__mark">TB</span>
+          <span class="brand__name">Tejakrishna Badiganti</span>
+        </a>
 
-        <div class="nav__menu" id="nav-menu">
-          <ul class="nav__list grid">
-            <li class="nav__item">
-              <a href="#home" class="nav__link">
-                <i class="uil uil-estate nav__icon"></i>Home
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#about" class="nav__link">
-                <i class="uil uil-user nav__icon"></i>About
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#skills" class="nav__link">
-                <i class="uil uil-file-alt nav__icon"></i>Skills
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#services" class="nav__link">
-                <i class="uil uil-briefcase-alt nav__icon"></i>Services
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#portfolio" class="nav__link">
-                <i class="uil uil-scenery nav__icon"></i>Certifications
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="Gallery.html" class="nav__link">
-                <i class="uil uil-message nav__icon"></i>Gallery
-              </a>
-            </li>
-            <li class="nav__item">
-              <a href="#contact" class="nav__link">
-                <i class="uil uil-message nav__icon"></i>Contact
-              </a>
-            </li>
+        <nav class="nav" id="nav" aria-label="Primary">
+          <ul class="nav__list">
+            <li><a class="nav__link" href="#about">About</a></li>
+            <li><a class="nav__link" href="#experience">Experience</a></li>
+            <li><a class="nav__link" href="#work">Work</a></li>
+            <li><a class="nav__link" href="#skills">Skills</a></li>
+            <li><a class="nav__link" href="#awards">Awards</a></li>
+            <li><a class="nav__link" href="#certifications">Certifications</a></li>
+            <li><a class="nav__link" href="#contact">Contact</a></li>
           </ul>
-          <i class="uil uil-times nav__close" id="nav-close"></i>
-        </div>
-        <div class="nav__btns">
-          <!-- Theme change button -->
+        </nav>
 
-          <i class="uil uil-moon change-theme" id="theme-button"></i>
-
-          <div class="nav__toggle" id="nav-toggle">
-            <i class="uil uil-apps"></i>
-          </div>
+        <div class="site-header__actions">
+          <button
+            class="icon-button"
+            id="theme-toggle"
+            type="button"
+            aria-label="Switch to dark theme"
+          >
+            <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+            </svg>
+            <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+              />
+            </svg>
+          </button>
+          <button
+            class="icon-button nav-toggle"
+            id="nav-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
         </div>
-      </nav>
+      </div>
     </header>
 
-    <!--==================== MAIN ====================-->
-    <main class="main">
-      <!--==================== HOME ====================-->
-      <section class="home section" id="home">
-        <div class="home__container container grid">
-          <div class="home__content grid">
-            <div class="home__social">
+    <main id="main">
+      <!--==================== HERO ====================-->
+      <section class="hero" id="top">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="eyebrow">Full Stack Software Engineer</p>
+            <h1 class="hero__title">
+              Building scalable enterprise software and
+              <em>AI-powered engineering agents.</em>
+            </h1>
+            <p class="hero__lead">
+              4.6+ years delivering solutions across fintech, banking and tax
+              compliance for USAA and Vertex Inc., with deep experience in Java,
+              Spring Boot, React.js, microservices, AWS and Azure.
+            </p>
+            <div class="hero__cta">
+              <a class="button button--primary" href="#contact">Get in touch</a>
               <a
-                href="https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/"
-                target="_blank"
-                class="home__social-icon"
+                class="button button--ghost"
+                href="packages/documents/Tejakrishna_Badiganti_Resume.pdf"
+                download
+                >Download resume</a
               >
-                <i class="uil uil-linkedin-alt"></i>
-              </a>
-              <a
-                href="https://twitter.com/Tejakrishnabad1"
-                target="_blank"
-                class="home__social-icon"
-              >
-                <i class="uil uil-twitter-alt"></i>
-              </a>
-              <a
-                href="https://github.com/tejakrishnabadiganti"
-                target="_blank"
-                class="home__social-icon"
-              >
-                <i class="uil uil-github-alt"></i>
-              </a>
             </div>
-
-            <div class="home__img">
-              <svg
-                class="home__blob"
-                viewBox="0 0 200 187"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink"
-              >
-                <mask id="mask0" mask-type="alpha">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                                    130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                                    97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                                    0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                </mask>
-                <g mask="url(#mask0)">
-                  <path
-                    d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                                    165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                                    129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                                    -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z"
-                  />
-                  <image
-                    class="home__blob-img"
-                    x=""
-                    xlink:href="packages\images\BG.jpg"
-                  />
-                </g>
-              </svg>
-            </div>
-
-            <div class="home__data">
-              <h1 class="home__title">
-                Hi, I'am <span color="white">Tejakrishna Badiganti</span>
-              </h1>
-              <h3 class="home__subtitle">
-                Java Fullstack Developer & Devops Engineer
-              </h3>
-              <p class="home__description">
-                High level experience in Networking cloud & Java Backend and
-                Angular Frontend and Cloud with quality work.
-              </p>
-              <a href="#contact" class="button button--flex home__button">
-                Contact Me<i class="uil uil-message button__icon"></i>
-              </a>
-            </div>
+            <ul class="hero__meta">
+              <li>Hyderabad, India</li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >LinkedIn</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/tejakrishnabadiganti"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub</a
+                >
+              </li>
+            </ul>
           </div>
 
-          <div class="home__scroll">
-            <a href="#about" class="home__scroll-button button--flex">
-              <i class="uil uil-mouse-alt home__scroll-mouse"></i>
-              <span class="home__scroll-name">Scroll Down</span>
-              <i class="uil uil-arrow-down home__scroll-arrow"></i>
-            </a>
+          <figure class="hero__figure">
+            <img
+              src="./packages/images/profile/tejakrishna-badiganti-profile.jpg"
+              alt="Portrait of Tejakrishna Badiganti"
+              width="960"
+              height="1144"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!--==================== STATS ====================-->
+      <section class="stats" aria-label="Highlights">
+        <div class="container stats__inner">
+          <div class="stat">
+            <span class="stat__value">4.6+</span>
+            <span class="stat__label">Years of experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">2</span>
+            <span class="stat__label">Global consultancies</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">85%+</span>
+            <span class="stat__label">Unit test coverage delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">15</span>
+            <span class="stat__label">Industry certifications</span>
           </div>
         </div>
       </section>
 
       <!--==================== ABOUT ====================-->
-      <section class="about section" id="about">
-        <h2 class="section__title">About Me</h2>
-        <span class="section__subtitle">My Introduction</span>
-
-        <div class="about__container container grid">
-          <img src="packages\images\tejaA.jpeg" alt="" class="about__img" />
-          <div class="about__data">
-            <p class="about__description">
-              I'm working as a Project Engineer at Wipro. Having experience in
-              Java, SpringBoot, Microservices, and Cloud(Azure, AWS,
-              GCP),Networking. Strong knowledge of Cloud and Java J2EE
-              domain.Creating REST APIs and Testing. Expertise in Java and
-              Cloud. good knowledge of Cybersecurity Networking, Python, HTML,
-              CSS, and JavaScript, Hardware. I have good understandable
-              knowledge of Problem-solving.I am an enthusiastic, self-motivated,
-              reliable, responsible and hard working person. I am a mature team
-              worker and adaptable to all challenging situations. I am able to
-              work well both in a team environment as well as using own
-              initiative. I am able to work well under pressure and adhere to
-              strict deadlines.
+      <section class="section" id="about">
+        <div class="container section__grid">
+          <header class="section__head">
+            <p class="eyebrow">About</p>
+            <h2 class="section__title">Engineering with clarity and craft</h2>
+          </header>
+          <div class="prose">
+            <p>
+              I am a Full Stack Software Engineer delivering scalable
+              enterprise solutions across fintech, banking and tax compliance
+              for clients including USAA and Vertex Inc. I bring end-to-end SDLC
+              expertise in Java, Spring Boot, React.js, microservices, AWS and
+              Azure, combined with hands-on experience developing AI agents and
+              integrating multiple LLMs.
             </p>
-            <div class="about__info">
-              <div>
-                <span class="about__info-title">3 Years</span>
-                <span class="about__info-name"
-                  >Wipro <br />
-                  experience</span
-                >
-              </div>
-              <div>
-                <span class="about__info-title">09+</span>
-                <span class="about__info-name"
-                  >Completed <br />
-                  certifications</span
-                >
-              </div>
-              <div>
-                <span class="about__info-title">01+</span>
-                <span class="about__info-name">companies<br />worked</span>
-              </div>
-            </div>
+            <p>
+              I use Claude, Specification-Driven Development (SDD) and Research,
+              Plan, and Implement (RPI) methodologies to accelerate delivery. I
+              have contributed to DevOps, Center of Excellence (CoE) and Vertex
+              Agent Platform (VAPOR) initiatives spanning engineering
+              improvements, enterprise metrics and application delivery, with
+              recognition for innovation, internal platform development and
+              multiple hackathon wins.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div class="about__buttons">
-              <a
-                download=""
-                href="packages\images\Tejakrishna_D.pdf"
-                class="button button--flex"
-              >
-                Download Resume<i class="uil uil-download-alt button__icon"></i>
-              </a>
-            </div>
+      <!--==================== EXPERIENCE ====================-->
+      <section class="section section--alt" id="experience">
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow">Experience</p>
+            <h2 class="section__title">Where I have worked</h2>
+          </header>
+
+          <ol class="timeline">
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <p class="timeline__date">Dec 2025 &ndash; Present</p>
+                <p class="timeline__place">Hyderabad, India</p>
+              </div>
+              <article class="timeline__body">
+                <h3 class="timeline__role">Senior Software Engineer</h3>
+                <p class="timeline__company">
+                  Accenture <span>Client: Vertex Inc. &ndash; GCC Project</span>
+                </p>
+                <ul class="checklist">
+                  <li>
+                    Designed and developed AI-powered engineering agents,
+                    including PR Fix and Fail-to-Fix agents, integrating
+                    multiple LLMs to automate development workflows, code
+                    analysis and issue resolution; collaborated with the VAPOR
+                    (Vertex Agent Platform) team to build cluster-based AI
+                    agents for end users.
+                  </li>
+                  <li>
+                    Built TechScout, an end-to-end application using React.js
+                    and Node.js, contributing to frontend development, backend
+                    services, API integration and delivery; also enhanced the
+                    Connected Tax Platform (CTP) with application features,
+                    chat-based interfaces and AI-agent capabilities.
+                  </li>
+                  <li>
+                    Contributed to Center of Excellence (CoE) initiatives by
+                    developing reusable skills, commands and AI agents that
+                    standardized workflows and improved developer productivity;
+                    collaborated across AI engineering, DevOps, CoE and
+                    platform development teams on organization-wide solutions
+                    and engineering practices.
+                  </li>
+                  <li>
+                    Contributed to the Vertex Unified Metrics Platform to
+                    support centralized, consistent engineering measurement,
+                    while supporting DevOps and deployment workflows, including
+                    n8n deployments and automation that streamlined delivery and
+                    operations.
+                  </li>
+                  <li>
+                    Applied Specification-Driven Development (SDD) and
+                    Research, Plan, and Implement (RPI) methodologies with
+                    Claude to structure requirements, plan implementations and
+                    accelerate AI-assisted software delivery.
+                  </li>
+                  <li>
+                    Developed an in-house quiz application as an alternative to
+                    third-party solutions, earning organizational recognition
+                    and prize money. Also achieved multiple hackathon wins
+                    through innovative application development and AI-driven
+                    solutions.
+                  </li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <p class="timeline__date">May 2022 &ndash; Dec 2025</p>
+                <p class="timeline__place">Bengaluru, India</p>
+              </div>
+              <article class="timeline__body">
+                <h3 class="timeline__role">Project Engineer</h3>
+                <p class="timeline__company">
+                  Wipro
+                  <span
+                    >Client: USAA (United Services Automobile Association)</span
+                  >
+                </p>
+                <ul class="checklist">
+                  <li>
+                    Developed and maintained enterprise engineering applications
+                    using Core Java, Spring Boot, Spring Cloud, Spring Data JPA,
+                    RESTful Web Services and microservices across banking,
+                    insurance and enterprise-security projects for USAA and Citi
+                    Bank.
+                  </li>
+                  <li>
+                    Contributed to USAA's Classic to Talon Migration (C2T) by
+                    analyzing legacy integrations, designing as-is and to-be API
+                    flows and developing migration strategies; designed,
+                    documented and published REST APIs using OpenAPI and Swagger
+                    2.0 to improve discoverability and developer onboarding.
+                  </li>
+                  <li>
+                    Integrated downstream APIs for secure microservice
+                    communication, optimized SQL queries and database
+                    operations, and implemented unit tests using JUnit and
+                    Mockito, achieving 85%+ test coverage and helping reduce
+                    production defects.
+                  </li>
+                  <li>
+                    Deployed and monitored applications on OpenShift, analyzed
+                    pod logs through the OpenShift Web UI, and used Kibana and
+                    Elasticsearch to investigate application behavior, traffic
+                    patterns, active server instances and production issues.
+                  </li>
+                  <li>
+                    Contributed to Citi Bank's Service Account Migration (SAM)
+                    by migrating service accounts to CyberArk, implementing
+                    secure integrations with Core Java and Spring Boot, and
+                    decommissioning deprecated accounts to strengthen credential
+                    security and reduce attack surface.
+                  </li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!--==================== SELECTED WORK ====================-->
+      <section class="section" id="work">
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow">Selected work</p>
+            <h2 class="section__title">Projects and initiatives</h2>
+          </header>
+
+          <div class="cards">
+            <article class="card">
+              <p class="card__tag">AI Engineering</p>
+              <h3 class="card__title">PR Fix &amp; Fail-to-Fix Agents</h3>
+              <p class="card__text">
+                AI agents that integrate multiple LLMs to automate development
+                workflows, code analysis and issue resolution, built with the
+                Vertex Agent Platform (VAPOR) team.
+              </p>
+            </article>
+            <article class="card">
+              <p class="card__tag">Full Stack</p>
+              <h3 class="card__title">TechScout</h3>
+              <p class="card__text">
+                End-to-end application built with React.js and Node.js, covering
+                frontend, backend services, API integration and delivery.
+              </p>
+            </article>
+            <article class="card">
+              <p class="card__tag">Platform</p>
+              <h3 class="card__title">Connected Tax Platform</h3>
+              <p class="card__text">
+                Enhanced with new application features, chat-based interfaces
+                and AI-agent capabilities.
+              </p>
+            </article>
+            <article class="card">
+              <p class="card__tag">Engineering Excellence</p>
+              <h3 class="card__title">Vertex Unified Metrics Platform</h3>
+              <p class="card__text">
+                Contributed to centralized, consistent engineering measurement,
+                alongside DevOps and n8n deployment automation.
+              </p>
+            </article>
+            <article class="card">
+              <p class="card__tag">Migration &middot; USAA</p>
+              <h3 class="card__title">Classic to Talon (C2T)</h3>
+              <p class="card__text">
+                Analyzed legacy integrations, designed as-is and to-be API flows
+                and published REST APIs with OpenAPI and Swagger 2.0.
+              </p>
+            </article>
+            <article class="card">
+              <p class="card__tag">Security &middot; Citi Bank</p>
+              <h3 class="card__title">Service Account Migration (SAM)</h3>
+              <p class="card__text">
+                Migrated service accounts to CyberArk with secure Spring Boot
+                integrations and retired deprecated accounts.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
       <!--==================== SKILLS ====================-->
-      <section class="skills section" id="skills">
-        <h2 class="section__title">Skills</h2>
-        <span class="section__subtitle">My technical level</span>
+      <section class="section section--alt" id="skills">
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow">Skills</p>
+            <h2 class="section__title">Technical expertise</h2>
+          </header>
 
-        <div class="skills__container container grid">
-          <div>
-            <!--==================== SKILL-1 ====================-->
-            <div class="skills__content skills__open">
-              <div class="skills__header">
-                <i class="uil uil-analytics skills__icon"></i>
-                <div>
-                  <h1 class="skills__title">Java Backend Development</h1>
-                  <span class="skills__subtitle">More than 2 years</span>
-                </div>
+          <div class="skills">
+            <section class="skills__group">
+              <h3 class="skills__title">Languages &amp; Frameworks</h3>
+              <ul class="tags">
+                <li>Java 8/11/17</li>
+                <li>Python</li>
+                <li>TypeScript</li>
+                <li>JavaScript</li>
+                <li>Spring Boot</li>
+                <li>Spring Data JPA</li>
+                <li>Spring Cloud</li>
+                <li>Hibernate</li>
+                <li>JAX-RS</li>
+                <li>React.js 18</li>
+                <li>Node.js 18</li>
+                <li>Dependency Injection</li>
+              </ul>
+            </section>
 
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Java</h3>
-                    <span class="skills__number">70%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">SpringBoot</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__tab"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Micoservices</h3>
-                    <span class="skills__number">50%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__sql"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">GoLang</h3>
-                    <span class="skills__number">50%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Selenium</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Python</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">C</h3>
-                    <span class="skills__number">50%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__python"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">MySQL</h3>
-                    <span class="skills__number">70%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__google"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Cisco Networking</h3>
-                    <span class="skills__number">70%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__google"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--==================== SKILLS 2 ====================-->
-            <div class="skills__content skills__close">
-              <div class="skills__header">
-                <i class="uil uil-money-bill skills__icon"></i>
-                <div>
-                  <h1 class="skills__title">Frontend Development</h1>
-                  <span class="skills__subtitle">More than 1 years</span>
-                </div>
+            <section class="skills__group">
+              <h3 class="skills__title">AI &amp; Agent Engineering</h3>
+              <ul class="tags">
+                <li>AI Agent Development</li>
+                <li>LLM Integration</li>
+                <li>Multi-LLM Integration</li>
+                <li>GPT Models</li>
+                <li>Agentic Workflows</li>
+                <li>AI-Powered Automation</li>
+                <li>Claude</li>
+                <li>GitHub Copilot</li>
+                <li>Cursor</li>
+                <li>Rovo</li>
+                <li>Specification-Driven Development (SDD)</li>
+                <li>Research, Plan, Implement (RPI)</li>
+              </ul>
+            </section>
 
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Angular</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__bank"></span>
-                  </div>
+            <section class="skills__group">
+              <h3 class="skills__title">Microservices &amp; Architecture</h3>
+              <ul class="tags">
+                <li>Microservices</li>
+                <li>API Gateway</li>
+                <li>Service Discovery</li>
+                <li>Circuit Breaker (Resilience4j)</li>
+                <li>Event-Driven Architecture</li>
+                <li>Distributed Systems</li>
+                <li>Resiliency Patterns</li>
+                <li>Design Patterns</li>
+                <li>Object-Oriented Design</li>
+                <li>SOLID Principles</li>
+                <li>System Design</li>
+              </ul>
+            </section>
 
-                  <div class="skills__titles">
-                    <h3 class="skills__name">HTML-5</h3>
-                    <span class="skills__number">80%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__bank"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">CSS</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__counter"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">JavaScript</h3>
-                    <span class="skills__number">50%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__google"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <section class="skills__group">
+              <h3 class="skills__title">Databases, Messaging &amp; Caching</h3>
+              <ul class="tags">
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>SQL Server</li>
+                <li>DynamoDB</li>
+                <li>SQL Query Optimization</li>
+                <li>Apache Kafka</li>
+                <li>Redis</li>
+                <li>Valkey</li>
+              </ul>
+            </section>
 
-          <div>
-            <!--==================== SKILLS 3 ====================-->
-            <div class="skills__content skills__close">
-              <div class="skills__header">
-                <i class="uil uil-brackets-curly skills__icon"></i>
-                <div>
-                  <h1 class="skills__title">Cloud</h1>
-                  <span class="skills__subtitle">More than 2 years</span>
-                </div>
+            <section class="skills__group">
+              <h3 class="skills__title">Cloud, DevOps &amp; CI/CD</h3>
+              <ul class="tags">
+                <li>AWS</li>
+                <li>EC2</li>
+                <li>ECS</li>
+                <li>Lambda</li>
+                <li>Fargate</li>
+                <li>S3</li>
+                <li>RDS</li>
+                <li>IAM</li>
+                <li>CloudWatch</li>
+                <li>SQS</li>
+                <li>SNS</li>
+                <li>Microsoft Azure</li>
+                <li>Docker</li>
+                <li>OpenShift</li>
+                <li>Git</li>
+                <li>GitHub Actions</li>
+                <li>GitLab</li>
+                <li>Maven</li>
+                <li>Gradle</li>
+                <li>Elasticsearch</li>
+                <li>Kibana</li>
+              </ul>
+            </section>
 
-                <i class="uil uil-angle-down skills__arrow"></i>
-              </div>
-              <div class="skills__list grid">
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Azure Cloud</h3>
-                    <span class="skills__number">60%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__html"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">Google Cloud</h3>
-                    <span class="skills__number">50%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__css"></span>
-                  </div>
-                </div>
-                <div class="skills__data">
-                  <div class="skills__titles">
-                    <h3 class="skills__name">AWS</h3>
-                    <span class="skills__number">40%</span>
-                  </div>
-                  <div class="skills__bar">
-                    <span class="skills__percentage skills__js"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <section class="skills__group">
+              <h3 class="skills__title">APIs, Testing &amp; Practices</h3>
+              <ul class="tags">
+                <li>RESTful APIs</li>
+                <li>API Integration</li>
+                <li>API Documentation</li>
+                <li>API Security</li>
+                <li>JWT</li>
+                <li>OpenAPI</li>
+                <li>Swagger</li>
+                <li>JUnit</li>
+                <li>Mockito</li>
+                <li>Postman</li>
+                <li>Playwright</li>
+                <li>Unit Testing</li>
+                <li>Integration Testing</li>
+                <li>Test Automation</li>
+                <li>Multithreading</li>
+                <li>Connection Pooling (HikariCP)</li>
+                <li>Idempotent Processing</li>
+                <li>Code Reviews</li>
+                <li>Agile/Scrum</li>
+              </ul>
+            </section>
           </div>
         </div>
       </section>
 
-      <!--==================== QUALIFICATION ====================-->
-      <section class="qualification__section">
-        <h2 class="section__title">Qualification</h2>
-        <span class="section__subtitle">My personal journey</span>
+      <!--==================== AWARDS ====================-->
+      <section class="section" id="awards">
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow">Awards &amp; Achievements</p>
+            <h2 class="section__title">Recognition for impact</h2>
+          </header>
 
-        <div class="qualification__container container">
-          <div class="qualification__tabs">
-            <div
-              class="qualification__button button--flex qualification__active"
-              data-target="#education"
-            >
-              <i class="uil uil-graduation-cap qualification__icon"></i>
-              Education
-            </div>
-
-            <div class="qualification__button button--flex" data-target="#work">
-              <i class="uil uil-briefcase-alt qualification__icon"></i>
-              Work
-            </div>
-          </div>
-
-          <div class="qualification__sections">
-            <!--==================== QUALIFICATION CONTENT 1 ====================-->
-            <div
-              class="qualification__content qualification__active"
-              data-content
-              id="education"
-            >
-              <!--==================== QUALIFICATION 1 ====================-->
-              <div class="qualification__data">
-                <div>
-                  <h3 class="qualification__title">B-Tech,ECE</h3>
-                  <span class="qualification__subtitle"
-                    >JNTU-K,
-                    Kakinada,Andhra Pradesh</span
-                  >
-                  <span><b>CGPA:</b> 8.12</span>
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    2022 - 2018
-                  </div>
-                </div>
-
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-              </div>
-
-              <!--==================== QUALIFICATION 2 ====================-->
-              <div class="qualification__data">
-                <div></div>
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-
-                <div>
-                  <h3 class="qualification__title">Intermediate</h3>
-                  <span class="qualification__subtitle"
-                    >Narayana College, Ramachandrapuram</span
-                  >
-                  <span><b>Percentage:</b> 93%</span>
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    2016 - 2018
-                  </div>
-                </div>
-              </div>
-
-              <!--==================== QUALIFICATION 3 ====================-->
-              <div class="qualification__data">
-                <div>
-                  <h3 class="qualification__title">SSC-10th</h3>
-                  <span class="qualification__subtitle"
-                    >S.S.Z.P.H.School,Chelluru</span
-                  >
-                  <span><b>CGPA:</b> 8.7</span>
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    2015 - 2016
-                  </div>
-                </div>
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-              </div>
-
-              <!--==================== QUALIFICATION 4 ====================-->
-            </div>
-
-            <!--==================== QUALIFICATION CONTENT 2 ====================-->
-            <div class="qualification__content" data-content id="work">
-              <!--==================== QUALIFICATION 1 ====================-->
-              <div class="qualification__data">
-                 <div>
-                  <!-- <h3 class="qualification__title">Software Prod and Plat Eng Sr Analyst</h3>
-                  <span class="qualification__subtitle"
-                    >Accenture - Hyderabad</span
-                  >
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    30/12/2025 - Present
-                  </div> -->
-                </div>
-
-                
-                <div>
-                  <h3 class="qualification__title">Project Engineer</h3>
-                  <span class="qualification__subtitle"
-                    >Wipro Head Office - Hyderabad</span
-                  >
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    16/05/2022 - 24/12/2025
-                  </div>
-                  <h3 class="qualification__title">Software Prod and Plat Eng Sr Analyst</h3>
-                  <span class="qualification__subtitle"
-                    >Accenture - Hyderabad</span
-                  >
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    30/12/2025 - Present
-                  </div>
-                </div>
-
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-              </div>
-
-              <!--==================== QUALIFICATION 2 ====================-->
-              <div class="qualification__data">
-                <div></div>
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-
-                <div>
-                  <h3 class="qualification__title">Internship</h3>
-                  <span class="qualification__subtitle"
-                    >Wipro Office - online</span
-                  >
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    01/02/2022 - 01/04/2022
-                  </div>
-                </div>
-              </div>
-
-              <!--==================== QUALIFICATION 3 ====================-->
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!--==================== SERVICES ====================-->
-      <section class="services section" id="services">
-        <h2 class="section__title">Services</h2>
-        <span class="section__subtitle">What I offer</span>
-
-        <div class="services__container container grid">
-          <!--==================== SERVICES 1 ====================-->
-          <div class="services__content">
-            <div>
-              <i class="uil uil-analytics skills__icon"></i>
-              <h3 class="services__title">Java Backend<br /></h3>
-            </div>
-            <span
-              class="button button--flex button--small button--link services__button"
-            >
-              View more
-              <i class="uil uil-arrow-right button__icon"></i>
-            </span>
-
-            <div class="services__modal">
-              <div class="services__modal-content">
-                <h4 class="services__modal-title">Java Backend <br /></h4>
-                <i class="uil uil-times services__modal-close"></i>
-
-                <ul class="services__modal-services grid">
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>Creating REST API.</p>
-                  </li>
-
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>Desktop Application,Mobile Applictions.</p>
-                  </li>
-
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>Webservices.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!--==================== SERVICES 2 ====================-->
-          <div class="services__content">
-            <div>
-              <i class="uil uil-money-bill skills__icon"></i>
-              <h3 class="services__title">Java Frontend<br /></h3>
-            </div>
-            <span
-              class="button button--flex button--small button--link services__button"
-            >
-              View more
-              <i class="uil uil-arrow-right button__icon"></i>
-            </span>
-
-            <div class="services__modal">
-              <div class="services__modal-content">
-                <h4 class="services__modal-title">Frontend<br /></h4>
-                <i class="uil uil-times services__modal-close"></i>
-
-                <ul class="services__modal-services grid">
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>
-                      creates websites and applications using web languages such
-                      as HTML, CSS, and JavaScript.
-                    </p>
-                  </li>
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>I develop the user interface.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!--==================== SERVICES 3 ====================-->
-          <div class="services__content">
-            <div>
-              <i class="uil uil-arrow services__icon"></i>
-              <h3 class="services__title">Cloud<br /></h3>
-            </div>
-            <span
-              class="button button--flex button--small button--link services__button"
-            >
-              View more
-              <i class="uil uil-arrow-right button__icon"></i>
-            </span>
-
-            <div class="services__modal">
-              <div class="services__modal-content">
-                <h4 class="services__modal-title">Cloud<br /></h4>
-                <i class="uil uil-times services__modal-close"></i>
-
-                <ul class="services__modal-services grid">
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>I develop the Cloud Based app.</p>
-                  </li>
-
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>
-                      Hosting the applications into cloud Platforms like
-                      Azure,GCP,AWS.
-                    </p>
-                  </li>
-
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>I create VM's.</p>
-                  </li>
-
-                  <li class="services__modal-service">
-                    <i class="uil uil-check-circle services__modal-icon"></i>
-                    <p>I create Storage space in Cloud.</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--==================== PORTFOLIO ====================-->
-      <section class="portfolio section" id="portfolio">
-        <h2 class="section__title">Certifications</h2>
-        <span class="section__subtitle">Most recent </span>
-
-        <div class="portfolio__container container swiper-container">
-          <div class="swiper-wrapper">
-            <!--==================== PORTFOLIO 1 ====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/AZ-900.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  1. Microsoft Azure Fundamentals
-                </h3>
-                <p class="portfolio__description">
-                  Azure Fundamentals validates foundational knowledge of cloud
-                  services and how those services are provided with Microsoft
-                  Azure.
-                </p>
-                <a> </a>
-              </div>
-            </div>
-
-            <!--==================== PORTFOLIO 2 ====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/DP-900 .png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  2. Microsoft Azure Data Fundamentals
-                </h3>
-                <p class="portfolio__description">
-                  Azure Data Fundamentals validates foundational knowledge of
-                  core data concepts and how they are implemented using
-                  Microsoft Azure data services.
-                </p>
-              </div>
-            </div>
-
-            <!--==================== PORTFOLIO 3 ====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/AI-900.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  3.Microsoft Azure AI Fundamenta
-                </h3>
-                <p class="portfolio__description">
-                  Azure AI Fundamentals validates foundational knowledge of
-                  machine learning and artificial intelligence concepts and
-                  related Microsoft Azure services.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 4====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/AZ-104.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  4. Microsoft Azure Administrator
-                </h3>
-                <p class="portfolio__description">
-                  Azure administrators implement, manage, and monitor an
-                  organizations Microsoft Azure environment, including virtual
-                  networks, storage, compute, identity, security, and
-                  governance.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 5====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/GCP_Teja (2).png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  5. Google Associate Cloud Engineer
-                </h3>
-                <p class="portfolio__description">
-                  Associate Cloud Engineers deploy applications, monitor
-                  operations, and manage enterprise solutions. They use Google
-                  Cloud Console and the command-line interface to perform common
-                  platform-based tasks to maintain one or more deployed
-                  solutions that leverage Google-managed or self-managed
-                  services on Google Cloud.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 6====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/GCP_PCA.jpeg"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  6. Google Professional Cloud Architect
-                </h3>
-                <p class="portfolio__description">
-                  Professional Cloud Architects enable organizations to leverage
-                  Google Cloud technologies. With a thorough understanding of
-                  cloud architecture and Google Cloud, they design, develop, and
-                  manage robust, secure, scalable, highly available, and dynamic
-                  solutions to drive business objectives.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 7====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/awsteja.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  7. AWS Certified Cloud Practitioner
-                </h3>
-                <p class="portfolio__description">
-                  The AWS Certified Cloud Practitioner offers a foundational
-                  understanding of AWS Cloud concepts, services, and
-                  terminology. This is a good starting point for individuals in
-                  non-technical roles with no prior IT or cloud experience or
-                  for those with on-premises IT experience looking for basic AWS
-                  Cloud fluency.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 8====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/MTAteja.jpeg"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">
-                  8. Microsoft Security Fundamentals
-                </h3>
-                <p class="portfolio__description">
-                  MTA certifications are a great place to start if you would
-                  like to get into the technology field. MTA certifications
-                  address a wide spectrum of fundamental technical concepts,
-                  assess and validate core technical knowledge.
-                </p>
-              </div>
-            </div>
-            <!--==================== PORTFOLIO 9====================-->
-
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="./packages/images/tejaArduino.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio_">
-                <h3 class="portfolio__title">9. Arduino Fundamentals</h3>
-                <p class="portfolio__description">
-                  The official Arduino certificate is a document that affirms
-                  your successful completion of the Arduino exam, and serves as
-                  a guarantee of your competence in the Arduino-related
-                  subjects. It could be used to highlight your skills and
-                  learning progress, and to advance in your career or education.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- add arrows-->
-          <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
-          </div>
-
-          <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
-          </div>
-
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-        </div>
-      </section>
-
-      <!--==================== PROJECT IN MIND ====================-->
-      <section class="project section">
-        <div class="project__bg">
-          <div class="project__container container grid">
-            <div class="project__data">
-              <h2 class="project__title">
-                You have a new project or Job Vacancy
-              </h2>
-              <p class="project__description">
-                Contact me now and work together
+          <ul class="awards">
+            <li class="award">
+              <h3 class="award__title">Accenture Java Full Stack AI Hackathon Winner</h3>
+              <p class="award__text">
+                Secured first place in an organization-wide hackathon across
+                India.
               </p>
-              <a href="#contact" class="button button--flex button--white"
-                >Contact me
-                <i class="uil uil-message project__icon button__icon"></i>
+            </li>
+            <li class="award">
+              <h3 class="award__title">Valkey Hackathon Winner</h3>
+              <p class="award__text">
+                Won an Amazon-collaborated hackathon focused on Valkey and
+                caching technologies.
+              </p>
+            </li>
+            <li class="award">
+              <h3 class="award__title">Top Agile Performer</h3>
+              <p class="award__text">
+                Recognized for consistently exceeding sprint goals and
+                achieving 95%+ sprint velocity across two consecutive quarters.
+              </p>
+            </li>
+            <li class="award">
+              <h3 class="award__title">Best Project Contributor</h3>
+              <p class="award__text">
+                Recognized for contributions to a legacy-system migration
+                initiative.
+              </p>
+            </li>
+            <li class="award">
+              <h3 class="award__title">Victory League Award &amp; Pragati Award</h3>
+              <p class="award__text">
+                Recognized for contributions and performance.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--==================== CERTIFICATIONS ====================-->
+      <section class="section section--alt" id="certifications">
+        <div class="container">
+          <header class="section__head section__head--center">
+            <p class="eyebrow">Certifications</p>
+            <h2 class="section__title">Validated cloud and platform knowledge</h2>
+          </header>
+
+          <h3 class="certs__group">Cloud &amp; Infrastructure</h3>
+          <ul class="certs">
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-az-900-azure-fundamentals.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-az-900-azure-fundamentals.png"
+                  alt="Microsoft Azure Fundamentals certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-az-900-azure-fundamentals.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Microsoft Azure Fundamentals</span>
+                <span class="cert__issuer">Microsoft &middot; AZ-900</span>
               </a>
-            </div>
-            <!-- <img src="assets/img/project.png" alt="" class="project__img"> -->
-          </div>
-        </div>
-      </section>
-
-      <!--==================== TESTIMONIAL ====================-->
-      <section class="testimonial section">
-        <h2 class="section__title">Digital Badges</h2>
-        <span class="section__subtitle"
-          ><a href="https://www.credly.com/users/badigantitejakrishna/badges"
-            >Click Here To verify</a
-          ></span
-        >
-
-        <div class="testimonial__container container swiper-container">
-          <div class="swiper-wrapper">
-            <!--==================== TESTIMONIAL 1 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/Az-900b.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">1. Azure Fundamentals</h3>
-                    <span class="testimonial__client">Microsoft </span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Earners of the Azure Fundamentals certification have
-                demonstrated foundational level knowledge of cloud services and
-                how those services are provided with Microsoft Azure.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 2 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/Dp-900b.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      2. Azure Data Fundamentals
-                    </h3>
-                    <span class="testimonial__client">Microsoft</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Earners of the Azure Data Fundamentals certification have
-                demonstrated foundational knowledge of core data concepts and
-                how they are implemented using Microsoft Azure data services.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 3 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/Ai-900b.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">3. Azure AI Fundamentals</h3>
-                    <span class="testimonial__client">Microsoft</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Earners of the Azure AI Fundamentals certification have
-                demonstrated foundational knowledge of machine learning (ML) and
-                artificial intelligence (AI) concepts and related Microsoft
-                Azure services.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 4 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/Az-104b.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      4. Azure Administrator Associate
-                    </h3>
-                    <span class="testimonial__client">Microsoft</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Earning Azure Administrator Associate certification validates
-                the skills and knowledge to implement, manage, and monitor an
-                organizations Microsoft Azure environment.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 5 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/MTAb.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">5. Security Fundamentals</h3>
-                    <span class="testimonial__client">Microsoft</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Earners of the MTA: Security Fundamentals certification have
-                demonstrated fundamental security knowledge and skills. The MTA
-                program provides an appropriate entry point to a future career
-                in technology
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 6 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/incb.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      6. Introduction to Cybersecurity
-                    </h3>
-                    <span class="testimonial__client">Cisco</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Cisco verifies the earner of this badge successfully completed
-                the Introduction to Cybersecurity course. The holder of this
-                student-level credential has introductory knowledge of
-                cybersecurity, including the global implications of cyber
-                threats on industries, and why cybersecurity is a growing
-                profession. They understand vulnerabilities and threat detection
-                and defense.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 7 ====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/csb.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      7. Cybersecurity Essentials
-                    </h3>
-                    <span class="testimonial__client">Cisco</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Cisco verifies the earner of this badge successfully completed
-                the Cybersecurity Essentials course. The holder of this
-                student-level credential has foundational knowledge of
-                cybersecurity, including the basics of network security,
-                encryption and cybersecurity laws. The holder has been
-                introduced to tactics and techniques used by Black Hats, and the
-                principles of Confidentiality, Integrity, and Availability used
-                by White Hats to defend networks.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 8====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/GCP_DB.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      8. Associate Cloud Engineer
-                    </h3>
-                    <span class="testimonial__client">Google</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Associate Cloud Engineers deploy applications, monitor
-                operations, and manage enterprise solutions. They use Google
-                Cloud Console and the command-line interface to perform common
-                platform-based tasks to maintain one or more deployed solutions
-                that leverage Google-managed or self-managed services on Google
-                Cloud.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 9====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/GCP_PCA_DB.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      9. Professional Cloud Architect
-                    </h3>
-                    <span class="testimonial__client">Google</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                Professional Cloud Architects enable organizations to leverage
-                Google Cloud technologies. With a thorough understanding of
-                cloud architecture and Google Cloud, they design, develop, and
-                manage robust, secure, scalable, highly available, and dynamic
-                solutions to drive business objectives.
-              </p>
-            </div>
-            <!--==================== TESTIMONIAL 10====================-->
-            <div class="testimonial__content swiper-slide">
-              <div class="testimonial__data">
-                <div class="testimonial__header">
-                  <img
-                    src="./packages/images/Awsb.png"
-                    alt=""
-                    class="testimonial__img"
-                  />
-
-                  <div>
-                    <h3 class="testimonial__name">
-                      10. AWS Certified Cloud Practitioner
-                    </h3>
-                    <span class="testimonial__client">Amazon</span>
-                  </div>
-                </div>
-                <div>
-                  <i class="uil uil-star testimonial__icon-star"></i>
-                </div>
-              </div>
-
-              <p class="testimonial__description">
-                The AWS Certified Cloud Practitioner offers a foundational
-                understanding of AWS Cloud concepts, services, and terminology.
-                This is a good starting point for individuals in non-technical
-                roles with no prior IT or cloud experience or for those with
-                on-premises IT experience looking for basic AWS Cloud fluency.
-              </p>
-            </div>
-          </div>
-
-          <!--Add pagination-->
-          <div class="swiper-pagination swiper-pagination-testimonial"></div>
-        </div>
-      </section>
-
-      <!--==================== CONTACT ME ====================-->
-      <section class="contact section" id="contact">
-        <h2 class="section__title">Contact me</h2>
-        <span class="section__subtitle">Get in touch</span>
-
-        <div class="contact__container container grid">
-          <div>
-            <div class="contact__information">
-              <i class="uil uil-phone-alt contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">Call me</h3>
-                <span class="contatc__subtitle">(+91) 8919537838</span>
-              </div>
-            </div>
-
-            <div class="contact__information">
-              <i class="uil uil-envelope contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">E-mail</h3>
-                <span class="contatc__subtitle"
-                  >tejakrishnabadiganti1234@gmail.com</span
-                >
-              </div>
-            </div>
-
-            <div class="contact__information">
-              <i class="uil uil-map-marker contact__icon"></i>
-
-              <div>
-                <h3 class="contact__title">Location</h3>
-                <span class="contatc__subtitle"
-                  >Chelluru,East Godavri,Andhra Pradesh,India,533261</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <form action="" class="contact__form grid">
-            <div class="contact__inputs grid">
-              <div class="contact__content">
-                <label for="" class="contact__label">Name</label>
-                <input type="text" class="contact__input" />
-              </div>
-
-              <div class="contact__content">
-                <label for="" class="contact__label">E-mail</label>
-                <input type="email" class="contact__input" />
-              </div>
-            </div>
-
-            <div class="contact__content">
-              <label for="" class="contact__label">Subject</label>
-              <input type="text" class="contact__input" />
-            </div>
-
-            <div class="contact__content">
-              <label for="" class="contact__label">Description</label>
-              <textarea
-                name=""
-                id=""
-                cols="0"
-                rows="7"
-                class="contact__input"
-              ></textarea>
-            </div>
-
-            <div>
-              <a href="#" class="button button--flex">
-                Send message
-                <i class="uil uil-message button__icon"></i>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png"
+                  alt="Microsoft Azure Data Fundamentals certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-dp-900-azure-data-fundamentals.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Microsoft Azure Data Fundamentals</span>
+                <span class="cert__issuer">Microsoft &middot; DP-900</span>
               </a>
-            </div>
-          </form>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png"
+                  alt="Microsoft Azure AI Fundamentals certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-ai-900-azure-ai-fundamentals.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Microsoft Azure AI Fundamentals</span>
+                <span class="cert__issuer">Microsoft &middot; AI-900</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-az-104-azure-administrator-associate.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-az-104-azure-administrator-associate.png"
+                  alt="Microsoft Azure Administrator certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-az-104-azure-administrator-associate.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Microsoft Azure Administrator</span>
+                <span class="cert__issuer">Microsoft &middot; AZ-104</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg"
+                  alt="Microsoft Azure Database Administrator Associate certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-dp-300-azure-database-administrator-associate.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Azure Database Administrator Associate</span>
+                <span class="cert__issuer">Microsoft &middot; DP-300</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/google-cloud-associate-cloud-engineer.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/google-cloud-associate-cloud-engineer.png"
+                  alt="Google Associate Cloud Engineer certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/google-cloud-associate-cloud-engineer.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Associate Cloud Engineer</span>
+                <span class="cert__issuer">Google Cloud</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/google-cloud-professional-cloud-architect.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/google-cloud-professional-cloud-architect.jpeg"
+                  alt="Google Professional Cloud Architect certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/google-cloud-professional-cloud-architect.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Professional Cloud Architect</span>
+                <span class="cert__issuer">Google Cloud</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/aws-certified-cloud-practitioner.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/aws-certified-cloud-practitioner.png"
+                  alt="AWS Certified Cloud Practitioner certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/aws-certified-cloud-practitioner.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">AWS Certified Cloud Practitioner</span>
+                <span class="cert__issuer">Amazon Web Services</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/aws-certified-solutions-architect-associate.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/aws-certified-solutions-architect-associate.jpeg"
+                  alt="AWS Certified Solutions Architect Associate certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/aws-certified-solutions-architect-associate.jpeg"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">AWS Certified Solutions Architect &ndash; Associate</span>
+                <span class="cert__issuer">Amazon Web Services</span>
+              </a>
+            </li>
+          </ul>
+
+          <h3 class="certs__group">AI &amp; Other</h3>
+          <ul class="certs">
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="https://www.credly.com/badges/b99c6386-f90e-4585-a040-9fd9cf4d4632"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/anthropic-claude-certified-associate-foundations.png"
+                  alt="Claude Certified Associate Foundations certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/anthropic-claude-certified-associate-foundations.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Claude Certified Associate &ndash; Foundations</span>
+                <span class="cert__issuer">Anthropic &middot; CCAO-F</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="https://www.credly.com/badges/7adfbddc-0e23-426e-9262-fac8f18ef0e2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/anthropic-claude-certified-developer-foundations.png"
+                  alt="Claude Certified Developer Foundations certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/anthropic-claude-certified-developer-foundations.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Claude Certified Developer &ndash; Foundations</span>
+                <span class="cert__issuer">Anthropic &middot; CCDV-F</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="https://www.credly.com/badges/1f8ebabc-62ea-41b5-bfb3-045b26bb0a55"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/anthropic-claude-certified-architect-foundations.png"
+                  alt="Claude Certified Architect Foundations certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/anthropic-claude-certified-architect-foundations.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Claude Certified Architect &ndash; Foundations</span>
+                <span class="cert__issuer">Anthropic</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="https://www.credly.com/badges/649f0475-47fc-40df-8b72-5343c8bc977a"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/anthropic-claude-certified-architect-professional.png"
+                  alt="Claude Certified Architect Professional certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/anthropic-claude-certified-architect-professional.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Claude Certified Architect &ndash; Professional</span>
+                <span class="cert__issuer">Anthropic</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/microsoft-mta-security-fundamentals.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/microsoft-mta-security-fundamentals.jpeg"
+                  alt="Microsoft Security Fundamentals certificate"
+                  loading="lazy"
+                />
+                <img
+                  class="cert__badge"
+                  src="./packages/images/badges/microsoft-mta-security-fundamentals.png"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="cert__name">Microsoft Security Fundamentals</span>
+                <span class="cert__issuer">Microsoft &middot; MTA</span>
+              </a>
+            </li>
+            <li class="cert">
+              <a
+                class="cert__link"
+                href="./packages/images/certificates/arduino-fundamentals.png"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="./packages/images/certificates/arduino-fundamentals.png"
+                  alt="Arduino Fundamentals certificate"
+                  loading="lazy"
+                />
+                <span class="cert__name">Arduino Fundamentals</span>
+                <span class="cert__issuer">Arduino</span>
+              </a>
+            </li>
+          </ul>
+
+          <p class="certs__footer">
+            Verified digital badges on
+            <a
+              href="https://www.credly.com/users/badigantitejakrishna/badges"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Credly</a
+            >.
+          </p>
+        </div>
+      </section>
+
+      <!--==================== EDUCATION ====================-->
+      <section class="section" id="education">
+        <div class="container section__grid">
+          <header class="section__head">
+            <p class="eyebrow">Education</p>
+            <h2 class="section__title">Academic background</h2>
+          </header>
+
+          <ul class="education">
+            <li class="education__item">
+              <div>
+                <h3 class="education__title">Bachelor of Technology (B.Tech) &ndash; Electronics and Communication Engineering</h3>
+                <p class="education__place">Aditya College of Engineering and Technology, JNTUK, Andhra Pradesh, India</p>
+              </div>
+              <p class="education__meta">Jun 2018 &ndash; Jun 2022<br />82%</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!--==================== CONTACT ====================-->
+      <section class="section section--alt contact" id="contact">
+        <div class="container contact__inner">
+          <p class="eyebrow">Contact</p>
+          <h2 class="contact__title">Let's build something great together.</h2>
+          <p class="contact__lead">
+            Open to conversations about full stack, platform and AI engineering
+            roles.
+          </p>
+          <a
+            class="button button--primary button--large"
+            href="mailto:tejakrishnabadiganti1234@gmail.com"
+            >tejakrishnabadiganti1234@gmail.com</a
+          >
+          <ul class="contact__links">
+            <li><a href="tel:+918919537838">+91 8919537838</a></li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/tejakrishnabadiganti"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li>Hyderabad, Telangana, India</li>
+          </ul>
         </div>
       </section>
     </main>
 
     <!--==================== FOOTER ====================-->
-    <footer class="footer">
-      <div class="footer__bg">
-        <div class="footer__container container grid">
-          <div>
-            <h1 class="footer__title">Badiganti Tejakrishna</h1>
-            <span class="footer__subtitle">Java Developer</span>
-          </div>
-
-          <ul class="footer__links">
-            <li>
-              <a href="#services" class="footer__link">Services</a>
-            </li>
-            <li>
-              <a href="#portfolio" class="footer__link">Certifications</a>
-            </li>
-            <li>
-              <a href="#contact" class="footer__link">Contact</a>
-            </li>
-          </ul>
-
-          <div class="footer__socials">
-            <a
-              href="https://www.facebook.com/badiganti.tejakrishna"
-              target="_blank"
-              class="footer__social"
-            >
-              <i class="uil uil-facebook"></i>
-            </a>
-            <a
-              href="https://www.instagram.com/teja_krishna_tejj/"
-              target="_blank"
-              class="footer__social"
-            >
-              <i class="uil uil-instagram"></i>
-            </a>
-            <a
-              href="https://twitter.com/Tejakrishnabad1"
-              target="_blank"
-              class="footer__social"
-            >
-              <i class="uil uil-twitter-alt"></i>
-            </a>
-          </div>
-        </div>
-        <p class="footer__copy">&#169; Tejakrishna. All rights reserved.</p>
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <p>&copy; <span id="year">2026</span> Tejakrishna Badiganti</p>
+        <a href="#top">Back to top &uarr;</a>
       </div>
     </footer>
 
-    <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
-      <i class="uil uil-arrow-up scrollup__icon"></i>
-    </a>
-
-    <!--==================== SWIPER JS ====================-->
-    <script src="./packages/js/swiper-bundle.min.js"></script>
-
-    <!--==================== MAIN JS ====================-->
     <script src="./packages/js/main.js"></script>
   </body>
 </html>
