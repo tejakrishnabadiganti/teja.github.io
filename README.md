@@ -40,22 +40,26 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
 ```
 .
 ├── index.html                  # Single-page site (all sections)
-├── Gallery.html                # Placeholder page, not linked from the site
 ├── README.md
-└── packages/
-    ├── css/
-    │   └── styles.css          # Design tokens, layout and light/dark themes
-    ├── js/
-    │   └── main.js             # Theme toggle, mobile menu, active link, scroll reveal
-    ├── documents/
-    │   └── Tejakrishna_Badiganti_Resume.pdf
-    └── images/
-        ├── profile/            # Hero profile photo
-        ├── certificates/       # Certificate images
-        └── badges/             # Digital badge images
+├── packages/                   # Everything the live site uses
+│   ├── css/
+│   │   └── styles.css          # Design tokens, layout and light/dark themes
+│   ├── js/
+│   │   └── main.js             # Theme toggle, mobile menu, active link, scroll reveal
+│   ├── documents/
+│   │   └── Tejakrishna_Badiganti_Resume.pdf
+│   └── images/
+│       ├── profile/            # Hero profile photo
+│       ├── certificates/       # Certificate images
+│       └── badges/             # Digital badge images
+└── archive/                    # Old files kept for reference, not used by the site
+    ├── old-images/
+    ├── old-resumes/
+    ├── swiper/                 # Library used by the previous design
+    └── Gallery.html            # Earlier placeholder page
 ```
 
-`packages/images/` also contains older images and resume PDFs, and `packages/css` and `packages/js` contain the previous Swiper library. None of these are used by the current site.
+Anything inside `packages/` is used by the site. Anything inside `archive/` is not, and can be deleted safely.
 
 ## Run locally
 
