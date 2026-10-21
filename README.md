@@ -4,6 +4,12 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
 
 **Live site:** https://tejakrishnabadiganti.github.io/teja.github.io/
 
+## How it works
+
+All text, images, certificates and colors live in one file, `data/content.json`. The page builds itself from that file, so the site can be updated without touching HTML, CSS or JavaScript.
+
+There is a hidden admin editor (see [Editing the site](#editing-the-site)) that changes `data/content.json`, uploads new images and PDFs, and saves everything to this repository.
+
 ## Sections
 
 | Section | Content |
@@ -11,7 +17,7 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
 | Hero | Headline, summary, resume download, social links, profile photo |
 | Highlights | Years of experience, companies, test coverage, certifications |
 | About | Professional summary |
-| Experience | Accenture (Vertex Inc.) and Wipro (USAA) roles with achievements |
+| Experience | Roles with achievements |
 | Selected Work | Key projects and initiatives |
 | Skills | Grouped technical skills |
 | Awards | Hackathon wins and performance recognition |
@@ -24,31 +30,72 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
 - Responsive layout from mobile to desktop
 - Light and dark themes (follows the system setting, remembered between visits)
 - Accessible: skip link, keyboard focus styles, semantic landmarks, reduced-motion support
-- Active navigation highlighting and subtle scroll-reveal animations
-- Certificates open in a popup with Download, Verify (Credly) and Close; Esc or a click outside also closes it
+- Certificates open in a popup with Download, Verify (Credly) and Close
+- Hidden admin editor for every section, theme colors, photo, resume and certifications
 - No build step and no JavaScript libraries
 
-## Tech stack
+## Editing the site
 
-- HTML5
-- CSS3 (custom properties, grid, flexbox)
-- Vanilla JavaScript
-- Google Fonts (Fraunces, Inter)
-- Hosted on GitHub Pages
+The editor is hidden from visitors and is not even downloaded for them.
+
+1. **Open the login** with any one of these:
+   - press `Ctrl + Shift + L` (`Cmd + Shift + L` on Mac)
+   - click the copyright line at the bottom of the page 5 times
+   - add `#admin` to the address (`.../teja.github.io/#admin`)
+2. **Sign in.** The username and password are not case-sensitive.
+3. **Edit.** Pick a section from the drop-down: profile and photo, resume, contact, highlights, about, experience, projects, skills, awards, certifications, education, and theme colors. The page behind the editor updates as you type.
+4. **Publish.** Choose "Review & publish", paste your GitHub token and press "Publish to GitHub". New images and the PDF are uploaded first, then `data/content.json` is saved. The live site updates in about 1-2 minutes.
+
+Uploaded images are resized automatically (photo to 960px, certificates to 1600px, badges to 600px) and named by the convention below. Nothing is saved until you publish, and the editor warns you before you leave with unpublished changes.
+
+### GitHub token
+
+Publishing needs a token that is limited to this one repository:
+
+1. GitHub, then Settings, Developer settings, Personal access tokens, Fine-grained tokens.
+2. Generate a new token and select only this repository.
+3. Under Repository permissions, set **Contents** to **Read and write**.
+4. Paste it into the editor's Publish screen. Tick "Remember on this device" only on a computer you trust.
+
+### Security notes
+
+- A static site has no server, so the username and password only **gate the editor screen**. Their stored form is a salted hash, but the page code is public and a short password can be guessed offline.
+- The real protection is the **GitHub token**: nobody can change the live site without it. Never share or commit the token.
+- Because of this, keep the token private and use a long, unique password if you change the login.
+- Content is always inserted as text, never as HTML, so edited text cannot inject scripts.
+
+To change the login, generate a new hash and replace the values in `packages/js/admin-config.js`:
+
+```bash
+node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='USERNAME'.toLowerCase()+'\n'+'PASSWORD'.toLowerCase();console.log({salt:salt.toString('hex'),iterations:210000,hash:c.pbkdf2Sync(secret,salt,210000,32,'sha256').toString('hex')})"
+```
 
 ## Project structure
 
 ```
 .
-├── index.html                  # Single-page site (all sections)
+├── index.html                  # Page shell (sections are filled from content.json)
 ├── README.md
+├── data/
+│   └── content.json            # All editable content
 ├── packages/                   # Everything the live site uses
 │   ├── css/
-│   │   └── styles.css          # Design tokens, layout and light/dark themes
+│   │   └── styles.css          # Design tokens, layout, light/dark themes, editor styles
 │   ├── js/
-│   │   └── main.js             # Theme toggle, mobile menu, active link, scroll reveal
-│   ├── documents/
-│   │   └── Tejakrishna_Badiganti_Resume.pdf
+│   │   ├── main.js             # Entry point
+│   │   ├── site.js             # Loads content.json and refreshes the page
+│   │   ├── render.js           # Builds each section from the content
+│   │   ├── theme.js            # Applies the theme colors
+│   │   ├── reveal.js           # Scroll-reveal animation
+│   │   ├── ui.js               # Theme toggle, menu, certificate popup, hidden editor trigger
+│   │   ├── dom.js, store.js    # Safe DOM helpers and unpublished-file store
+│   │   ├── admin.js            # Editor (loaded only after the hidden trigger)
+│   │   ├── schema.js           # What each editor section can edit
+│   │   ├── auth.js             # Login check (hash comparison)
+│   │   ├── admin-config.js     # Login hash
+│   │   ├── files.js            # Image resizing and PDF handling
+│   │   └── github.js           # Saves changes to GitHub
+│   ├── documents/              # Resume PDF
 │   └── images/
 │       ├── profile/            # Hero profile photo
 │       ├── certificates/       # Certificate images
@@ -60,24 +107,7 @@ Personal portfolio of **Tejakrishna Badiganti**, Full Stack Software Engineer (J
     └── Gallery.html            # Earlier placeholder page
 ```
 
-Anything inside `packages/` is used by the site. Anything inside `archive/` is not, and can be deleted safely.
-
-## Run locally
-
-No installation is required. From the project folder:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open http://localhost:8000.
-
-## Updating content
-
-- **Text content:** edit `index.html`. Each section is marked by its `id` (`about`, `experience`, `work`, `skills`, `awards`, `certifications`, `education`, `contact`).
-- **Resume:** replace `packages/documents/Tejakrishna_Badiganti_Resume.pdf`, keeping the same file name.
-- **Profile photo:** replace `packages/images/profile/tejakrishna-badiganti-profile.jpg`.
-- **Certifications:** add the files, then add a card in the `certifications` section.
+Anything inside `packages/` and `data/` is used by the site. Anything inside `archive/` is not, and can be deleted safely.
 
 ### Certificate and badge naming
 
@@ -95,8 +125,18 @@ packages/images/certificates/microsoft-az-900-azure-fundamentals.png
 packages/images/badges/microsoft-az-900-azure-fundamentals.png
 ```
 
-Use lowercase letters, digits and hyphens only (no spaces).
+The editor creates these names automatically from the issuer and certification name.
+
+## Run locally
+
+No installation is required. Browsers block loading `data/content.json` from a plain file, so use a local server. From the project folder:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000.
 
 ## Deployment
 
-The site is served by GitHub Pages from the `main` branch (root folder). Every push to `main` rebuilds the site.
+The site is served by GitHub Pages from the `main` branch (root folder). Every push to `main` rebuilds the site, including the commits made by the editor.

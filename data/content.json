@@ -1,0 +1,381 @@
+{
+  "site": {
+    "title": "Tejakrishna Badiganti | Full Stack Software Engineer",
+    "description": "Tejakrishna Badiganti - Full Stack Software Engineer specializing in Java, Spring Boot, microservices, React.js, AWS, Azure and AI agent engineering.",
+    "repo": "tejakrishnabadiganti/teja.github.io",
+    "branch": "main"
+  },
+  "theme": {
+    "default": "system",
+    "accent": "#1d3557",
+    "accentDark": "#9db8e8",
+    "gold": "#a98042",
+    "goldDark": "#d2ae74"
+  },
+  "profile": {
+    "name": "Tejakrishna Badiganti",
+    "initials": "TB",
+    "role": "Full Stack Software Engineer",
+    "headline": "Building scalable enterprise software and",
+    "headlineEmphasis": "AI-powered engineering agents.",
+    "lead": "4.6+ years delivering solutions across fintech, banking and tax compliance for USAA and Vertex Inc., with deep experience in Java, Spring Boot, React.js, microservices, AWS and Azure.",
+    "photo": "packages/images/profile/tejakrishna-badiganti-profile.jpg",
+    "photoAlt": "Portrait of Tejakrishna Badiganti",
+    "resume": "packages/documents/Tejakrishna_Badiganti_Resume.pdf"
+  },
+  "contact": {
+    "locationShort": "Hyderabad, India",
+    "location": "Hyderabad, Telangana, India",
+    "email": "tejakrishnabadiganti1234@gmail.com",
+    "phone": "+91 8919537838",
+    "linkedin": "https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/",
+    "github": "https://github.com/tejakrishnabadiganti",
+    "heading": "Let's build something great together.",
+    "lead": "Open to conversations about full stack, platform and AI engineering roles."
+  },
+  "stats": [
+    {
+      "value": "4.6+",
+      "label": "Years of experience"
+    },
+    {
+      "value": "2",
+      "label": "Global consultancies"
+    },
+    {
+      "value": "85%+",
+      "label": "Unit test coverage delivered"
+    },
+    {
+      "value": "{certifications}",
+      "label": "Industry certifications"
+    }
+  ],
+  "about": {
+    "paragraphs": [
+      "I am a Full Stack Software Engineer delivering scalable enterprise solutions across fintech, banking and tax compliance for clients including USAA and Vertex Inc. I bring end-to-end SDLC expertise in Java, Spring Boot, React.js, microservices, AWS and Azure, combined with hands-on experience developing AI agents and integrating multiple LLMs.",
+      "I use Claude, Specification-Driven Development (SDD) and Research, Plan, and Implement (RPI) methodologies to accelerate delivery. I have contributed to DevOps, Center of Excellence (CoE) and Vertex Agent Platform (VAPOR) initiatives spanning engineering improvements, enterprise metrics and application delivery, with recognition for innovation, internal platform development and multiple hackathon wins."
+    ]
+  },
+  "experience": [
+    {
+      "role": "Senior Software Engineer",
+      "company": "Accenture",
+      "client": "Client: Vertex Inc. – GCC Project",
+      "period": "Dec 2025 – Present",
+      "place": "Hyderabad, India",
+      "bullets": [
+        "Designed and developed AI-powered engineering agents, including PR Fix and Fail-to-Fix agents, integrating multiple LLMs to automate development workflows, code analysis and issue resolution; collaborated with the VAPOR (Vertex Agent Platform) team to build cluster-based AI agents for end users.",
+        "Built TechScout, an end-to-end application using React.js and Node.js, contributing to frontend development, backend services, API integration and delivery; also enhanced the Connected Tax Platform (CTP) with application features, chat-based interfaces and AI-agent capabilities.",
+        "Contributed to Center of Excellence (CoE) initiatives by developing reusable skills, commands and AI agents that standardized workflows and improved developer productivity; collaborated across AI engineering, DevOps, CoE and platform development teams on organization-wide solutions and engineering practices.",
+        "Contributed to the Vertex Unified Metrics Platform to support centralized, consistent engineering measurement, while supporting DevOps and deployment workflows, including n8n deployments and automation that streamlined delivery and operations.",
+        "Applied Specification-Driven Development (SDD) and Research, Plan, and Implement (RPI) methodologies with Claude to structure requirements, plan implementations and accelerate AI-assisted software delivery.",
+        "Developed an in-house quiz application as an alternative to third-party solutions, earning organizational recognition and prize money. Also achieved multiple hackathon wins through innovative application development and AI-driven solutions."
+      ]
+    },
+    {
+      "role": "Project Engineer",
+      "company": "Wipro",
+      "client": "Client: USAA (United Services Automobile Association)",
+      "period": "May 2022 – Dec 2025",
+      "place": "Bengaluru, India",
+      "bullets": [
+        "Developed and maintained enterprise engineering applications using Core Java, Spring Boot, Spring Cloud, Spring Data JPA, RESTful Web Services and microservices across banking, insurance and enterprise-security projects for USAA and Citi Bank.",
+        "Contributed to USAA's Classic to Talon Migration (C2T) by analyzing legacy integrations, designing as-is and to-be API flows and developing migration strategies; designed, documented and published REST APIs using OpenAPI and Swagger 2.0 to improve discoverability and developer onboarding.",
+        "Integrated downstream APIs for secure microservice communication, optimized SQL queries and database operations, and implemented unit tests using JUnit and Mockito, achieving 85%+ test coverage and helping reduce production defects.",
+        "Deployed and monitored applications on OpenShift, analyzed pod logs through the OpenShift Web UI, and used Kibana and Elasticsearch to investigate application behavior, traffic patterns, active server instances and production issues.",
+        "Contributed to Citi Bank's Service Account Migration (SAM) by migrating service accounts to CyberArk, implementing secure integrations with Core Java and Spring Boot, and decommissioning deprecated accounts to strengthen credential security and reduce attack surface."
+      ]
+    }
+  ],
+  "work": [
+    {
+      "tag": "AI Engineering",
+      "title": "PR Fix & Fail-to-Fix Agents",
+      "text": "AI agents that integrate multiple LLMs to automate development workflows, code analysis and issue resolution, built with the Vertex Agent Platform (VAPOR) team."
+    },
+    {
+      "tag": "Full Stack",
+      "title": "TechScout",
+      "text": "End-to-end application built with React.js and Node.js, covering frontend, backend services, API integration and delivery."
+    },
+    {
+      "tag": "Platform",
+      "title": "Connected Tax Platform",
+      "text": "Enhanced with new application features, chat-based interfaces and AI-agent capabilities."
+    },
+    {
+      "tag": "Engineering Excellence",
+      "title": "Vertex Unified Metrics Platform",
+      "text": "Contributed to centralized, consistent engineering measurement, alongside DevOps and n8n deployment automation."
+    },
+    {
+      "tag": "Migration · USAA",
+      "title": "Classic to Talon (C2T)",
+      "text": "Analyzed legacy integrations, designed as-is and to-be API flows and published REST APIs with OpenAPI and Swagger 2.0."
+    },
+    {
+      "tag": "Security · Citi Bank",
+      "title": "Service Account Migration (SAM)",
+      "text": "Migrated service accounts to CyberArk with secure Spring Boot integrations and retired deprecated accounts."
+    }
+  ],
+  "skills": [
+    {
+      "title": "Languages & Frameworks",
+      "items": [
+        "Java 8/11/17",
+        "Python",
+        "TypeScript",
+        "JavaScript",
+        "Spring Boot",
+        "Spring Data JPA",
+        "Spring Cloud",
+        "Hibernate",
+        "JAX-RS",
+        "React.js 18",
+        "Node.js 18",
+        "Dependency Injection"
+      ]
+    },
+    {
+      "title": "AI & Agent Engineering",
+      "items": [
+        "AI Agent Development",
+        "LLM Integration",
+        "Multi-LLM Integration",
+        "GPT Models",
+        "Agentic Workflows",
+        "AI-Powered Automation",
+        "Claude",
+        "GitHub Copilot",
+        "Cursor",
+        "Rovo",
+        "Specification-Driven Development (SDD)",
+        "Research, Plan, Implement (RPI)"
+      ]
+    },
+    {
+      "title": "Microservices & Architecture",
+      "items": [
+        "Microservices",
+        "API Gateway",
+        "Service Discovery",
+        "Circuit Breaker (Resilience4j)",
+        "Event-Driven Architecture",
+        "Distributed Systems",
+        "Resiliency Patterns",
+        "Design Patterns",
+        "Object-Oriented Design",
+        "SOLID Principles",
+        "System Design"
+      ]
+    },
+    {
+      "title": "Databases, Messaging & Caching",
+      "items": [
+        "MySQL",
+        "PostgreSQL",
+        "SQL Server",
+        "DynamoDB",
+        "SQL Query Optimization",
+        "Apache Kafka",
+        "Redis",
+        "Valkey"
+      ]
+    },
+    {
+      "title": "Cloud, DevOps & CI/CD",
+      "items": [
+        "AWS",
+        "EC2",
+        "ECS",
+        "Lambda",
+        "Fargate",
+        "S3",
+        "RDS",
+        "IAM",
+        "CloudWatch",
+        "SQS",
+        "SNS",
+        "Microsoft Azure",
+        "Docker",
+        "OpenShift",
+        "Git",
+        "GitHub Actions",
+        "GitLab",
+        "Maven",
+        "Gradle",
+        "Elasticsearch",
+        "Kibana"
+      ]
+    },
+    {
+      "title": "APIs, Testing & Practices",
+      "items": [
+        "RESTful APIs",
+        "API Integration",
+        "API Documentation",
+        "API Security",
+        "JWT",
+        "OpenAPI",
+        "Swagger",
+        "JUnit",
+        "Mockito",
+        "Postman",
+        "Playwright",
+        "Unit Testing",
+        "Integration Testing",
+        "Test Automation",
+        "Multithreading",
+        "Connection Pooling (HikariCP)",
+        "Idempotent Processing",
+        "Code Reviews",
+        "Agile/Scrum"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": "Accenture Java Full Stack AI Hackathon Winner",
+      "text": "Secured first place in an organization-wide hackathon across India."
+    },
+    {
+      "title": "Valkey Hackathon Winner",
+      "text": "Won an Amazon-collaborated hackathon focused on Valkey and caching technologies."
+    },
+    {
+      "title": "Top Agile Performer",
+      "text": "Recognized for consistently exceeding sprint goals and achieving 95%+ sprint velocity across two consecutive quarters."
+    },
+    {
+      "title": "Best Project Contributor",
+      "text": "Recognized for contributions to a legacy-system migration initiative."
+    },
+    {
+      "title": "Victory League Award & Pragati Award",
+      "text": "Recognized for contributions and performance."
+    }
+  ],
+  "certifications": {
+    "credly": "https://www.credly.com/users/badigantitejakrishna/badges",
+    "items": [
+      {
+        "name": "Microsoft Azure Fundamentals",
+        "issuer": "Microsoft · AZ-900",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/microsoft-az-900-azure-fundamentals.png",
+        "badge": "packages/images/badges/microsoft-az-900-azure-fundamentals.png"
+      },
+      {
+        "name": "Microsoft Azure Data Fundamentals",
+        "issuer": "Microsoft · DP-900",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png",
+        "badge": "packages/images/badges/microsoft-dp-900-azure-data-fundamentals.png"
+      },
+      {
+        "name": "Microsoft Azure AI Fundamentals",
+        "issuer": "Microsoft · AI-900",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png",
+        "badge": "packages/images/badges/microsoft-ai-900-azure-ai-fundamentals.png"
+      },
+      {
+        "name": "Microsoft Azure Administrator",
+        "issuer": "Microsoft · AZ-104",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/microsoft-az-104-azure-administrator-associate.png",
+        "badge": "packages/images/badges/microsoft-az-104-azure-administrator-associate.png"
+      },
+      {
+        "name": "Azure Database Administrator Associate",
+        "issuer": "Microsoft · DP-300",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg",
+        "badge": "packages/images/badges/microsoft-dp-300-azure-database-administrator-associate.png"
+      },
+      {
+        "name": "Associate Cloud Engineer",
+        "issuer": "Google Cloud",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/google-cloud-associate-cloud-engineer.png",
+        "badge": "packages/images/badges/google-cloud-associate-cloud-engineer.png"
+      },
+      {
+        "name": "Professional Cloud Architect",
+        "issuer": "Google Cloud",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/google-cloud-professional-cloud-architect.jpeg",
+        "badge": "packages/images/badges/google-cloud-professional-cloud-architect.png"
+      },
+      {
+        "name": "AWS Certified Cloud Practitioner",
+        "issuer": "Amazon Web Services",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/aws-certified-cloud-practitioner.png",
+        "badge": "packages/images/badges/aws-certified-cloud-practitioner.png"
+      },
+      {
+        "name": "AWS Certified Solutions Architect – Associate",
+        "issuer": "Amazon Web Services",
+        "group": "Cloud & Infrastructure",
+        "certificate": "packages/images/certificates/aws-certified-solutions-architect-associate.jpeg",
+        "badge": "packages/images/badges/aws-certified-solutions-architect-associate.jpeg"
+      },
+      {
+        "name": "Claude Certified Associate – Foundations",
+        "issuer": "Anthropic · CCAO-F",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-associate-foundations.png",
+        "badge": "packages/images/badges/anthropic-claude-certified-associate-foundations.png",
+        "verifyUrl": "https://www.credly.com/badges/b99c6386-f90e-4585-a040-9fd9cf4d4632"
+      },
+      {
+        "name": "Claude Certified Developer – Foundations",
+        "issuer": "Anthropic · CCDV-F",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-developer-foundations.png",
+        "badge": "packages/images/badges/anthropic-claude-certified-developer-foundations.png",
+        "verifyUrl": "https://www.credly.com/badges/7adfbddc-0e23-426e-9262-fac8f18ef0e2"
+      },
+      {
+        "name": "Claude Certified Architect – Foundations",
+        "issuer": "Anthropic",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-foundations.png",
+        "badge": "packages/images/badges/anthropic-claude-certified-architect-foundations.png",
+        "verifyUrl": "https://www.credly.com/badges/1f8ebabc-62ea-41b5-bfb3-045b26bb0a55"
+      },
+      {
+        "name": "Claude Certified Architect – Professional",
+        "issuer": "Anthropic",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/anthropic-claude-certified-architect-professional.png",
+        "badge": "packages/images/badges/anthropic-claude-certified-architect-professional.png",
+        "verifyUrl": "https://www.credly.com/badges/649f0475-47fc-40df-8b72-5343c8bc977a"
+      },
+      {
+        "name": "Microsoft Security Fundamentals",
+        "issuer": "Microsoft · MTA",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/microsoft-mta-security-fundamentals.jpeg",
+        "badge": "packages/images/badges/microsoft-mta-security-fundamentals.png"
+      },
+      {
+        "name": "Arduino Fundamentals",
+        "issuer": "Arduino",
+        "group": "AI & Other",
+        "certificate": "packages/images/certificates/arduino-fundamentals.png"
+      }
+    ]
+  },
+  "education": [
+    {
+      "title": "Bachelor of Technology (B.Tech) – Electronics and Communication Engineering",
+      "place": "Aditya College of Engineering and Technology, JNTUK, Andhra Pradesh, India",
+      "period": "Jun 2018 – Jun 2022",
+      "score": "82%"
+    }
+  ]
+}

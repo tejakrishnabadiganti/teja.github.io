@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tejakrishna Badiganti | Full Stack Software Engineer</title>
-    <meta
-      name="description"
-      content="Tejakrishna Badiganti - Full Stack Software Engineer specializing in Java, Spring Boot, microservices, React.js, AWS, Azure and AI agent engineering."
-    />
+    <meta name="description" content="" />
     <meta name="theme-color" content="#faf9f6" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,9 +30,9 @@
     <!--==================== HEADER ====================-->
     <header class="site-header" id="header">
       <div class="container site-header__inner">
-        <a href="#top" class="brand" aria-label="Tejakrishna Badiganti, home">
-          <span class="brand__mark">TB</span>
-          <span class="brand__name">Tejakrishna Badiganti</span>
+        <a href="#top" class="brand" id="brand">
+          <span class="brand__mark" id="brand-mark"></span>
+          <span class="brand__name" id="brand-name"></span>
         </a>
 
         <nav class="nav" id="nav" aria-label="Primary">
@@ -84,81 +81,31 @@
     </header>
 
     <main id="main">
+      <noscript><p class="container load-error">Please enable JavaScript to view this page.</p></noscript>
+
       <!--==================== HERO ====================-->
       <section class="hero" id="top">
         <div class="container hero__inner">
           <div class="hero__content">
-            <p class="eyebrow">Full Stack Software Engineer</p>
-            <h1 class="hero__title">
-              Building scalable enterprise software and
-              <em>AI-powered engineering agents.</em>
-            </h1>
-            <p class="hero__lead">
-              4.6+ years delivering solutions across fintech, banking and tax
-              compliance for USAA and Vertex Inc., with deep experience in Java,
-              Spring Boot, React.js, microservices, AWS and Azure.
-            </p>
+            <p class="eyebrow" id="hero-eyebrow"></p>
+            <h1 class="hero__title" id="hero-title"></h1>
+            <p class="hero__lead" id="hero-lead"></p>
             <div class="hero__cta">
               <a class="button button--primary" href="#contact">Get in touch</a>
-              <a
-                class="button button--ghost"
-                href="packages/documents/Tejakrishna_Badiganti_Resume.pdf"
-                download
-                >Download resume</a
-              >
+              <a class="button button--ghost" id="hero-resume" href="#" download>Download resume</a>
             </div>
-            <ul class="hero__meta">
-              <li>Hyderabad, India</li>
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >LinkedIn</a
-                >
-              </li>
-              <li>
-                <a
-                  href="https://github.com/tejakrishnabadiganti"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >GitHub</a
-                >
-              </li>
-            </ul>
+            <ul class="hero__meta" id="hero-meta"></ul>
           </div>
 
           <figure class="hero__figure">
-            <img
-              src="./packages/images/profile/tejakrishna-badiganti-profile.jpg"
-              alt="Portrait of Tejakrishna Badiganti"
-              width="960"
-              height="1144"
-            />
+            <img id="hero-photo" alt="" width="960" height="1144" />
           </figure>
         </div>
       </section>
 
       <!--==================== STATS ====================-->
       <section class="stats" aria-label="Highlights">
-        <div class="container stats__inner">
-          <div class="stat">
-            <span class="stat__value">4.6+</span>
-            <span class="stat__label">Years of experience</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">2</span>
-            <span class="stat__label">Global consultancies</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">85%+</span>
-            <span class="stat__label">Unit test coverage delivered</span>
-          </div>
-          <div class="stat">
-            <span class="stat__value">15</span>
-            <span class="stat__label">Industry certifications</span>
-          </div>
-        </div>
+        <div class="container stats__inner" id="stats"></div>
       </section>
 
       <!--==================== ABOUT ====================-->
@@ -168,25 +115,7 @@
             <p class="eyebrow">About</p>
             <h2 class="section__title">Engineering with clarity and craft</h2>
           </header>
-          <div class="prose">
-            <p>
-              I am a Full Stack Software Engineer delivering scalable
-              enterprise solutions across fintech, banking and tax compliance
-              for clients including USAA and Vertex Inc. I bring end-to-end SDLC
-              expertise in Java, Spring Boot, React.js, microservices, AWS and
-              Azure, combined with hands-on experience developing AI agents and
-              integrating multiple LLMs.
-            </p>
-            <p>
-              I use Claude, Specification-Driven Development (SDD) and Research,
-              Plan, and Implement (RPI) methodologies to accelerate delivery. I
-              have contributed to DevOps, Center of Excellence (CoE) and Vertex
-              Agent Platform (VAPOR) initiatives spanning engineering
-              improvements, enterprise metrics and application delivery, with
-              recognition for innovation, internal platform development and
-              multiple hackathon wins.
-            </p>
-          </div>
+          <div class="prose" id="about-body"></div>
         </div>
       </section>
 
@@ -197,118 +126,7 @@
             <p class="eyebrow">Experience</p>
             <h2 class="section__title">Where I have worked</h2>
           </header>
-
-          <ol class="timeline">
-            <li class="timeline__item">
-              <div class="timeline__meta">
-                <p class="timeline__date">Dec 2025 &ndash; Present</p>
-                <p class="timeline__place">Hyderabad, India</p>
-              </div>
-              <article class="timeline__body">
-                <h3 class="timeline__role">Senior Software Engineer</h3>
-                <p class="timeline__company">
-                  Accenture <span>Client: Vertex Inc. &ndash; GCC Project</span>
-                </p>
-                <ul class="checklist">
-                  <li>
-                    Designed and developed AI-powered engineering agents,
-                    including PR Fix and Fail-to-Fix agents, integrating
-                    multiple LLMs to automate development workflows, code
-                    analysis and issue resolution; collaborated with the VAPOR
-                    (Vertex Agent Platform) team to build cluster-based AI
-                    agents for end users.
-                  </li>
-                  <li>
-                    Built TechScout, an end-to-end application using React.js
-                    and Node.js, contributing to frontend development, backend
-                    services, API integration and delivery; also enhanced the
-                    Connected Tax Platform (CTP) with application features,
-                    chat-based interfaces and AI-agent capabilities.
-                  </li>
-                  <li>
-                    Contributed to Center of Excellence (CoE) initiatives by
-                    developing reusable skills, commands and AI agents that
-                    standardized workflows and improved developer productivity;
-                    collaborated across AI engineering, DevOps, CoE and
-                    platform development teams on organization-wide solutions
-                    and engineering practices.
-                  </li>
-                  <li>
-                    Contributed to the Vertex Unified Metrics Platform to
-                    support centralized, consistent engineering measurement,
-                    while supporting DevOps and deployment workflows, including
-                    n8n deployments and automation that streamlined delivery and
-                    operations.
-                  </li>
-                  <li>
-                    Applied Specification-Driven Development (SDD) and
-                    Research, Plan, and Implement (RPI) methodologies with
-                    Claude to structure requirements, plan implementations and
-                    accelerate AI-assisted software delivery.
-                  </li>
-                  <li>
-                    Developed an in-house quiz application as an alternative to
-                    third-party solutions, earning organizational recognition
-                    and prize money. Also achieved multiple hackathon wins
-                    through innovative application development and AI-driven
-                    solutions.
-                  </li>
-                </ul>
-              </article>
-            </li>
-
-            <li class="timeline__item">
-              <div class="timeline__meta">
-                <p class="timeline__date">May 2022 &ndash; Dec 2025</p>
-                <p class="timeline__place">Bengaluru, India</p>
-              </div>
-              <article class="timeline__body">
-                <h3 class="timeline__role">Project Engineer</h3>
-                <p class="timeline__company">
-                  Wipro
-                  <span
-                    >Client: USAA (United Services Automobile Association)</span
-                  >
-                </p>
-                <ul class="checklist">
-                  <li>
-                    Developed and maintained enterprise engineering applications
-                    using Core Java, Spring Boot, Spring Cloud, Spring Data JPA,
-                    RESTful Web Services and microservices across banking,
-                    insurance and enterprise-security projects for USAA and Citi
-                    Bank.
-                  </li>
-                  <li>
-                    Contributed to USAA's Classic to Talon Migration (C2T) by
-                    analyzing legacy integrations, designing as-is and to-be API
-                    flows and developing migration strategies; designed,
-                    documented and published REST APIs using OpenAPI and Swagger
-                    2.0 to improve discoverability and developer onboarding.
-                  </li>
-                  <li>
-                    Integrated downstream APIs for secure microservice
-                    communication, optimized SQL queries and database
-                    operations, and implemented unit tests using JUnit and
-                    Mockito, achieving 85%+ test coverage and helping reduce
-                    production defects.
-                  </li>
-                  <li>
-                    Deployed and monitored applications on OpenShift, analyzed
-                    pod logs through the OpenShift Web UI, and used Kibana and
-                    Elasticsearch to investigate application behavior, traffic
-                    patterns, active server instances and production issues.
-                  </li>
-                  <li>
-                    Contributed to Citi Bank's Service Account Migration (SAM)
-                    by migrating service accounts to CyberArk, implementing
-                    secure integrations with Core Java and Spring Boot, and
-                    decommissioning deprecated accounts to strengthen credential
-                    security and reduce attack surface.
-                  </li>
-                </ul>
-              </article>
-            </li>
-          </ol>
+          <ol class="timeline" id="timeline"></ol>
         </div>
       </section>
 
@@ -319,58 +137,7 @@
             <p class="eyebrow">Selected work</p>
             <h2 class="section__title">Projects and initiatives</h2>
           </header>
-
-          <div class="cards">
-            <article class="card">
-              <p class="card__tag">AI Engineering</p>
-              <h3 class="card__title">PR Fix &amp; Fail-to-Fix Agents</h3>
-              <p class="card__text">
-                AI agents that integrate multiple LLMs to automate development
-                workflows, code analysis and issue resolution, built with the
-                Vertex Agent Platform (VAPOR) team.
-              </p>
-            </article>
-            <article class="card">
-              <p class="card__tag">Full Stack</p>
-              <h3 class="card__title">TechScout</h3>
-              <p class="card__text">
-                End-to-end application built with React.js and Node.js, covering
-                frontend, backend services, API integration and delivery.
-              </p>
-            </article>
-            <article class="card">
-              <p class="card__tag">Platform</p>
-              <h3 class="card__title">Connected Tax Platform</h3>
-              <p class="card__text">
-                Enhanced with new application features, chat-based interfaces
-                and AI-agent capabilities.
-              </p>
-            </article>
-            <article class="card">
-              <p class="card__tag">Engineering Excellence</p>
-              <h3 class="card__title">Vertex Unified Metrics Platform</h3>
-              <p class="card__text">
-                Contributed to centralized, consistent engineering measurement,
-                alongside DevOps and n8n deployment automation.
-              </p>
-            </article>
-            <article class="card">
-              <p class="card__tag">Migration &middot; USAA</p>
-              <h3 class="card__title">Classic to Talon (C2T)</h3>
-              <p class="card__text">
-                Analyzed legacy integrations, designed as-is and to-be API flows
-                and published REST APIs with OpenAPI and Swagger 2.0.
-              </p>
-            </article>
-            <article class="card">
-              <p class="card__tag">Security &middot; Citi Bank</p>
-              <h3 class="card__title">Service Account Migration (SAM)</h3>
-              <p class="card__text">
-                Migrated service accounts to CyberArk with secure Spring Boot
-                integrations and retired deprecated accounts.
-              </p>
-            </article>
-          </div>
+          <div class="cards" id="work-cards"></div>
         </div>
       </section>
 
@@ -381,127 +148,7 @@
             <p class="eyebrow">Skills</p>
             <h2 class="section__title">Technical expertise</h2>
           </header>
-
-          <div class="skills">
-            <section class="skills__group">
-              <h3 class="skills__title">Languages &amp; Frameworks</h3>
-              <ul class="tags">
-                <li>Java 8/11/17</li>
-                <li>Python</li>
-                <li>TypeScript</li>
-                <li>JavaScript</li>
-                <li>Spring Boot</li>
-                <li>Spring Data JPA</li>
-                <li>Spring Cloud</li>
-                <li>Hibernate</li>
-                <li>JAX-RS</li>
-                <li>React.js 18</li>
-                <li>Node.js 18</li>
-                <li>Dependency Injection</li>
-              </ul>
-            </section>
-
-            <section class="skills__group">
-              <h3 class="skills__title">AI &amp; Agent Engineering</h3>
-              <ul class="tags">
-                <li>AI Agent Development</li>
-                <li>LLM Integration</li>
-                <li>Multi-LLM Integration</li>
-                <li>GPT Models</li>
-                <li>Agentic Workflows</li>
-                <li>AI-Powered Automation</li>
-                <li>Claude</li>
-                <li>GitHub Copilot</li>
-                <li>Cursor</li>
-                <li>Rovo</li>
-                <li>Specification-Driven Development (SDD)</li>
-                <li>Research, Plan, Implement (RPI)</li>
-              </ul>
-            </section>
-
-            <section class="skills__group">
-              <h3 class="skills__title">Microservices &amp; Architecture</h3>
-              <ul class="tags">
-                <li>Microservices</li>
-                <li>API Gateway</li>
-                <li>Service Discovery</li>
-                <li>Circuit Breaker (Resilience4j)</li>
-                <li>Event-Driven Architecture</li>
-                <li>Distributed Systems</li>
-                <li>Resiliency Patterns</li>
-                <li>Design Patterns</li>
-                <li>Object-Oriented Design</li>
-                <li>SOLID Principles</li>
-                <li>System Design</li>
-              </ul>
-            </section>
-
-            <section class="skills__group">
-              <h3 class="skills__title">Databases, Messaging &amp; Caching</h3>
-              <ul class="tags">
-                <li>MySQL</li>
-                <li>PostgreSQL</li>
-                <li>SQL Server</li>
-                <li>DynamoDB</li>
-                <li>SQL Query Optimization</li>
-                <li>Apache Kafka</li>
-                <li>Redis</li>
-                <li>Valkey</li>
-              </ul>
-            </section>
-
-            <section class="skills__group">
-              <h3 class="skills__title">Cloud, DevOps &amp; CI/CD</h3>
-              <ul class="tags">
-                <li>AWS</li>
-                <li>EC2</li>
-                <li>ECS</li>
-                <li>Lambda</li>
-                <li>Fargate</li>
-                <li>S3</li>
-                <li>RDS</li>
-                <li>IAM</li>
-                <li>CloudWatch</li>
-                <li>SQS</li>
-                <li>SNS</li>
-                <li>Microsoft Azure</li>
-                <li>Docker</li>
-                <li>OpenShift</li>
-                <li>Git</li>
-                <li>GitHub Actions</li>
-                <li>GitLab</li>
-                <li>Maven</li>
-                <li>Gradle</li>
-                <li>Elasticsearch</li>
-                <li>Kibana</li>
-              </ul>
-            </section>
-
-            <section class="skills__group">
-              <h3 class="skills__title">APIs, Testing &amp; Practices</h3>
-              <ul class="tags">
-                <li>RESTful APIs</li>
-                <li>API Integration</li>
-                <li>API Documentation</li>
-                <li>API Security</li>
-                <li>JWT</li>
-                <li>OpenAPI</li>
-                <li>Swagger</li>
-                <li>JUnit</li>
-                <li>Mockito</li>
-                <li>Postman</li>
-                <li>Playwright</li>
-                <li>Unit Testing</li>
-                <li>Integration Testing</li>
-                <li>Test Automation</li>
-                <li>Multithreading</li>
-                <li>Connection Pooling (HikariCP)</li>
-                <li>Idempotent Processing</li>
-                <li>Code Reviews</li>
-                <li>Agile/Scrum</li>
-              </ul>
-            </section>
-          </div>
+          <div class="skills" id="skills-grid"></div>
         </div>
       </section>
 
@@ -512,43 +159,7 @@
             <p class="eyebrow">Awards &amp; Achievements</p>
             <h2 class="section__title">Recognition for impact</h2>
           </header>
-
-          <ul class="awards">
-            <li class="award">
-              <h3 class="award__title">Accenture Java Full Stack AI Hackathon Winner</h3>
-              <p class="award__text">
-                Secured first place in an organization-wide hackathon across
-                India.
-              </p>
-            </li>
-            <li class="award">
-              <h3 class="award__title">Valkey Hackathon Winner</h3>
-              <p class="award__text">
-                Won an Amazon-collaborated hackathon focused on Valkey and
-                caching technologies.
-              </p>
-            </li>
-            <li class="award">
-              <h3 class="award__title">Top Agile Performer</h3>
-              <p class="award__text">
-                Recognized for consistently exceeding sprint goals and
-                achieving 95%+ sprint velocity across two consecutive quarters.
-              </p>
-            </li>
-            <li class="award">
-              <h3 class="award__title">Best Project Contributor</h3>
-              <p class="award__text">
-                Recognized for contributions to a legacy-system migration
-                initiative.
-              </p>
-            </li>
-            <li class="award">
-              <h3 class="award__title">Victory League Award &amp; Pragati Award</h3>
-              <p class="award__text">
-                Recognized for contributions and performance.
-              </p>
-            </li>
-          </ul>
+          <ul class="awards" id="awards-list"></ul>
         </div>
       </section>
 
@@ -559,347 +170,10 @@
             <p class="eyebrow">Certifications</p>
             <h2 class="section__title">Validated cloud and platform knowledge</h2>
           </header>
-
-          <h3 class="certs__group">Cloud &amp; Infrastructure</h3>
-          <ul class="certs">
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-az-900-azure-fundamentals.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-az-900-azure-fundamentals.png"
-                  alt="Microsoft Azure Fundamentals certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-az-900-azure-fundamentals.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Microsoft Azure Fundamentals</span>
-                <span class="cert__issuer">Microsoft &middot; AZ-900</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-dp-900-azure-data-fundamentals.png"
-                  alt="Microsoft Azure Data Fundamentals certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-dp-900-azure-data-fundamentals.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Microsoft Azure Data Fundamentals</span>
-                <span class="cert__issuer">Microsoft &middot; DP-900</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-ai-900-azure-ai-fundamentals.png"
-                  alt="Microsoft Azure AI Fundamentals certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-ai-900-azure-ai-fundamentals.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Microsoft Azure AI Fundamentals</span>
-                <span class="cert__issuer">Microsoft &middot; AI-900</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-az-104-azure-administrator-associate.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-az-104-azure-administrator-associate.png"
-                  alt="Microsoft Azure Administrator certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-az-104-azure-administrator-associate.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Microsoft Azure Administrator</span>
-                <span class="cert__issuer">Microsoft &middot; AZ-104</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-dp-300-azure-database-administrator-associate.jpeg"
-                  alt="Microsoft Azure Database Administrator Associate certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-dp-300-azure-database-administrator-associate.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Azure Database Administrator Associate</span>
-                <span class="cert__issuer">Microsoft &middot; DP-300</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/google-cloud-associate-cloud-engineer.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/google-cloud-associate-cloud-engineer.png"
-                  alt="Google Associate Cloud Engineer certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/google-cloud-associate-cloud-engineer.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Associate Cloud Engineer</span>
-                <span class="cert__issuer">Google Cloud</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/google-cloud-professional-cloud-architect.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/google-cloud-professional-cloud-architect.jpeg"
-                  alt="Google Professional Cloud Architect certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/google-cloud-professional-cloud-architect.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Professional Cloud Architect</span>
-                <span class="cert__issuer">Google Cloud</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/aws-certified-cloud-practitioner.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/aws-certified-cloud-practitioner.png"
-                  alt="AWS Certified Cloud Practitioner certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/aws-certified-cloud-practitioner.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">AWS Certified Cloud Practitioner</span>
-                <span class="cert__issuer">Amazon Web Services</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/aws-certified-solutions-architect-associate.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/aws-certified-solutions-architect-associate.jpeg"
-                  alt="AWS Certified Solutions Architect Associate certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/aws-certified-solutions-architect-associate.jpeg"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">AWS Certified Solutions Architect &ndash; Associate</span>
-                <span class="cert__issuer">Amazon Web Services</span>
-              </a>
-            </li>
-          </ul>
-
-          <h3 class="certs__group">AI &amp; Other</h3>
-          <ul class="certs">
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="https://www.credly.com/badges/b99c6386-f90e-4585-a040-9fd9cf4d4632"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/anthropic-claude-certified-associate-foundations.png"
-                  alt="Claude Certified Associate Foundations certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/anthropic-claude-certified-associate-foundations.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Claude Certified Associate &ndash; Foundations</span>
-                <span class="cert__issuer">Anthropic &middot; CCAO-F</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="https://www.credly.com/badges/7adfbddc-0e23-426e-9262-fac8f18ef0e2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/anthropic-claude-certified-developer-foundations.png"
-                  alt="Claude Certified Developer Foundations certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/anthropic-claude-certified-developer-foundations.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Claude Certified Developer &ndash; Foundations</span>
-                <span class="cert__issuer">Anthropic &middot; CCDV-F</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="https://www.credly.com/badges/1f8ebabc-62ea-41b5-bfb3-045b26bb0a55"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/anthropic-claude-certified-architect-foundations.png"
-                  alt="Claude Certified Architect Foundations certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/anthropic-claude-certified-architect-foundations.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Claude Certified Architect &ndash; Foundations</span>
-                <span class="cert__issuer">Anthropic</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="https://www.credly.com/badges/649f0475-47fc-40df-8b72-5343c8bc977a"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/anthropic-claude-certified-architect-professional.png"
-                  alt="Claude Certified Architect Professional certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/anthropic-claude-certified-architect-professional.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Claude Certified Architect &ndash; Professional</span>
-                <span class="cert__issuer">Anthropic</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/microsoft-mta-security-fundamentals.jpeg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/microsoft-mta-security-fundamentals.jpeg"
-                  alt="Microsoft Security Fundamentals certificate"
-                  loading="lazy"
-                />
-                <img
-                  class="cert__badge"
-                  src="./packages/images/badges/microsoft-mta-security-fundamentals.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <span class="cert__name">Microsoft Security Fundamentals</span>
-                <span class="cert__issuer">Microsoft &middot; MTA</span>
-              </a>
-            </li>
-            <li class="cert">
-              <a
-                class="cert__link"
-                href="./packages/images/certificates/arduino-fundamentals.png"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="./packages/images/certificates/arduino-fundamentals.png"
-                  alt="Arduino Fundamentals certificate"
-                  loading="lazy"
-                />
-                <span class="cert__name">Arduino Fundamentals</span>
-                <span class="cert__issuer">Arduino</span>
-              </a>
-            </li>
-          </ul>
-
+          <div id="cert-groups"></div>
           <p class="certs__footer">
             Verified digital badges on
-            <a
-              href="https://www.credly.com/users/badigantitejakrishna/badges"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Credly</a
-            >.
+            <a id="cert-credly" href="#" target="_blank" rel="noopener noreferrer">Credly</a>.
           </p>
         </div>
       </section>
@@ -911,16 +185,7 @@
             <p class="eyebrow">Education</p>
             <h2 class="section__title">Academic background</h2>
           </header>
-
-          <ul class="education">
-            <li class="education__item">
-              <div>
-                <h3 class="education__title">Bachelor of Technology (B.Tech) &ndash; Electronics and Communication Engineering</h3>
-                <p class="education__place">Aditya College of Engineering and Technology, JNTUK, Andhra Pradesh, India</p>
-              </div>
-              <p class="education__meta">Jun 2018 &ndash; Jun 2022<br />82%</p>
-            </li>
-          </ul>
+          <ul class="education" id="education-list"></ul>
         </div>
       </section>
 
@@ -928,36 +193,10 @@
       <section class="section section--alt contact" id="contact">
         <div class="container contact__inner">
           <p class="eyebrow">Contact</p>
-          <h2 class="contact__title">Let's build something great together.</h2>
-          <p class="contact__lead">
-            Open to conversations about full stack, platform and AI engineering
-            roles.
-          </p>
-          <a
-            class="button button--primary button--large"
-            href="mailto:tejakrishnabadiganti1234@gmail.com"
-            >tejakrishnabadiganti1234@gmail.com</a
-          >
-          <ul class="contact__links">
-            <li><a href="tel:+918919537838">+91 8919537838</a></li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/tejakrishna-badiganti-88924419b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://github.com/tejakrishnabadiganti"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitHub</a
-              >
-            </li>
-            <li>Hyderabad, Telangana, India</li>
-          </ul>
+          <h2 class="contact__title" id="contact-heading"></h2>
+          <p class="contact__lead" id="contact-lead"></p>
+          <a class="button button--primary button--large" id="contact-email" href="#"></a>
+          <ul class="contact__links" id="contact-links"></ul>
         </div>
       </section>
     </main>
@@ -965,8 +204,11 @@
     <!--==================== FOOTER ====================-->
     <footer class="site-footer">
       <div class="container site-footer__inner">
-        <p>&copy; <span id="year">2026</span> Tejakrishna Badiganti</p>
-        <a href="#top">Back to top &uarr;</a>
+        <p>&copy; <span id="year"></span> <span id="footer-name"></span></p>
+        <div class="site-footer__links">
+          <a href="#top">Back to top &uarr;</a>
+          <button class="admin-link" id="admin-login" type="button" hidden>Admin login</button>
+        </div>
       </div>
     </footer>
 
@@ -1003,6 +245,6 @@
       </div>
     </dialog>
 
-    <script src="./packages/js/main.js"></script>
+    <script type="module" src="./packages/js/main.js"></script>
   </body>
 </html>
