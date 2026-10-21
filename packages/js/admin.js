@@ -2,7 +2,7 @@ import { el, safeAsset } from "./dom.js";
 import { verifyCredentials } from "./auth.js";
 import { getContent, refreshSite } from "./site.js";
 import { SECTIONS } from "./schema.js";
-import { assetUrl, pendingFiles, stripVersion } from "./store.js";
+import { OWNER_KEY, assetUrl, pendingFiles, stripVersion } from "./store.js";
 import { processImage, processPdf } from "./files.js";
 import { publish } from "./github.js";
 
@@ -116,7 +116,7 @@ function showPanel(visible) {
   ui.panel.hidden = !visible;
   ui.fab.hidden = visible;
   // While editing, disabled sections stay visible (marked) so they can be reviewed and re-enabled.
-  document.documentElement.classList.toggle("admin-preview", visible);
+  document.documentElement.classList.toggle("admin-editing", visible);
 }
 
 function logout() {
@@ -136,6 +136,7 @@ function mountEditor() {
     "select",
     { class: "admin-select", "aria-label": "Section to edit" },
     SECTIONS.map((section) => el("option", { value: section.id }, section.label)),
+    el("option", { value: "visitors" }, "Visitors"),
     el("option", { value: "publish" }, "Publish & settings")
   );
   ui.picker.addEventListener("change", () => renderTab(ui.picker.value));
@@ -181,6 +182,7 @@ export async function openAdmin() {
   if (!isSignedIn()) {
     if (!(await promptLogin())) return;
     sessionStorage.setItem(SESSION_KEY, "1");
+    localStorage.setItem(OWNER_KEY, "1");
   }
   mountEditor();
   showPanel(true);
@@ -194,10 +196,13 @@ export function restoreSession() {
 
 /* ---------- Forms ---------- */
 
-function renderTab(id) {
-  ui.body.replaceChildren(
-    id === "publish" ? publishView() : sectionView(SECTIONS.find((section) => section.id === id))
-  );
+async function renderTab(id) {
+  if (id === "visitors") {
+    const { visitorsView } = await import("./admin-visitors.js");
+    ui.body.replaceChildren(visitorsView(getContent().contact.formEndpoint));
+  } else {
+    ui.body.replaceChildren(id === "publish" ? publishView() : sectionView(SECTIONS.find((section) => section.id === id)));
+  }
   ui.body.scrollTop = 0;
 }
 

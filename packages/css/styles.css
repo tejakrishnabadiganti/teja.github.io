@@ -1239,7 +1239,7 @@ html:has(dialog[open]) {
 }
 
 /* Editor open: sections switched off for visitors stay visible, dimmed and labelled. */
-.admin-preview main > section.is-disabled[hidden] {
+.admin-editing main > section.is-disabled[hidden] {
   position: relative;
   display: block;
   opacity: 0.5;
@@ -1247,7 +1247,7 @@ html:has(dialog[open]) {
   outline-offset: -2px;
 }
 
-.admin-preview main > section.is-disabled[hidden]::before {
+.admin-editing main > section.is-disabled[hidden]::before {
   content: "Hidden from visitors";
   position: absolute;
   top: 0.5rem;
@@ -1431,4 +1431,83 @@ html:has(dialog[open]) {
   .site-footer__inner {
     flex-direction: column;
   }
+}
+
+/*==================== EDITOR: VISITORS ====================*/
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin: 0.9rem 0;
+}
+
+.admin-stat {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+
+.admin-stat__value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.admin-stat__label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.admin-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 140px;
+  margin: 0.5rem 0 1rem;
+}
+
+.admin-bars__col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  min-width: 0;
+}
+
+.admin-bars__bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: 3px 3px 0 0;
+  background: var(--accent);
+}
+
+.admin-bars__count,
+.admin-bars__day {
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+
+.admin-rank__title {
+  margin: 1rem 0 0.4rem;
+  font-size: 0.85rem;
+}
+
+.admin-rank ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-rank li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.85rem;
 }

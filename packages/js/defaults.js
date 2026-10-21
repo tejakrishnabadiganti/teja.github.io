@@ -37,7 +37,10 @@ const DEFAULT_CONTACT_FORM = {
   formButton: "Send a message",
   formTitle: "Get in touch",
   formIntro: "Tell me a little about yourself and why you would like to connect. I will get back to you soon.",
-  formReasons: ["Job opportunity", "Career guidance", "Knowledge sharing", "Collaboration or project", "Other"],
+  formReasons: [
+    "Hiring: I have a job opportunity for you",
+    "Job seeker: I am looking for a job or a referral at your company",
+    "Career guidance", "Knowledge sharing", "Collaboration or project", "Other"],
   formThanks: "Thank you! Your message has been sent and I will reply to you soon.",
 };
 

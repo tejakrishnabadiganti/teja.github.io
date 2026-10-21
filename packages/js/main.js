@@ -3,6 +3,7 @@ import { loadSite } from "./site.js";
 import { initUi } from "./ui.js";
 import { initMotion } from "./motion.js";
 import { initContactForm } from "./contact-form.js";
+import { initVisitCounter } from "./visit-counter.js";
 
 document.documentElement.classList.add("js");
 
@@ -18,3 +19,4 @@ try {
 initUi();
 initMotion();
 initContactForm();
+initVisitCounter();

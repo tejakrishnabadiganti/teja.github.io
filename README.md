@@ -83,7 +83,7 @@ node -e "const c=require('crypto');const salt=c.randomBytes(16);const secret='US
 
 ## Contact form (saved to Google Drive and emailed to you)
 
-The "Get in touch" button opens a form that asks for first name, last name, email, phone number and the reason for connecting (job opportunity, career guidance, knowledge sharing, and so on). Every field except the message is required. Each submission is added to a Google Sheet in your Drive and emailed to you. A static site has no server, so a small free Google Apps Script does this work. It is already written in `integrations/google-apps-script/Code.gs`.
+The "Get in touch" button opens a form that asks for first name, last name, email, phone number and the reason for connecting (for example Hiring: I have a job opportunity for you, Job seeker: I am looking for a job or a referral at your company, career guidance, knowledge sharing). Every field except the message is required. Each submission is added to a Google Sheet in your Drive and emailed to you. A static site has no server, so a small free Google Apps Script does this work. It is already written in `integrations/google-apps-script/Code.gs`.
 
 Setup (about 5 minutes, once):
 
@@ -95,11 +95,19 @@ Setup (about 5 minutes, once):
 6. Open the site editor, go to **Contact & social links**, paste the URL into **Contact form: Google Apps Script URL**, then **Review & publish**.
 7. Test it: submit the form on the live site. A new row appears in the sheet (tab "Contact requests") and an email arrives with the reply address set to the visitor.
 
+**Confirmation email to the visitor.** After a message is saved, the visitor automatically gets a friendly, designed email: it greets them by first name, confirms their details arrived, mentions their reason (recruiters and job seekers get different replies; job seekers are asked for their resume and the role they want), says you will reach out as soon as you are free, and includes a short intro and your links. Replies go to you. Edit the wording, role, intro and links in `CONFIG` at the top of `Code.gs`, or set `sendConfirmation: false` to turn it off. Each address gets one confirmation every few hours, only the chosen reason (never free text) is echoed back, and a failed confirmation never loses the enquiry. Google limits a free account to about 100 emails a day, and each enquiry now sends two (one to you, one to the visitor).
+
 If you change `Code.gs` later, use **Deploy → Manage deployments → Edit → New version** so the live URL picks up the change.
 
 Until the URL is set, the form opens the visitor's email app with the details filled in instead. The reasons, button text, introduction and thank-you message are all editable in the same editor screen.
 
 Protection against spam and misuse: a hidden field catches bots, the script validates every field and limits length, allows 3 messages per email address and 30 in total per hour, writes text that starts with `=`, `+`, `-` or `@` safely into the sheet, and escapes everything in the email. The site only ever sends data to a `script.google.com` address. The web app URL itself is public (it has to be), but it can only add rows and send you an email.
+
+## Visitor counts
+
+The same Google Sheet also counts visits. Each visit adds one anonymous row to a **Visits** sheet (time, a random visitor ID, new or returning, the website they came from, device type, time zone, language) and a **Visit summary** sheet shows live totals: total visits, unique visitors, returning visits, today, the last 7 days, contact messages and top referring websites.
+
+Names, emails and IP addresses of ordinary visitors are not collected and cannot be read by a static site; the footer says so. The only people you can identify are those who fill in the contact form, who appear in **Contact requests**. Your own visits are skipped on any device where you have signed in to the editor, and so are bots, local testing and browsers with Do Not Track on. To see the numbers without opening the sheet, sign in to the editor and choose **Visitors**: totals, visits per day for the last 14 days, where visitors came from and which devices they use (anonymous totals only). After changing `Code.gs`, publish a new version (see above).
 
 ## Project structure
 
@@ -125,9 +133,11 @@ Protection against spam and misuse: a hidden field catches bots, the script vali
 │   │   ├── reveal.js           # Scroll-reveal animation
 │   │   ├── motion.js           # Scroll progress bar and pointer-driven 3D tilt
 │   │   ├── contact-form.js     # "Get in touch" popup form and sending
+│   │   ├── visit-counter.js    # Anonymous visit count sent to the Google Sheet
 │   │   ├── ui.js               # Theme toggle, menu, certificate popup, hidden editor trigger
 │   │   ├── dom.js, store.js    # Safe DOM helpers and unpublished-file store
 │   │   ├── admin.js            # Editor (loaded only after the hidden trigger)
+│   │   ├── admin-visitors.js   # Editor "Visitors" tab (visit totals)
 │   │   ├── schema.js           # What each editor section can edit
 │   │   ├── auth.js             # Login check (hash comparison)
 │   │   ├── admin-config.js     # Login hash
